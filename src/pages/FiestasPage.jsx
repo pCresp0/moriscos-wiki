@@ -29,19 +29,45 @@ const otrasFiestas = [
 const programa = [
   {
     dia: 'Jueves · Inicio de fiestas',
-    desc: 'Maquillaje infantil en el Parque Grande; a las 21:30 h, chupinazo inicial y repique manual de campanas desde la torre de la iglesia; chocolatada con churros colectiva; espectáculos nocturnos de flamenco y rumbas en la Plaza Grande.',
+    badge: 'Chupinazo',
+    bullets: [
+      'Maquillaje infantil y talleres en el Parque Grande.',
+      'A las 21:30 h: Chupinazo inicial y repique manual de campanas desde la torre de la iglesia.',
+      'Chocolatada con churros colectiva para vecinos y peñas.',
+      'Espectáculos nocturnos de flamenco y rumbas en la Plaza Grande.',
+    ],
   },
   {
     dia: 'Viernes',
-    desc: 'Casetas de feria y juegos para niños en la Plaza Grande; gala fin de curso de danza de la agrupación local «Más Que Danza Moriscos»; noche de baile con macrodiscoteca.',
+    badge: 'Feria & Baile',
+    bullets: [
+      'Casetas de feria y juegos para niños en la Plaza Grande.',
+      'Gala de fin de curso de danza de la agrupación local «Más Que Danza Moriscos».',
+      'Noche de baile con macrodiscoteca hasta la madrugada.',
+    ],
   },
   {
     dia: 'Sábado',
-    desc: 'Animación matutina y vermú con charangas en el Parque Chico; paella popular comunitaria cuya recaudación se dona a entidades sociales como la Asociación Autismo ARIADNA; encierro infantil de carretones simulados conocido como «Asaltacalles» en la Plaza Chica; el tradicional partido de fútbol sala «Solteros vs. Casados» en el polideportivo comarcal; gran verbena nocturna con orquesta y discomóvil hasta la madrugada.',
+    badge: 'Convivencia',
+    bullets: [
+      'Animación matutina y vermú con charangas en el Parque Chico.',
+      'Paella popular comunitaria, con recaudación benéfica destinada a entidades sociales como la Asociación Autismo ARIADNA.',
+      'Encierro infantil de carretones simulados («Asaltacalles») en la Plaza Chica.',
+      'Tradicional partido de fútbol sala «Solteros vs. Casados» en el polideportivo comarcal.',
+      'Gran verbena nocturna con orquesta y discomóvil.',
+    ],
   },
   {
-    dia: 'Domingo · Día grande y misa solemne',
-    desc: 'Pasacalles matutino de tamborileros y dulzaineros con repique de campanas; a las 13:00 h, Santa Misa Solemne en honor a la Virgen Peregrina; procesión de la Virgen por las calles del casco urbano, llevada a hombros por los vecinos y flanqueada por música procesional; subasta de las roscas de pan bendito; tarde infantil con juegos acuáticos, tren neumático y fiesta de la espuma; cierre a las 21:00 h con una parrillada popular de convivencia vecinal, también de carácter benéfico.',
+    dia: 'Domingo · Día grande y Misa Solemne',
+    badge: 'La Patrona',
+    bullets: [
+      'Pasacalles matutino de tamborileros y dulzaineros con repique de campanas.',
+      'A las 13:00 h: Santa Misa Solemne en honor a la Virgen Peregrina.',
+      'Procesión de la Virgen por las calles del casco urbano, llevada a hombros por los vecinos y flanqueada por música procesional.',
+      'Tradicional subasta de las roscas de pan bendito.',
+      'Tarde infantil con juegos acuáticos, tren neumático y fiesta de la espuma.',
+      'A las 21:00 h: Gran parrillada popular de convivencia vecinal, también de carácter benéfico.',
+    ],
   },
 ];
 
@@ -276,11 +302,27 @@ export default function FiestasPage() {
 
         <div className="mt-10">
           <p className="kicker">Programa de festejos</p>
-          <div className="mt-4 space-y-3">
+          <div className="mt-4 grid gap-4 sm:gap-5">
             {programa.map((acto) => (
-              <div key={acto.dia} className="card-editorial p-5">
-                <h3 className="font-serif text-base font-bold text-pergamino sm:text-lg">{acto.dia}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-pergamino-muted/75">{acto.desc}</p>
+              <div key={acto.dia} className="card-editorial p-5 sm:p-6 transition-all hover:border-piedra-400/40">
+                <div className="flex items-center justify-between gap-3 mb-3.5 border-b border-noche-border/60 pb-3">
+                  <h3 className="font-serif text-base sm:text-lg font-bold text-pergamino">
+                    {acto.dia}
+                  </h3>
+                  {acto.badge && (
+                    <span className="rounded-full bg-armuna/15 border border-armuna/30 px-2.5 py-0.5 text-[11px] font-semibold text-armuna-light shrink-0">
+                      {acto.badge}
+                    </span>
+                  )}
+                </div>
+                <ul className="space-y-2.5 text-sm leading-relaxed text-pergamino-muted/85">
+                  {acto.bullets.map((b, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-armuna-light ring-4 ring-armuna/20" />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
