@@ -55,6 +55,7 @@ const parajes = [
     title: 'Pago de Valdepega',
     description:
       'Vallejo abrigado ("valle de las pegas", urracas) que albergó la tradición vitivinícola de autoconsumo de Moriscos. Conserva la última viña superviviente del término municipal.',
+    tab: 'galeria',
   },
   {
     title: 'Carrelavieja y La Pardaleja',
@@ -238,8 +239,8 @@ export default function LugaresPage({ onNavigate }) {
           ))}
         </div>
 
-        {/* Galería de entorno: Vértice Andorra, rodal de encinas y campos ondulados */}
-        <div className="mt-8 grid gap-5 sm:grid-cols-3">
+        {/* Galería de entorno: Vértice Andorra, Árbol de Valdepega, rodal de encinas y campos ondulados */}
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {/* Vértice Geodésico Andorra */}
           <div className="overflow-hidden rounded-2xl border border-piedra-border/40 bg-noche-card shadow-lg">
             <button
@@ -249,7 +250,7 @@ export default function LugaresPage({ onNavigate }) {
                   src: '/moriscos-wiki/images/moriscos-vertice-andorra.jpg',
                   alt: 'Vértice Geodésico Andorra (IGN nº 47879) en Moriscos',
                   caption:
-                    'Vértice Geodésico «Andorra» (IGN nº 47879 · 871,4 m): punto más alto del término municipal de Moriscos, con su pilar cilíndrico de hormigón y placa de bronce sobre el horizonte de La Armuña (Fotografía: Pablo Crespo Bellido).',
+                    'Vértice Geodésico «Andorra» (IGN nº 47879 · 871,4 m · 30 de agosto de 2026): cumbre y cota más alta de Moriscos con su placa de bronce sobre el horizonte de La Armuña (Fotografía: Pablo Crespo Bellido).',
                   originalSrc: '/moriscos-wiki/images/originals/moriscos-vertice-andorra-original.jpg',
                   originalSize: '189 KB',
                 })
@@ -259,16 +260,50 @@ export default function LugaresPage({ onNavigate }) {
             >
               <img
                 src="/moriscos-wiki/images/moriscos-vertice-andorra.jpg"
-                alt="Vértice Geodésico Andorra (IGN nº 47879) fotografiado al atardecer en Moriscos"
+                alt="Vértice Geodésico Andorra (IGN nº 47879) fotografiado el 30 de agosto de 2026 en Moriscos"
                 className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                 width="768"
                 height="1024"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-noche/90 via-noche/20 to-transparent pointer-events-none" />
-              <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-pergamino-muted bg-noche/85 p-2.5 rounded-xl border border-piedra-400/25 backdrop-blur-md">
-                <span className="font-serif font-medium truncate">Vértice Andorra · 871 m · Foto: Pablo Crespo</span>
+              <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-pergamino-muted bg-noche/85 p-2 rounded-xl border border-piedra-400/25 backdrop-blur-md">
+                <span className="font-serif font-medium truncate">Vértice Andorra · 30 ago 2026</span>
                 <span className="inline-flex items-center gap-1 text-armuna-light font-semibold shrink-0">
-                  <ZoomIn size={13} /> Ampliar
+                  <ZoomIn size={13} />
+                </span>
+              </div>
+            </button>
+          </div>
+
+          {/* Árbol de Valdepega */}
+          <div className="overflow-hidden rounded-2xl border border-piedra-border/40 bg-noche-card shadow-lg">
+            <button
+              type="button"
+              onClick={() =>
+                setActiveImage({
+                  src: '/moriscos-wiki/images/moriscos-arbol-valdepega.jpg',
+                  alt: 'El Árbol solitario de Valdepega fotografiado el 30 de agosto de 2026',
+                  caption:
+                    'El Árbol de Valdepega (30 de agosto de 2026): ejemplar solitario recortado contra las colinas doradas del secano armuñés bajo la luz rasante del ocaso (Fotografía: Pablo Crespo Bellido).',
+                  originalSrc: '/moriscos-wiki/images/originals/moriscos-arbol-valdepega-original.jpg',
+                  originalSize: '128 KB',
+                })
+              }
+              className="group relative block w-full h-[240px] sm:h-[280px] overflow-hidden cursor-zoom-in"
+              aria-label="Ampliar fotografía del Árbol de Valdepega"
+            >
+              <img
+                src="/moriscos-wiki/images/moriscos-arbol-valdepega.jpg"
+                alt="El Árbol de Valdepega fotografiado al atardecer del 30 de agosto de 2026 en Moriscos"
+                className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                width="768"
+                height="1024"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-noche/90 via-noche/20 to-transparent pointer-events-none" />
+              <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-pergamino-muted bg-noche/85 p-2 rounded-xl border border-piedra-400/25 backdrop-blur-md">
+                <span className="font-serif font-medium truncate">Árbol Valdepega · 30 ago 2026</span>
+                <span className="inline-flex items-center gap-1 text-armuna-light font-semibold shrink-0">
+                  <ZoomIn size={13} />
                 </span>
               </div>
             </button>
