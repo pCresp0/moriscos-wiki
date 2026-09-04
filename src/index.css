@@ -393,3 +393,13 @@ main > div > * {
 .leaflet-bottom {
   z-index: 1 !important;
 }
+
+/* Evitar que Safari/iOS y navegadores móviles hagan zoom automático al enfocar campos de texto */
+input,
+textarea,
+select,
+input[type="text"],
+input[type="search"] {
+  font-size: 16px !important;
+  font-size: max(16px, 1rem) !important;
+}

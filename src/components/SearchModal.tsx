@@ -60,7 +60,7 @@ export function SearchModalInner({ onSelectResult }: SearchModalProps) {
           aria-describedby={undefined}
           onOpenAutoFocus={(e) => {
             e.preventDefault();
-            inputRef.current?.focus();
+            inputRef.current?.focus({ preventScroll: true });
           }}
           className="fixed z-[260] overflow-hidden rounded-2xl border border-noche-border bg-noche-surface shadow-2xl outline-none top-[12vh] left-1/2 -translate-x-1/2 w-[94vw] max-w-lg p-0"
         >
@@ -69,9 +69,16 @@ export function SearchModalInner({ onSelectResult }: SearchModalProps) {
             <Search className="h-5 w-5 shrink-0 text-armuna-light" />
             <input
               ref={inputRef}
+              type="search"
+              name="search"
+              autoComplete="off"
+              autoCorrect="off"
+              autoCapitalize="off"
+              spellCheck={false}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Buscar lugares, historia, fiestas, libro, glosario..."
+              style={{ fontSize: '16px' }}
               className="w-full bg-transparent font-body text-[16px] leading-normal text-pergamino outline-none placeholder:text-pergamino-muted/50"
             />
             {query && (
