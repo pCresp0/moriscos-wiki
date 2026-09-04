@@ -403,3 +403,12 @@ input[type="search"] {
   font-size: 16px !important;
   font-size: max(16px, 1rem) !important;
 }
+
+/* Ocultar botones de cancelar o borrar nativos que inyectan WebKit/Chromium (la cruz azul) */
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration {
+  -webkit-appearance: none !important;
+  display: none !important;
+}

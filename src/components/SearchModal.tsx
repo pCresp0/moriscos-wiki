@@ -98,7 +98,8 @@ export function SearchModalInner({ onSelectResult }: SearchModalProps) {
             <Search className="h-5 w-5 shrink-0 text-armuna-light" />
             <input
               ref={inputRef}
-              type="search"
+              type="text"
+              inputMode="search"
               name="search"
               autoComplete="off"
               autoCorrect="off"
@@ -110,19 +111,9 @@ export function SearchModalInner({ onSelectResult }: SearchModalProps) {
               style={{ fontSize: '16px' }}
               className="w-full bg-transparent font-body text-[16px] leading-normal text-pergamino outline-none placeholder:text-pergamino-muted/50"
             />
-            {query && (
-              <button
-                type="button"
-                onClick={() => setQuery('')}
-                aria-label="Borrar texto"
-                className="rounded-full p-1 text-pergamino-muted/70 hover:bg-noche-card hover:text-pergamino cursor-pointer"
-              >
-                <X className="h-4 w-4" />
-              </button>
-            )}
             <Dialog.Close
-              aria-label="Cerrar"
-              className="rounded-full p-1 text-pergamino-muted/70 hover:bg-noche-card hover:text-pergamino cursor-pointer"
+              aria-label="Cerrar buscador"
+              className="rounded-full p-1 text-pergamino-muted/70 hover:bg-white/10 hover:text-pergamino transition-colors cursor-pointer"
             >
               <X className="h-5 w-5" />
             </Dialog.Close>
