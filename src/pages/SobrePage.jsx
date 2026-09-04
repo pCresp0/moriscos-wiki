@@ -115,7 +115,15 @@ export default function SobrePage({ onNavigate }) {
           </p>
           <p className="mt-4 text-sm text-pergamino-muted/80 sm:text-base">
             Web diseñada y desarrollada por{' '}
-            <span className="font-semibold text-piedra-200">Pablo Crespo Bellido</span>.
+            <a
+              href="https://www.linkedin.com/in/pablocrespobellido/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-armuna-light hover:underline hover:text-pergamino transition-colors"
+            >
+              Pablo Crespo Bellido
+            </a>
+            .
           </p>
         </article>
       </div>

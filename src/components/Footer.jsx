@@ -44,7 +44,14 @@ export default function Footer() {
         <div className="flex flex-col items-center gap-1.5 text-center">
           <p className="text-sm text-pergamino/90">
             Web diseñada y desarrollada por{' '}
-            <span className="font-semibold text-pergamino">Pablo Crespo Bellido</span>
+            <a
+              href="https://www.linkedin.com/in/pablocrespobellido/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-armuna-light hover:underline hover:text-pergamino transition-colors"
+            >
+              Pablo Crespo Bellido
+            </a>
           </p>
           <p className="text-xs text-pergamino-muted/60">
             &copy; {year} · Moriscos
