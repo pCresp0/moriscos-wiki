@@ -6,6 +6,7 @@ import { ZoomIn, X, Download } from 'lucide-react';
 const TownLocationMap = lazy(() => import('../components/TownLocationMap'));
 import {
   History,
+  Wheat,
   MapPin,
   PartyPopper,
   Shield,
@@ -25,6 +26,12 @@ const sections = [
     icon: History,
     title: 'Historia',
     description: 'Eje cronológico del pueblo, de la repoblación medieval del siglo XI a la actualidad.',
+  },
+  {
+    id: 'economia',
+    icon: Wheat,
+    title: 'Economía y Sustento',
+    description: 'De qué ha vivido el pueblo: secano y bueyes, la Lenteja de La Armuña, aceñas del Tormes y la industria actual.',
   },
   {
     id: 'lugares',

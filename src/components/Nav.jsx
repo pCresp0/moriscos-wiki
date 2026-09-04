@@ -4,6 +4,7 @@ import {
   X,
   Home,
   History,
+  Wheat,
   MapPin,
   PartyPopper,
   Shield,
@@ -21,6 +22,7 @@ import SearchModal from './SearchModal';
 export const navItems = [
   { id: 'inicio', label: 'Inicio', icon: Home },
   { id: 'historia', label: 'Historia', icon: History },
+  { id: 'economia', label: 'Economía', icon: Wheat },
   { id: 'lugares', label: 'Lugares', icon: MapPin },
   { id: 'fiestas', label: 'Fiestas', icon: PartyPopper },
   { id: 'escudo', label: 'El Escudo', icon: Shield },

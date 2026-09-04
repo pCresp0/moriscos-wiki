@@ -253,6 +253,15 @@ export const searchIndex = [
     "badge": "Historia"
   },
   {
+    "id": "seccion-economia",
+    "tab": "economia",
+    "target": null,
+    "title": "¿De qué ha vivido Moriscos? Economía y sustento",
+    "excerpt": "Secano, bueyes y labor a dos hojas, la Lenteja de La Armuña y el gorgojo, aceñas del Tormes, tren de 1877, silos y Novartis.",
+    "content": "economía secano dos hojas bueyes mulas trigo candeal mocho rubión centeno cebada avena lenteja armuña gigante gomecello pedrosillo rhizobium gorgojo bobolina asfixies tostado Gonzalo Sánchez aceñas maquila Cabrerizos La Flecha agua blanda dureza Madoz ferrocarril estación silos Gomecello FEGA Novartis Castellanos radioligandos Helcesa CTR residuos Legumbres Montes Legumer",
+    "badge": "Economía"
+  },
+  {
     "id": "seccion-lugares",
     "tab": "lugares",
     "target": null,

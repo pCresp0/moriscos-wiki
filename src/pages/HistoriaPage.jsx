@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { navItems } from '../components/Nav';
-import { ExternalLink, BookOpen, History } from 'lucide-react';
+import { ExternalLink, BookOpen, History, Wheat } from 'lucide-react';
 
 const eras = [
   {
@@ -283,6 +283,33 @@ export default function HistoriaPage({ onNavigate }) {
           </p>
         </div>
       </div>
+
+      {/* Acceso directo a Economía y Sustento */}
+      {onNavigate && (
+        <div className="mt-4 rounded-2xl border border-amber-500/30 bg-gradient-to-r from-amber-500/15 via-noche-card/90 to-noche-card p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-md">
+          <div className="flex items-start gap-3">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-500/20 text-amber-300">
+              <Wheat size={20} />
+            </span>
+            <div>
+              <h3 className="font-serif text-base font-bold text-pergamino">
+                Monografía: ¿De qué ha vivido la gente de Moriscos a lo largo de su historia?
+              </h3>
+              <p className="mt-0.5 text-xs text-pergamino-muted/80 leading-relaxed">
+                Descubre el régimen de secano a dos hojas, los bueyes de tiro, el milagro biológico de la Lenteja de La Armuña, las aceñas del Tormes, el tren y la vanguardia biotecnológica actual.
+              </p>
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={() => onNavigate('economia')}
+            className="btn-secondary whitespace-nowrap text-xs sm:text-sm cursor-pointer self-stretch sm:self-auto justify-center"
+          >
+            <span>Leer sección de Economía</span>
+            <ExternalLink size={14} />
+          </button>
+        </div>
+      )}
 
       {/* Selector de épocas */}
       <div className="mt-8 flex flex-wrap items-center gap-2">

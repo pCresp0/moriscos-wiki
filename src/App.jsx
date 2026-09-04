@@ -10,6 +10,7 @@ import { DEFAULT_TAB, TABS } from './utils/router';
 // en el bundle y cambiar de sección es solo un cambio de estado, sin esperas.
 import InicioPage from './pages/InicioPage';
 import HistoriaPage from './pages/HistoriaPage';
+import EconomiaPage from './pages/EconomiaPage';
 import LugaresPage from './pages/LugaresPage';
 import FiestasPage from './pages/FiestasPage';
 import EscudoPage from './pages/EscudoPage';
@@ -25,6 +26,7 @@ import SobrePage from './pages/SobrePage';
 const PAGES = {
   inicio: InicioPage,
   historia: HistoriaPage,
+  economia: EconomiaPage,
   lugares: LugaresPage,
   fiestas: FiestasPage,
   escudo: EscudoPage,

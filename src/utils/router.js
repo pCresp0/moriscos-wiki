@@ -7,6 +7,7 @@
 export const TABS = [
   'inicio',
   'historia',
+  'economia',
   'lugares',
   'fiestas',
   'escudo',
