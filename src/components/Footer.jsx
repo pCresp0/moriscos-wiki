@@ -9,8 +9,8 @@ export default function Footer({ onNavigate }) {
 
   return (
     <footer
-      className="brand-panel mt-auto border-t border-noche-border text-xs text-pergamino-muted/70 sm:text-sm"
-      style={{ paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 1.5rem)', paddingTop: '2rem' }}
+      className="brand-panel w-full shrink-0 mt-auto border-t border-noche-border text-xs text-pergamino-muted/70 sm:text-sm"
+      style={{ paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 2rem)', paddingTop: '2.5rem' }}
     >
       <div className="container-editorial flex flex-col items-center gap-6">
         <div className="flex items-center gap-3">
