@@ -126,15 +126,6 @@ async function processAll() {
       content: excerpt(g.content, 600),
       badge: `Glosario · ${g.category}`,
     })),
-    ...personajes.map((p) => ({
-      id: `personaje-${p.id}`,
-      tab: 'genealogia',
-      target: p.id,
-      title: p.name,
-      excerpt: p.role || excerpt(p.content),
-      content: excerpt(p.content, 600),
-      badge: p.tag ? `Personaje · ${p.tag}` : 'Personaje',
-    })),
     ...staticEntries,
   ];
 
@@ -219,15 +210,6 @@ const staticEntries = [
     excerpt: 'Fototeca comunitaria con labores del campo y la cosecha, panorámicas aéreas, fiestas y patrimonio.',
     content: 'galería fototeca fotos imágenes fotografías panorámica atardecer noche tractor alpacas cosecha mies girasoles iglesia San Pedro Virgen Peregrina escudo',
     badge: 'Fototeca',
-  },
-  {
-    id: 'seccion-genealogia',
-    tab: 'genealogia',
-    target: null,
-    title: 'Bosque Genealógico de Moriscos',
-    excerpt: 'Más de 350 años de historia familiar a partir de los libros parroquiales iniciados en 1645.',
-    content: 'genealogía apellidos Blanco Romo Pedraz Crespo Salvador archivo parroquial 1645 Ventanas del Ayer y Hoy',
-    badge: 'Genealogía',
   },
   {
     id: 'seccion-referencias',

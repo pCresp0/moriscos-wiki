@@ -14,7 +14,6 @@ import {
   BookOpen,
   Map,
   Camera,
-  Users,
   BookMarked,
   Library,
   Info,
@@ -74,12 +73,6 @@ const sections = [
     icon: Camera,
     title: 'Galería',
     description: 'Fototeca de Moriscos: labores del campo, panorámicas aéreas, fiestas patronales y patrimonio.',
-  },
-  {
-    id: 'genealogia',
-    icon: Users,
-    title: 'Genealogía',
-    description: 'El Bosque Genealógico y los paisanos ilustres del pueblo, con registros desde 1645.',
   },
   {
     id: 'glosario',

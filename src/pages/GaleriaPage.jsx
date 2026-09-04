@@ -170,8 +170,8 @@ export const galleryPhotos = [
     badge: '23 mar 2025 · Master 48 MP',
     description:
       'Impresionante plano cenital directo a 90 grados capturado el 23 de marzo de 2025: el recinto rectangular con tapias encaladas de blanco, los panteones con cubiertas de teja árabe, las hileras de sepulturas y el silencio del camposanto en la campiña.',
-    tabLink: 'genealogia',
-    tabLabel: 'Ver memoria en Genealogía',
+    tabLink: 'lugares',
+    tabLabel: 'Ver Cementerio en Lugares',
   },
   {
     id: 'moriscos-cementerio-soledad',
@@ -193,8 +193,8 @@ export const galleryPhotos = [
     badge: '23 mar 2025 · Master 48 MP',
     description:
       'Perspectiva cenital en altura capturada el 23 de marzo de 2025: el camposanto de Moriscos como un reducto de serenidad emplazado en medio de las grandes franjas agrícolas de La Armuña, flanqueado por el camino rural de tierra.',
-    tabLink: 'genealogia',
-    tabLabel: 'Consultar Bosque Genealógico',
+    tabLink: 'lugares',
+    tabLabel: 'Ver Cementerio en Lugares',
   },
   {
     id: 'armuna-rodal-arboles',

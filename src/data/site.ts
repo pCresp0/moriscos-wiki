@@ -46,6 +46,7 @@ export const hitos = [
 export const navLinks = [
   { label: 'Inicio', href: '/' },
   { label: 'Historia', href: '/historia' },
+  { label: 'Economía', href: '/economia' },
   { label: 'Lugares', href: '/lugares' },
   { label: 'Fiestas', href: '/fiestas' },
   { label: 'El Escudo', href: '/escudo' },
@@ -53,7 +54,6 @@ export const navLinks = [
   { label: 'El Libro', href: '/libro' },
   { label: 'Ruta Nocturna', href: '/ruta-nocturna' },
   { label: 'Galería', href: '/galeria' },
-  { label: 'Genealogía', href: '/genealogia' },
   { label: 'Glosario', href: '/glosario' },
   { label: 'Referencias', href: '/referencias' },
   { label: 'Sobre la web', href: '/sobre-la-web' },

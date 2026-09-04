@@ -28,7 +28,7 @@ const emblematicos = [
     title: 'Cementerio Municipal',
     description:
       'Emplazado a las afueras del casco urbano en el camino rural hacia la campiña. Con sus tapias encaladas y panteones tradicionales, custodia la memoria familiar y el reposo de las generaciones morisqueñas en el sosiego de la campiña.',
-    tab: 'genealogia',
+    tab: 'galeria',
   },
 ];
 

@@ -15,7 +15,6 @@ export const TABS = [
   'libro',
   'ruta-nocturna',
   'galeria',
-  'genealogia',
   'glosario',
   'referencias',
   'sobre-la-web',

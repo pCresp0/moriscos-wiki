@@ -35,9 +35,9 @@ describe('buscador global (Fuse.js sobre el índice real)', () => {
     expect(search('penillanura').some((r) => r.tab === 'libro')).toBe(true);
   });
 
-  it('encuentra un personaje de la genealogía', () => {
-    const results = search('Eugenio Blanco');
-    expect(results.some((r) => r.tab === 'genealogia' && r.target === 'eugenio-blanco-carbayo')).toBe(true);
+  it('encuentra la sección de economía y sustento', () => {
+    const results = search('secano');
+    expect(results.some((r) => r.tab === 'economia')).toBe(true);
   });
 
   it('no devuelve resultados para un término sin relación', () => {
