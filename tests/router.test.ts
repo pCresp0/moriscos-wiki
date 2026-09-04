@@ -1,7 +1,13 @@
 import { describe, expect, it } from 'vitest';
-import { buildHash, parseHash, TABS } from '../src/utils/router';
+import { buildHash, DEFAULT_TAB, parseHash, TABS, validateTab } from '../src/utils/router';
 
-describe('rutas por hash', () => {
+describe('enrutado y validación de pestañas', () => {
+  it('valida pestañas correctas', () => {
+    expect(validateTab('inicio')).toBe('inicio');
+    expect(validateTab('glosario')).toBe('glosario');
+    expect(validateTab('seccion-inexistente')).toBe(DEFAULT_TAB);
+  });
+
   it('abre el inicio cuando no hay hash', () => {
     expect(parseHash('')).toEqual({ tab: 'inicio', target: null });
     expect(parseHash('#')).toEqual({ tab: 'inicio', target: null });

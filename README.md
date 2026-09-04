@@ -60,7 +60,7 @@ Módulos de datos (src/data/chaptersData.js, glosarioData.js, personajesData.js,
         ▼
 index.html + src/main.jsx ──▶ src/App.jsx
         │
-        ├─ Estado de ruta: { tab, target }, sincronizado con el hash de la URL (src/utils/router.js)
+        ├─ Estado de ruta en memoria: { tab, target } (navegación instantánea con URL limpia y fija)
         ├─ Armazón fijo: cabecera, menú lateral, menú deslizante, pie y #main-scroll-container
         └─ Una página React por sección (src/pages/*.jsx), importadas de forma estática
 
@@ -74,8 +74,8 @@ Puntos clave del modelo:
 
 - **Armazón fijo de altura `100dvh`**: `html`, `body` y `#root` tienen `overflow: hidden`, y todo el scroll ocurre dentro de `#main-scroll-container`. Así la cabecera y el menú nunca se mueven, y las áreas seguras del iPhone (`env(safe-area-inset-*)`) se respetan en cabecera, menú, pie y botón de «volver arriba».
 - **Sin *lazy loading* de páginas** (salvo el mapa): las 12 secciones se importan estáticamente, de modo que cambiar de sección no espera ninguna descarga. El mapa de Leaflet sí va en un chunk aparte porque pesa ~160 kB y solo se usa en una sección.
-- **Rutas por hash**: la navegación es estado de React, pero se refleja en la URL (`#/libro/05-despoblado-ribas-flecha`). Eso mantiene funcionando el botón «atrás» del móvil, los enlaces compartidos y los marcadores del navegador, sin coste de rendimiento.
-- **`public/404.html`** traduce las direcciones del antiguo sitio multipágina (`/moriscos-wiki/glosario/`) a su ruta equivalente (`#/glosario`), para que los enlaces ya compartidos o indexados sigan llevando al sitio correcto.
+- **Navegación en memoria con URL fija**: la barra de direcciones permanece limpia y fija en la raíz (`pcresp0.github.io/moriscos-wiki/`) comportándose como una aplicación móvil nativa. La navegación entre pestañas y temas se gestiona en memoria de React de forma instantánea.
+- **`public/404.html`** redirige a la raíz limpia del sitio.
 
 ---
 

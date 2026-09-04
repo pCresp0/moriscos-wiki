@@ -32,11 +32,7 @@
        */
       (function () {
         var base = '/moriscos-wiki/';
-        var path = window.location.pathname;
-        var route = path.indexOf(base) === 0 ? path.slice(base.length) : path.replace(/^\/+/, '');
-        route = route.replace(/[^/]*\.html$/, '').replace(/^\/+|\/+$/g, '');
-        var target = base + (route ? '#/' + route : '') + window.location.search;
-        window.location.replace(target);
+        window.location.replace(base);
       })();
     </script>
   </head>

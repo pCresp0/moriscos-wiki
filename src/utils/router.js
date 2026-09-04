@@ -1,8 +1,7 @@
 /*
- * Enrutado por hash. La navegación entre secciones es un simple cambio de
- * estado en React (instantáneo, sin recargar nada), pero el hash mantiene la
- * URL sincronizada para que funcionen el botón "atrás" del móvil, los enlaces
- * compartidos y los marcadores del navegador.
+ * Enrutado en memoria. La navegación entre secciones es un cambio de
+ * estado en React puro (instantáneo, sin recargar nada), manteniendo
+ * la barra de direcciones fija en la raíz limpia de la web.
  */
 
 export const TABS = [
@@ -22,7 +21,12 @@ export const TABS = [
 
 export const DEFAULT_TAB = 'inicio';
 
-/** Lee una ruta (#/libro/05-despoblado-ribas-flecha) y devuelve { tab, target }. */
+/** Comprueba si una pestaña dada es válida, o devuelve DEFAULT_TAB. */
+export function validateTab(tab) {
+  return TABS.includes(tab) ? tab : DEFAULT_TAB;
+}
+
+/** Lee una ruta de compatibilidad (#/libro/05-despoblado-ribas-flecha) y devuelve { tab, target }. */
 export function parseHash(hash) {
   const clean = String(hash || '')
     .replace(/^#\/?/, '')
@@ -35,7 +39,7 @@ export function parseHash(hash) {
   return { tab, target: rest.length ? decodeURIComponent(rest.join('/')) : null };
 }
 
-/** Construye el hash de una sección, con su ancla opcional. */
+/** Construye una ruta con su ancla opcional. */
 export function buildHash(tab, target) {
   if (!TABS.includes(tab)) return '#/';
   if (!target) return `#/${tab}`;

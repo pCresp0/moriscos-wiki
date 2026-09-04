@@ -4,7 +4,7 @@ import Nav, { Sidebar, DesktopTopBar } from './components/Nav';
 import Footer from './components/Footer';
 import ScrollToTopButton from './components/ScrollToTopButton';
 import ErrorBoundary from './components/ErrorBoundary';
-import { buildHash, parseHash } from './utils/router';
+import { DEFAULT_TAB, TABS } from './utils/router';
 
 // Todas las páginas se importan de forma estática: el contenido completo viaja
 // en el bundle y cambiar de sección es solo un cambio de estado, sin esperas.
@@ -37,25 +37,21 @@ const PAGES = {
 };
 
 export default function App() {
-  const [route, setRoute] = useState(() => parseHash(window.location.hash));
+  // Navegación puramente en memoria: la URL se mantiene siempre fija y limpia.
+  const [route, setRoute] = useState({ tab: DEFAULT_TAB, target: null });
   const [menuOpen, setMenuOpen] = useState(false);
   const scrollContainerRef = useRef(null);
 
-  // La URL manda: escuchar el hash cubre a la vez la navegación interna, el
-  // botón "atrás" del móvil y los enlaces compartidos.
+  // Asegurar que la barra de direcciones quede limpia y fija en la raíz si traía hash previo
   useEffect(() => {
-    const onHashChange = () => setRoute(parseHash(window.location.hash));
-    window.addEventListener('hashchange', onHashChange);
-    return () => window.removeEventListener('hashchange', onHashChange);
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
   }, []);
 
   const navigate = useCallback((tab, target = null) => {
-    const nextHash = buildHash(tab, target);
-    if (window.location.hash === nextHash) {
-      setRoute(parseHash(nextHash));
-      return;
-    }
-    window.location.hash = nextHash;
+    const validTab = TABS.includes(tab) ? tab : DEFAULT_TAB;
+    setRoute({ tab: validTab, target });
   }, []);
 
   // Al cambiar de sección se vuelve arriba. Si la ruta apunta a un elemento
