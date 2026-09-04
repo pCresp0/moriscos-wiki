@@ -85,14 +85,22 @@ export function SearchModalInner({ onSelectResult }: SearchModalProps) {
         ref={triggerRef}
         type="button"
         onClick={() => {
-          updateCoords();
-          setOpen(true);
+          if (open) {
+            setOpen(false);
+          } else {
+            updateCoords();
+            setOpen(true);
+          }
         }}
-        className="flex h-10 w-10 sm:w-auto sm:px-3.5 items-center justify-center gap-2 rounded-full border border-piedra-300/40 bg-black/35 text-sm font-semibold text-pergamino shadow-sm backdrop-blur-sm transition-all hover:border-piedra-300 hover:bg-black/50 cursor-pointer"
+        className={`flex h-11 w-11 sm:h-10 sm:w-auto sm:px-4 items-center justify-center gap-2 rounded-full border transition-all cursor-pointer shadow-sm ${
+          open
+            ? 'border-armuna-light bg-armuna/35 text-pergamino ring-2 ring-armuna-light/40 shadow-md'
+            : 'border-piedra-300/40 bg-black/40 text-pergamino hover:border-piedra-300 hover:bg-black/55 active:scale-95'
+        }`}
         aria-label="Buscar en el sitio"
       >
-        <Search className="h-4 w-4 shrink-0" />
-        <span className="hidden sm:inline">Buscar</span>
+        <Search className="h-5 w-5 sm:h-4.5 sm:w-4.5 shrink-0 text-armuna-light" />
+        <span className="hidden sm:inline font-semibold text-sm">Buscar</span>
       </button>
 
       <Dialog.Portal>

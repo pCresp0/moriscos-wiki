@@ -75,7 +75,7 @@ export function Drawer({ active, onChange, open, onClose }) {
     <>
       {/* Fondo oscuro difuminado */}
       <div
-        className={`fixed inset-0 z-[200] bg-black/65 backdrop-blur-[2px] transition-opacity duration-300 ${
+        className={`fixed inset-0 z-[290] bg-black/65 backdrop-blur-[2px] transition-opacity duration-300 ${
           open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
         onClick={onClose}
@@ -84,7 +84,7 @@ export function Drawer({ active, onChange, open, onClose }) {
 
       {/* Menú deslizante con textura de trigo y calidez de piedra de Villamayor */}
       <aside
-        className="fixed top-0 left-0 h-full flex flex-col z-[210] sidebar-panel shadow-[6px_0_32px_rgba(0,0,0,0.55)]"
+        className="fixed top-0 left-0 h-full flex flex-col z-[300] sidebar-panel shadow-[6px_0_32px_rgba(0,0,0,0.55)]"
         style={{
           width: 256,
           transform: open ? 'translateX(0)' : 'translateX(-100%)',
@@ -134,18 +134,18 @@ export default function Nav({ active, onChange, open, setOpen }) {
   return (
     <>
       <header
-        className="relative w-full shrink-0 z-40 flex items-center justify-between px-3 sm:px-6 lg:hidden header-panel"
+        className="relative w-full shrink-0 z-[255] flex items-center justify-between px-3 sm:px-6 lg:hidden header-panel"
         style={{
           height: 'var(--mobile-topbar, 58px)',
           paddingTop: 'env(safe-area-inset-top, 0px)',
         }}
       >
-        <div className="flex items-center w-10">
+        <div className="flex items-center w-11 shrink-0">
           <button
             type="button"
             onClick={() => setOpen(true)}
             aria-label="Abrir menú"
-            className="p-1.5 -ml-1 rounded-lg text-pergamino hover:bg-white/10 transition-colors cursor-pointer"
+            className="p-2 -ml-1 rounded-lg text-pergamino hover:bg-white/10 transition-colors cursor-pointer"
           >
             <Menu size={24} />
           </button>
@@ -167,7 +167,7 @@ export default function Nav({ active, onChange, open, setOpen }) {
           MORISCOS
         </button>
 
-        <div className="flex items-center justify-end w-10">
+        <div className="flex items-center justify-end w-11 shrink-0">
           <SearchModal onSelectResult={onChange} />
         </div>
       </header>
@@ -195,7 +195,7 @@ export function Sidebar({ active, onChange }) {
 // Barra superior para Desktop (lg:flex) con textura de trigo y escudo centrado
 export function DesktopTopBar({ onChange }) {
   return (
-    <header className="relative hidden lg:flex items-center justify-between px-8 py-3.5 header-panel shrink-0">
+    <header className="relative hidden lg:flex items-center justify-between px-8 py-3.5 header-panel shrink-0 z-[255]">
       <div className="flex items-center w-36" />
 
       <button
