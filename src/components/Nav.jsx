@@ -162,7 +162,7 @@ export default function Nav({ active, onChange, open, setOpen }) {
   return (
     <>
       <header
-        className="w-full shrink-0 z-40 flex items-center justify-between px-3 sm:px-6 lg:hidden border-b border-noche-border bg-noche-surface/95 backdrop-blur-md shadow-md"
+        className="relative w-full shrink-0 z-40 flex items-center justify-between px-3 sm:px-6 lg:hidden border-b border-noche-border bg-noche-surface/95 backdrop-blur-md shadow-md"
         style={{
           height: 'var(--mobile-topbar, 58px)',
           paddingTop: 'env(safe-area-inset-top, 0px)',
@@ -182,12 +182,13 @@ export default function Nav({ active, onChange, open, setOpen }) {
         <button
           type="button"
           onClick={() => onChange('inicio')}
-          className="flex items-center gap-2 font-display text-lg font-bold tracking-widest text-pergamino cursor-pointer"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-2 font-display text-lg font-bold tracking-widest text-pergamino cursor-pointer transition-transform duration-200 hover:scale-[1.02]"
+          aria-label="Ir al inicio de Moriscos"
         >
           <img
             src="/moriscos-wiki/images/escudo-moriscos-160.jpg"
             alt="Escudo de Moriscos"
-            className="h-7 w-7 rounded-full object-cover ring-2 ring-piedra-300/80"
+            className="h-7 w-7 rounded-full object-cover ring-2 ring-piedra-300/80 shadow-sm"
             width="28"
             height="28"
           />
@@ -222,29 +223,31 @@ export function Sidebar({ active, onChange }) {
   );
 }
 
-// Barra superior para Desktop (lg:flex). La navegación vive en la barra
-// lateral, así que aquí solo van la marca y el buscador.
+// Barra superior para Desktop (lg:flex). Centrado horizontal del logo/marca.
 export function DesktopTopBar({ onChange }) {
   return (
-    <header className="hidden lg:flex items-center justify-between px-8 py-3.5 border-b border-noche-border bg-noche-surface/95 backdrop-blur-md shrink-0">
+    <header className="relative hidden lg:flex items-center justify-between px-8 py-3.5 border-b border-noche-border bg-noche-surface/95 backdrop-blur-md shrink-0">
+      <div className="flex items-center w-36" />
+
       <button
         type="button"
         onClick={() => onChange('inicio')}
-        className="flex items-center gap-3.5 cursor-pointer group"
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-3.5 cursor-pointer group transition-transform duration-200 hover:scale-[1.02]"
+        aria-label="Ir al inicio de Moriscos"
       >
         <img
           src="/moriscos-wiki/images/escudo-moriscos-160.jpg"
           alt="Escudo de Moriscos"
-          className="h-9 w-9 rounded-full object-cover ring-2 ring-piedra-300/80 shadow-md transition-transform group-hover:scale-105"
+          className="h-9 w-9 rounded-full object-cover ring-2 ring-piedra-300/80 shadow-md transition-transform duration-300 group-hover:scale-105"
           width="36"
           height="36"
         />
-        <span className="font-display text-2xl font-black tracking-[0.14em] text-pergamino">
+        <span className="font-display text-2xl font-black tracking-[0.14em] text-pergamino leading-none">
           MORISCOS
         </span>
       </button>
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center justify-end w-36">
         <SearchModal onSelectResult={onChange} />
       </div>
     </header>
