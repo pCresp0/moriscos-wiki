@@ -1,10 +1,7 @@
 import React from 'react';
 import { Github, Linkedin, Mail } from 'lucide-react';
-import { navItems } from './Nav';
 
-const enlaces = ['libro', 'referencias', 'sobre-la-web'];
-
-export default function Footer({ onNavigate }) {
+export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
@@ -44,29 +41,13 @@ export default function Footer({ onNavigate }) {
           </a>
         </div>
 
-        <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2" aria-label="Enlaces del pie">
-          {enlaces.map((id) => {
-            const item = navItems.find((n) => n.id === id);
-            return (
-              <button
-                key={id}
-                type="button"
-                onClick={() => onNavigate(id)}
-                className="cursor-pointer font-medium text-pergamino-muted/80 transition-colors hover:text-piedra-300"
-              >
-                {item?.label ?? id}
-              </button>
-            );
-          })}
-        </nav>
-
         <div className="flex flex-col items-center gap-1.5 text-center">
           <p className="text-sm text-pergamino/90">
             Web diseñada y desarrollada por{' '}
             <span className="font-semibold text-pergamino">Pablo Crespo Bellido</span>
           </p>
           <p className="text-xs text-pergamino-muted/60">
-            &copy; {year} · Moriscos · Historia, Lugares y Curiosidades
+            &copy; {year} · Moriscos
           </p>
         </div>
       </div>

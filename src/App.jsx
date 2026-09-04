@@ -114,7 +114,7 @@ export default function App() {
             </div>
           </main>
 
-          <Footer onNavigate={navigate} />
+          <Footer />
         </div>
       </div>
 
