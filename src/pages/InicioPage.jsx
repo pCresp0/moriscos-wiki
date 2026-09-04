@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import VisitorStatsModal from '../components/VisitorStatsModal';
 import { counters } from '../data/site';
+
+const TownLocationMap = lazy(() => import('../components/TownLocationMap'));
 import {
   History,
   MapPin,
@@ -141,8 +143,21 @@ export default function InicioPage({ onNavigate }) {
         </div>
       </section>
 
+      {/* Mapa de Localización: ¿Dónde nos encontramos? */}
+      <section className="container-editorial py-12 sm:py-16">
+        <Suspense
+          fallback={
+            <div className="flex h-[360px] sm:h-[440px] items-center justify-center rounded-3xl border border-noche-border bg-noche-card/60 text-sm text-pergamino-muted/70">
+              Cargando mapa de localización de Moriscos…
+            </div>
+          }
+        >
+          <TownLocationMap onNavigateLugares={onNavigate} />
+        </Suspense>
+      </section>
+
       {/* Cuadrícula de Secciones */}
-      <section className="container-editorial py-14 sm:py-20">
+      <section className="container-editorial pb-16 sm:pb-24">
         <p className="kicker">En esta web</p>
         <h2 className="mt-2 font-serif text-2xl sm:text-4xl font-bold text-pergamino">Qué vas a encontrar</h2>
         <p className="mt-3 text-pergamino-muted/70">
