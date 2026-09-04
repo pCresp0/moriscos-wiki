@@ -198,29 +198,6 @@ function TownLocationMapInner({ onNavigateLugares }) {
               </div>
             </div>
           </div>
-
-          <div className="pt-2 flex flex-col sm:flex-row gap-2.5">
-            <a
-              href={GOOGLE_MAPS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-secondary w-full justify-center text-xs sm:text-sm cursor-pointer"
-            >
-              <Navigation size={15} />
-              <span>Ruta en Google Maps</span>
-              <ExternalLink size={13} className="opacity-70" />
-            </a>
-            {onNavigateLugares && (
-              <button
-                type="button"
-                onClick={() => onNavigateLugares('lugares')}
-                className="btn-ghost w-full justify-center text-xs sm:text-sm cursor-pointer border border-noche-border hover:border-piedra-400/40"
-              >
-                <MapPin size={15} />
-                <span>Lugares del pueblo</span>
-              </button>
-            )}
-          </div>
         </div>
       </div>
     </div>
