@@ -181,7 +181,7 @@ export default function Nav({ active, onChange, open, setOpen }) {
         <button
           type="button"
           onClick={() => onChange('inicio')}
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-2.5 font-display text-xl sm:text-2xl font-black tracking-[0.14em] text-pergamino cursor-pointer transition-transform duration-200 hover:scale-[1.02]"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-2.5 font-display text-[1.2rem] sm:text-[1.35rem] font-black tracking-[0.14em] text-pergamino cursor-pointer transition-transform duration-200 hover:scale-[1.02]"
           aria-label="Ir al inicio de Moriscos"
         >
           <img

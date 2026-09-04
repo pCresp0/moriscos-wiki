@@ -48,6 +48,33 @@
   --font-serif: "Cinzel", "Playfair Display", "Times New Roman", Georgia, serif;
   --font-display: "Cinzel", "Playfair Display", serif;
   --font-body: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /*
+   * Escala compacta de lectura (estilo wiki / archivo local): el texto corrido
+   * queda en 14-15px y los títulos no superan ~28px en móvil ni ~32px en PC.
+   * Tailwind por defecto llega a 48-60px y en pantallas estrechas se come
+   * demasiado espacio, sobre todo con Cinzel.
+   */
+  --text-xs: 0.6875rem;
+  --text-xs--line-height: 1.45;
+  --text-sm: 0.8125rem;
+  --text-sm--line-height: 1.6;
+  --text-base: 0.875rem;
+  --text-base--line-height: 1.65;
+  --text-lg: 0.9375rem;
+  --text-lg--line-height: 1.6;
+  --text-xl: 1.0625rem;
+  --text-xl--line-height: 1.45;
+  --text-2xl: 1.1875rem;
+  --text-2xl--line-height: 1.3;
+  --text-3xl: 1.375rem;
+  --text-3xl--line-height: 1.25;
+  --text-4xl: 1.5rem;
+  --text-4xl--line-height: 1.2;
+  --text-5xl: 1.75rem;
+  --text-5xl--line-height: 1.15;
+  --text-6xl: 2rem;
+  --text-6xl--line-height: 1.1;
 }
 
 :root {
@@ -90,6 +117,8 @@ body,
 
 body {
   font-family: var(--font-body);
+  font-size: 0.875rem;
+  line-height: 1.65;
 }
 
 h1,
@@ -194,9 +223,9 @@ main > div > * {
 
 .kicker {
   font-family: var(--font-serif);
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #d4a359;
 }
@@ -281,7 +310,7 @@ main > div > * {
 
 /* Texto largo de los capítulos y fichas del glosario. */
 .prose-chapter {
-  @apply prose prose-invert max-w-none
+  @apply prose prose-sm prose-invert max-w-none
     prose-headings:font-serif prose-headings:text-armuna-light
     prose-p:text-pergamino-muted/85 prose-li:text-pergamino-muted/85
     prose-strong:text-pergamino prose-em:text-piedra-200
