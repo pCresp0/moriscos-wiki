@@ -182,7 +182,7 @@ export default function Nav({ active, onChange, open, setOpen }) {
         <button
           type="button"
           onClick={() => onChange('inicio')}
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-2 font-display text-lg font-bold tracking-widest text-pergamino cursor-pointer transition-transform duration-200 hover:scale-[1.02]"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-2.5 font-display text-xl sm:text-2xl font-black tracking-[0.14em] text-pergamino cursor-pointer transition-transform duration-200 hover:scale-[1.02]"
           aria-label="Ir al inicio de Moriscos"
         >
           <img
@@ -242,7 +242,7 @@ export function DesktopTopBar({ onChange }) {
           width="36"
           height="36"
         />
-        <span className="font-display text-2xl font-black tracking-[0.14em] text-pergamino leading-none">
+        <span className="font-display text-[1.85rem] font-black tracking-[0.15em] text-pergamino leading-none drop-shadow-sm">
           MORISCOS
         </span>
       </button>
