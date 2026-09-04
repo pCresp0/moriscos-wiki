@@ -32,11 +32,23 @@ export function SearchModalInner({ onSelectResult }: SearchModalProps) {
   const [query, setQuery] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
+  const [btnRect, setBtnRect] = useState<{
+    top: number;
+    left: number;
+    width: number;
+    height: number;
+  } | null>(null);
   const [coords, setCoords] = useState<{ top: number; right: number } | null>(null);
 
   const updateCoords = () => {
     if (triggerRef.current) {
       const rect = triggerRef.current.getBoundingClientRect();
+      setBtnRect({
+        top: Math.round(rect.top),
+        left: Math.round(rect.left),
+        width: Math.round(rect.width),
+        height: Math.round(rect.height),
+      });
       setCoords({
         top: Math.round(rect.bottom + 8),
         right: Math.max(16, Math.round(window.innerWidth - rect.right)),
@@ -58,9 +70,14 @@ export function SearchModalInner({ onSelectResult }: SearchModalProps) {
 
   useEffect(() => {
     if (!open) return;
+    updateCoords();
     const onResize = () => updateCoords();
     window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
+    window.addEventListener('scroll', onResize, true);
+    return () => {
+      window.removeEventListener('resize', onResize);
+      window.removeEventListener('scroll', onResize, true);
+    };
   }, [open]);
 
   const fuse = useMemo(() => new Fuse(searchIndex, SEARCH_OPTIONS), []);
@@ -81,21 +98,16 @@ export function SearchModalInner({ onSelectResult }: SearchModalProps) {
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
+      {/* Botón original en cabecera: se oculta con opacity-0 cuando el buscador está abierto */}
       <button
         ref={triggerRef}
         type="button"
         onClick={() => {
-          if (open) {
-            setOpen(false);
-          } else {
-            updateCoords();
-            setOpen(true);
-          }
+          updateCoords();
+          setOpen(true);
         }}
-        className={`flex h-11 w-11 sm:h-10 sm:w-auto sm:px-4 items-center justify-center gap-2 rounded-full border transition-all cursor-pointer shadow-sm ${
-          open
-            ? 'border-armuna-light bg-armuna/35 text-pergamino ring-2 ring-armuna-light/40 shadow-md'
-            : 'border-piedra-300/40 bg-black/40 text-pergamino hover:border-piedra-300 hover:bg-black/55 active:scale-95'
+        className={`flex h-11 w-11 sm:h-10 sm:w-auto sm:px-4 items-center justify-center gap-2 rounded-full border border-piedra-300/40 bg-black/40 text-pergamino hover:border-piedra-300 hover:bg-black/55 active:scale-95 transition-all cursor-pointer shadow-sm ${
+          open ? 'opacity-0 pointer-events-none' : 'opacity-100'
         }`}
         aria-label="Buscar en el sitio"
       >
@@ -104,7 +116,29 @@ export function SearchModalInner({ onSelectResult }: SearchModalProps) {
       </button>
 
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 z-[250] bg-black/60 backdrop-blur-sm lg:bg-black/15 lg:backdrop-blur-[1px] dialog-overlay" />
+        {/* Capa 1 (z-index: 998): cortina de fondo con 4px de desenfoque y tinte grafito */}
+        <Dialog.Overlay className="backdrop-desenfoque" />
+
+        {/* Capa 2 (z-index: 999): réplica del botón por encima de la cortina, 100% nítido */}
+        {open && btnRect && (
+          <button
+            type="button"
+            onClick={() => setOpen(false)}
+            style={{
+              position: 'fixed',
+              top: `${btnRect.top}px`,
+              left: `${btnRect.left}px`,
+              width: `${btnRect.width}px`,
+              height: `${btnRect.height}px`,
+            }}
+            className="fixed z-[999] flex items-center justify-center gap-2 rounded-full border border-armuna-light bg-armuna/35 text-pergamino ring-2 ring-armuna-light/40 shadow-md transition-all cursor-pointer active:scale-95"
+            aria-label="Cerrar búsqueda"
+          >
+            <Search className="h-5 w-5 sm:h-4.5 sm:w-4.5 shrink-0 text-armuna-light" />
+            <span className="hidden sm:inline font-semibold text-sm">Buscar</span>
+          </button>
+        )}
+
         <Dialog.Content
           aria-describedby={undefined}
           onOpenAutoFocus={(e) => {
@@ -116,7 +150,7 @@ export function SearchModalInner({ onSelectResult }: SearchModalProps) {
               ? { top: `${coords.top}px`, right: `${coords.right}px` }
               : undefined
           }
-          className="fixed z-[260] overflow-hidden rounded-[26px] border border-noche-border/90 bg-noche-surface shadow-2xl outline-none top-[calc(env(safe-area-inset-top,0px)+64px)] left-2.5 right-2.5 sm:left-4 sm:right-4 w-auto max-h-[82vh] lg:w-[460px] lg:max-w-[460px] lg:top-[72px] lg:right-8 lg:left-auto lg:rounded-2xl p-0"
+          className="fixed z-[999] overflow-hidden rounded-[26px] border border-noche-border/90 bg-noche-surface shadow-2xl outline-none top-[calc(env(safe-area-inset-top,0px)+64px)] left-2.5 right-2.5 sm:left-4 sm:right-4 w-auto max-h-[82vh] lg:w-[460px] lg:max-w-[460px] lg:top-[72px] lg:right-8 lg:left-auto lg:rounded-2xl p-0"
         >
           <Dialog.Title className="sr-only">Buscar en Moriscos Wiki</Dialog.Title>
           <div className="flex items-center gap-2.5 border-b border-noche-border px-4 py-3.5 bg-noche">

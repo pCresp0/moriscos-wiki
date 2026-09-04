@@ -412,3 +412,24 @@ input::-webkit-search-results-decoration {
   -webkit-appearance: none !important;
   display: none !important;
 }
+
+/* Cortina de desenfoque de búsqueda (4px blur + tinte translúcido grafito) */
+.backdrop-desenfoque {
+  position: fixed;
+  inset: 0;
+  z-index: 998;
+  background-color: rgba(20, 25, 35, 0.28);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px); /* Imprescindible para Safari en iPhone y Mac */
+  animation: backdropFadeIn 0.15s ease-out forwards;
+}
+
+@keyframes backdropFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
