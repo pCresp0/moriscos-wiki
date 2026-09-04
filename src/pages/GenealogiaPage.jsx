@@ -1,10 +1,21 @@
-import React, { useEffect, useRef } from 'react';
-import { Award, Trees } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
+import { Award, Trees, ZoomIn, X } from 'lucide-react';
 import { personajes } from '../data/personajesData';
 import Markdown from '../components/Markdown';
 
 export default function GenealogiaPage({ target }) {
   const targetRef = useRef(null);
+  const [activeImage, setActiveImage] = useState(null);
+
+  useEffect(() => {
+    if (!activeImage) return;
+    const onKey = (e) => {
+      if (e.key === 'Escape') setActiveImage(null);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [activeImage]);
 
   useEffect(() => {
     if (!target || !targetRef.current) return;
@@ -33,6 +44,58 @@ export default function GenealogiaPage({ target }) {
           tradicionales (Blanco, Romo, Pedraz, Crespo, Salvador, Domínguez, García...) entrelazan la historia del
           municipio con las localidades vecinas de Castellanos de Moriscos, Cabrerizos y Aldealengua.
         </p>
+      </div>
+
+      {/* Tarjeta fotográfica del Cementerio Municipal */}
+      <div className="mt-8 overflow-hidden rounded-3xl border border-piedra-border/40 bg-noche-card shadow-2xl">
+        <div className="grid md:grid-cols-12 gap-0 items-center">
+          <div className="md:col-span-4 bg-noche relative">
+            <button
+              type="button"
+              onClick={() =>
+                setActiveImage({
+                  src: '/moriscos-wiki/images/moriscos-cementerio-cenital.jpg',
+                  alt: 'Vista aérea cenital del Cementerio Municipal de Moriscos',
+                  caption:
+                    'Plano cenital a 90° del Cementerio Municipal de Moriscos: tapias encaladas, panteones con teja árabe y reposo de las familias morisqueñas entre las tierras de labor (Fotografía: Pablo Crespo Bellido).',
+                })
+              }
+              className="group relative block w-full h-[260px] md:h-[300px] overflow-hidden cursor-zoom-in"
+              aria-label="Ampliar vista cenital del cementerio"
+            >
+              <img
+                src="/moriscos-wiki/images/moriscos-cementerio-cenital.jpg"
+                alt="Plano cenital del Cementerio Municipal de Moriscos"
+                className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                width="576"
+                height="1024"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-noche/90 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-pergamino-muted bg-noche/85 p-2 rounded-xl border border-piedra-400/25 backdrop-blur-md">
+                <span className="font-serif font-medium truncate">Plano cenital · Camposanto</span>
+                <span className="inline-flex items-center gap-1 text-armuna-light font-semibold shrink-0">
+                  <ZoomIn size={13} /> Ampliar
+                </span>
+              </div>
+            </button>
+          </div>
+
+          <div className="md:col-span-8 p-6 sm:p-8 flex flex-col justify-between">
+            <div>
+              <p className="kicker">Memoria y reposo</p>
+              <h2 className="mt-1 font-serif text-2xl font-bold text-pergamino">
+                El Cementerio Municipal y el descanso de nuestros mayores
+              </h2>
+              <p className="mt-3 text-sm sm:text-base text-pergamino-muted/80 leading-relaxed">
+                Situado a las afueras del casco urbano en el camino rural hacia la vega, el camposanto municipal de Moriscos guarda el recuerdo y las raíces de las estirpes familiares que han trabajado esta tierra generación tras generación. Su trazado sobrio, rodeado de campos cerealistas en silencio, es el fiel reflejo de la historia viva de nuestra comunidad.
+              </p>
+            </div>
+            <div className="mt-4 pt-3 border-t border-piedra-border/40 flex items-center justify-between text-xs text-pergamino-muted/70">
+              <span>Camino del Cementerio · Moriscos</span>
+              <span className="font-medium text-armuna-light">Fotografía: Pablo Crespo Bellido</span>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="mt-14">
@@ -85,6 +148,51 @@ export default function GenealogiaPage({ target }) {
           Ayer y Hoy&raquo;, con más de 250 morisqueños identificados desde 1930.
         </p>
       </div>
+
+      {/* Modal Lightbox para la foto del cementerio */}
+      {activeImage &&
+        createPortal(
+          <div
+            className="dialog-content fixed inset-0 z-[400] flex flex-col items-center justify-center bg-black/90 p-4 sm:p-6 backdrop-blur-md"
+            data-state="open"
+            role="dialog"
+            aria-modal="true"
+            aria-label={activeImage.alt || 'Imagen ampliada'}
+            onClick={() => setActiveImage(null)}
+          >
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                setActiveImage(null);
+              }}
+              aria-label="Cerrar imagen ampliada"
+              className="fixed z-[410] inline-flex h-12 w-12 items-center justify-center rounded-full bg-white text-noche shadow-xl cursor-pointer active:scale-95 transition-transform hover:scale-105"
+              style={{
+                top: 'calc(env(safe-area-inset-top, 0px) + 12px)',
+                right: 'calc(env(safe-area-inset-right, 0px) + 12px)',
+              }}
+            >
+              <X size={28} strokeWidth={2.5} />
+            </button>
+            <div
+              className="flex flex-col items-center max-w-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={activeImage.src}
+                alt={activeImage.alt}
+                className="max-h-[75vh] max-w-[92vw] rounded-2xl object-contain shadow-2xl ring-1 ring-white/10"
+              />
+              {activeImage.caption && (
+                <p className="mt-3 text-center text-sm sm:text-base font-serif text-pergamino-muted max-w-2xl bg-noche/85 px-4 py-2.5 rounded-xl border border-piedra-400/25 shadow-lg backdrop-blur-sm">
+                  {activeImage.caption}
+                </p>
+              )}
+            </div>
+          </div>,
+          document.body,
+        )}
     </div>
   );
 }

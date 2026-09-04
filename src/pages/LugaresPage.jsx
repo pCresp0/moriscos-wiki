@@ -24,6 +24,12 @@ const emblematicos = [
       'El edificio más monumental del pueblo, una de las "Catedrales de La Armuña". Con orígenes entre los siglos XII y XVI, alberga el retablo mayor rococó, armaduras de madera y el lienzo barroco restaurado de la Virgen Peregrina.',
     tab: 'iglesia',
   },
+  {
+    title: 'Cementerio Municipal',
+    description:
+      'Emplazado a las afueras del casco urbano en el camino rural hacia la campiña. Con sus tapias encaladas y panteones tradicionales, custodia la memoria familiar y el reposo de las generaciones morisqueñas en el sosiego de la campiña.',
+    tab: 'genealogia',
+  },
 ];
 
 const parajes = [
@@ -38,6 +44,12 @@ const parajes = [
     description:
       'Depresión endorreica en el alto de una colina en cresta, que le da nombre. Punto de agua clave para el ganado; sus márgenes fueron reforestados por la Asociación de Cazadores local como refugio y criadero de la perdiz roja.',
     tab: 'ruta-nocturna',
+  },
+  {
+    title: 'Abrevadero Comunal y Pilas Ganaderas',
+    description:
+      'Infraestructura tradicional pecuaria en los caminos rurales de concentración parcelaria. Dispone de largas pilas de hormigón y caseta de manantial/bomba para dar de beber al ganado ovino y vacuno entre los campos de cereal.',
+    tab: 'galeria',
   },
   {
     title: 'Pago de Valdepega',
@@ -282,6 +294,38 @@ export default function LugaresPage({ onNavigate }) {
               </div>
             </button>
           </div>
+        </div>
+
+        {/* Abrevadero comunal de caminos de labor */}
+        <div className="mt-6 overflow-hidden rounded-2xl border border-piedra-border/40 bg-noche-card shadow-lg">
+          <button
+            type="button"
+            onClick={() =>
+              setActiveImage({
+                src: '/moriscos-wiki/images/moriscos-abrevadero-fuente.jpg',
+                alt: 'Vista aérea cenital del abrevadero comunal y pilas ganaderas de Moriscos',
+                caption:
+                  'Abrevadero ganadero y fuente en los caminos de concentración de Moriscos: largas pilas de abrevada para ganado ovino y vacuno entre parcelas de cereal de La Armuña (Fotografía: Pablo Crespo Bellido).',
+              })
+            }
+            className="group relative block w-full h-[220px] sm:h-[290px] overflow-hidden cursor-zoom-in"
+            aria-label="Ampliar fotografía del abrevadero ganadero"
+          >
+            <img
+              src="/moriscos-wiki/images/moriscos-abrevadero-fuente.jpg"
+              alt="Abrevadero comunal y pilas ganaderas de Moriscos"
+              className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+              width="1024"
+              height="576"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-noche/90 via-noche/20 to-transparent pointer-events-none" />
+            <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-pergamino-muted bg-noche/85 p-2.5 rounded-xl border border-piedra-400/25 backdrop-blur-md">
+              <span className="font-serif font-medium truncate">Abrevadero comunal y pilas ganaderas · Caminos de concentración</span>
+              <span className="inline-flex items-center gap-1 text-armuna-light font-semibold shrink-0">
+                <ZoomIn size={13} /> Ampliar
+              </span>
+            </div>
+          </button>
         </div>
       </div>
 
