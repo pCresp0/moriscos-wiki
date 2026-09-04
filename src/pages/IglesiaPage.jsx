@@ -64,26 +64,26 @@ export default function IglesiaPage() {
           type="button"
           onClick={() =>
             setActiveImage({
-              src: '/moriscos-wiki/images/iglesia-san-pedro-exterior.jpg',
-              alt: 'Fachada y torre campanario de la Iglesia de San Pedro Apóstol de Moriscos',
+              src: '/moriscos-wiki/images/iglesia-san-pedro-aerea.jpg',
+              alt: 'Vista aérea de la Iglesia de San Pedro Apóstol de Moriscos, su atrio y el entorno urbano',
               caption:
-                'Iglesia parroquial de San Pedro Apóstol de Moriscos (siglos XII–XVI): torre campanario con nido de cigüeña y veleta, atrio exterior con cruz de piedra y portada renacentista con arco de medio punto.',
+                'Perspectiva aérea de la Iglesia Parroquial de San Pedro Apóstol de Moriscos: nave única, esbelta torre campanario de sillería, tejados de teja árabe, atrio exterior con cruz de piedra y su emplazamiento en el centro del pueblo.',
             })
           }
           className="group relative block w-full h-[280px] sm:h-[420px] md:h-[500px] overflow-hidden cursor-zoom-in"
-          aria-label="Ampliar imagen exterior de la Iglesia de San Pedro Apóstol"
+          aria-label="Ampliar vista aérea de la Iglesia de San Pedro Apóstol"
         >
           <img
-            src="/moriscos-wiki/images/iglesia-san-pedro-exterior.jpg"
-            alt="Fachada y torre campanario de la Iglesia de San Pedro Apóstol de Moriscos"
+            src="/moriscos-wiki/images/iglesia-san-pedro-aerea.jpg"
+            alt="Vista aérea de la Iglesia de San Pedro Apóstol de Moriscos, su atrio y el entorno urbano"
             className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
             width="1024"
-            height="757"
+            height="576"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-noche/90 via-noche/25 to-transparent pointer-events-none" />
           <span className="absolute bottom-4 left-4 right-4 sm:left-6 sm:right-6 flex items-center justify-between gap-2 text-xs sm:text-sm text-pergamino-muted bg-noche/85 p-3 rounded-xl border border-piedra-400/25 backdrop-blur-md">
             <span className="font-serif font-medium truncate">
-              Iglesia parroquial de San Pedro Apóstol: torre campanario y atrio exterior
+              Iglesia parroquial de San Pedro Apóstol: vista aérea de conjunto, atrio y plaza
             </span>
             <span className="inline-flex items-center gap-1.5 text-armuna-light font-semibold shrink-0">
               <ZoomIn size={15} /> Ampliar
@@ -111,13 +111,50 @@ export default function IglesiaPage() {
           </p>
         </div>
 
-        <div className="card-editorial p-6 sm:p-8">
-          <h2 className="font-serif text-xl sm:text-2xl font-bold text-armuna-light">
-            Arquitectura y estructura del templo
-          </h2>
-          <p className="mt-3 text-pergamino-muted/80 leading-relaxed">
-            Templo de <strong>nave única</strong>, con muros sólidos y proporciones sobrias típicas de la arquitectura rural de La Armuña. Posee un ábside fortalecido y una espadaña-torre de cantería que remata el templo para albergar las campanas. En su interior destacan las valiosas armaduras y techumbres de madera que cubren la capilla mayor, la antecapilla y la nave central, muestra de la carpintería de lo blanco tradicional.
-          </p>
+        {/* Arquitectura con detalle de la torre campanario y cigüeñas */}
+        <div className="card-editorial p-6 sm:p-8 flex flex-col md:flex-row gap-6 items-center md:items-start">
+          <button
+            type="button"
+            onClick={() =>
+              setActiveImage({
+                src: '/moriscos-wiki/images/iglesia-torre-ciguenas.jpg',
+                alt: 'Torre campanario de la Iglesia de San Pedro Apóstol con nido de cigüeñas y veleta de forja',
+                caption:
+                  'Primer plano aéreo de la torre campanario de San Pedro Apóstol: cantería dorada de Villamayor, tejado a cuatro aguas de teja árabe, veleta de hierro forjado con cruz y sol radiante, y una pareja de cigüeñas blancas en su nido con los campos de La Armuña al fondo.',
+              })
+            }
+            className="group relative shrink-0 w-48 sm:w-60 h-72 sm:h-80 rounded-2xl bg-noche-surface border border-piedra-400/25 p-2 overflow-hidden shadow-xl cursor-zoom-in transition-all hover:border-armuna-light/60 hover:shadow-armuna-light/10"
+            aria-label="Ampliar detalle de la torre y nido de cigüeñas"
+          >
+            <img
+              src="/moriscos-wiki/images/iglesia-torre-ciguenas.jpg"
+              alt="Detalle de la torre campanario de San Pedro con nido de cigüeñas"
+              className="h-full w-full object-cover rounded-xl transition-transform duration-300 group-hover:scale-105"
+              width="575"
+              height="1024"
+            />
+            <span className="absolute inset-0 flex items-center justify-center rounded-2xl bg-black/40 text-pergamino opacity-0 transition-opacity group-hover:opacity-100">
+              <ZoomIn size={28} />
+            </span>
+            <span className="absolute bottom-2 right-2 text-[10px] font-sans tracking-wide text-pergamino-muted bg-noche/90 px-2 py-0.5 rounded border border-piedra-400/20 backdrop-blur-xs">
+              Ver torre
+            </span>
+          </button>
+
+          <div className="flex-1 min-w-0">
+            <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-armuna-light">
+              Fábrica y elementos
+            </span>
+            <h2 className="mt-1 font-serif text-xl sm:text-2xl font-bold text-armuna-light">
+              Arquitectura, espadaña-torre y techumbres mudéjares
+            </h2>
+            <p className="mt-3 text-pergamino-muted/85 leading-relaxed text-sm sm:text-base">
+              Templo de <strong>nave única</strong> con muros sólidos y proporciones sobrias típicas de la arquitectura rural de La Armuña. Su elemento más representativo al exterior es la <strong>espadaña-torre de cantería</strong> labrada en arenisca dorada, rematada por un tejado de teja árabe a cuatro aguas y coronada por una veleta de forja tradicional con cruz y sol radiante. En el alero anida permanentemente una colonia de cigüeñas blancas, estampas inconfundibles del paisaje salmantino.
+            </p>
+            <p className="mt-3 text-pergamino-muted/80 leading-relaxed text-sm sm:text-base">
+              En su interior destacan las valiosas armaduras y techumbres de madera que cubren la capilla mayor, la antecapilla y la nave central, una singular muestra conservada de la <strong>carpintería de lo blanco mudéjar</strong> tradicional.
+            </p>
+          </div>
         </div>
 
         {/* Sección destacada: La Virgen Peregrina */}

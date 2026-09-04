@@ -218,6 +218,71 @@ export default function LugaresPage({ onNavigate }) {
             </div>
           ))}
         </div>
+
+        {/* Galería de entorno: rodal de encinas y campos ondulados */}
+        <div className="mt-8 grid gap-5 sm:grid-cols-2">
+          <div className="overflow-hidden rounded-2xl border border-piedra-border/40 bg-noche-card shadow-lg">
+            <button
+              type="button"
+              onClick={() =>
+                setActiveImage({
+                  src: '/moriscos-wiki/images/armuna-rodal-arboles.jpg',
+                  alt: 'Rodal de encinas y arbolado autóctono entre las parcelas de cereal de La Armuña',
+                  caption:
+                    'Isla de arbolado autóctono en el término de Moriscos: estos rodales de encinas en mitad del cereal son refugios biológicos indispensables para la fauna esteparia, liebres y perdices de La Armuña.',
+                })
+              }
+              className="group relative block w-full h-[240px] sm:h-[280px] overflow-hidden cursor-zoom-in"
+              aria-label="Ampliar fotografía del rodal de encinas"
+            >
+              <img
+                src="/moriscos-wiki/images/armuna-rodal-arboles.jpg"
+                alt="Rodal de encinas en mitad del cereal de secano"
+                className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                width="576"
+                height="1024"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-noche/90 via-noche/20 to-transparent pointer-events-none" />
+              <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-pergamino-muted bg-noche/85 p-2.5 rounded-xl border border-piedra-400/25 backdrop-blur-md">
+                <span className="font-serif font-medium truncate">Rodal de encinas · Refugio biológico</span>
+                <span className="inline-flex items-center gap-1 text-armuna-light font-semibold shrink-0">
+                  <ZoomIn size={13} /> Ampliar
+                </span>
+              </div>
+            </button>
+          </div>
+
+          <div className="overflow-hidden rounded-2xl border border-piedra-border/40 bg-noche-card shadow-lg">
+            <button
+              type="button"
+              onClick={() =>
+                setActiveImage({
+                  src: '/moriscos-wiki/images/armuna-campos-verdes.jpg',
+                  alt: 'Perspectiva aérea de los campos ondulados de La Armuña bajo sombras de nubes',
+                  caption:
+                    'Ondulaciones y manto de cultivo de La Armuña: la penillanura salmantina vista desde el cielo, surcada por las sombras de nubes y los caminos rurales que unen los pagos tradicionales.',
+                })
+              }
+              className="group relative block w-full h-[240px] sm:h-[280px] overflow-hidden cursor-zoom-in"
+              aria-label="Ampliar fotografía de los campos ondulados"
+            >
+              <img
+                src="/moriscos-wiki/images/armuna-campos-verdes.jpg"
+                alt="Campos ondulados y horizonte de La Armuña"
+                className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                width="576"
+                height="1024"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-noche/90 via-noche/20 to-transparent pointer-events-none" />
+              <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-pergamino-muted bg-noche/85 p-2.5 rounded-xl border border-piedra-400/25 backdrop-blur-md">
+                <span className="font-serif font-medium truncate">Ondulaciones de la penillanura armuñesa</span>
+                <span className="inline-flex items-center gap-1 text-armuna-light font-semibold shrink-0">
+                  <ZoomIn size={13} /> Ampliar
+                </span>
+              </div>
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Campiña y labores de la cosecha en La Armuña */}

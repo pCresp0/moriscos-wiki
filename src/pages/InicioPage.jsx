@@ -114,6 +114,15 @@ const panoramas = [
     caption:
       'Panorámica aérea de Moriscos de noche (09 de agosto de 2026): el casco urbano y las nuevas urbanizaciones iluminadas, con la iglesia parroquial en el centro y las dehesas armuñesas en la penumbra.',
   },
+  {
+    id: 'primavera',
+    label: '🌱 Primavera · Campo verde',
+    src: '/moriscos-wiki/images/moriscos-panoramica-primavera.jpg',
+    alt: 'Panorámica aérea de Moriscos en primavera rodeado de campos verdes en La Armuña',
+    badge: 'Moriscos y el verdor primaveral de La Armuña',
+    caption:
+      'Panorámica aérea de Moriscos en primavera: el pueblo rodeado por el manto verde de las parcelas de cereal naciente y legumbres de La Armuña, con el horizonte abierto hacia la vega del Tormes.',
+  },
 ];
 
 export default function InicioPage({ onNavigate }) {
