@@ -1,6 +1,5 @@
 import React, { Suspense, lazy, useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import VisitorStatsModal from '../components/VisitorStatsModal';
 import { counters } from '../data/site';
 import { ZoomIn, X } from 'lucide-react';
 
@@ -169,16 +168,6 @@ export default function InicioPage({ onNavigate }) {
             lenteja de La Armuña y el singular cultivo del zumaque&mdash;, ha ido dando paso en las últimas décadas a su
             integración en el área metropolitana de Salamanca.
           </p>
-        </div>
-        <div className="mt-8 flex flex-wrap items-center gap-4">
-          <button
-            type="button"
-            onClick={() => onNavigate('libro')}
-            className="btn-secondary cursor-pointer"
-          >
-            Descubre toda la historia en El Libro
-          </button>
-          <VisitorStatsModal />
         </div>
 
         {/* Galería Panorámica aérea interactiva (Atardecer / Noche) */}

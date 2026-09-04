@@ -1,5 +1,6 @@
 import React from 'react';
 import { Github, Linkedin, Mail } from 'lucide-react';
+import VisitorStatsModal from './VisitorStatsModal';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -56,6 +57,9 @@ export default function Footer() {
           <p className="text-xs text-pergamino-muted/60">
             &copy; {year} · Moriscos
           </p>
+          <div className="mt-2">
+            <VisitorStatsModal />
+          </div>
         </div>
       </div>
     </footer>
