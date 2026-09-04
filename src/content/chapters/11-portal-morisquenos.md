@@ -6,9 +6,9 @@ order: 11
 readingMinutes: 10
 ---
 
-## El proyecto digital "Morisqueños" y su marco institucional
+## El proyecto digital "Morisqueños" y su marco documental
 
-La conservación y divulgación del patrimonio de Moriscos ha encontrado su principal precedente en la plataforma **«Morisqueños - Memoria e historia de Moriscos»** (moriscos.info), un proyecto pionero de microhistoria participativa articulado en torno a tres objetivos: servir de punto de encuentro para vecinos, emigrados y simpatizantes; investigar y divulgar la historia y etnografía del municipio; y canalizar la colaboración ciudadana mediante buzón de correo, libro de visitas y foros.
+La conservación y divulgación del patrimonio de Moriscos ha encontrado su principal referente en la plataforma [**«Morisqueños - Memoria e historia de Moriscos»**](https://sites.google.com/view/morisquenos/resena-historica), un proyecto pionero de microhistoria participativa articulado en torno a tres objetivos: servir de punto de encuentro para vecinos, emigrados y simpatizantes; investigar y divulgar la historia y etnografía del municipio a través de su exhaustiva **Reseña Histórica**, el vaciado del **Catastro de 1752**, el estudio de tratamientos **«DONes y ELes»** y la sección **«Ventanas del Ayer»**; y canalizar la colaboración ciudadana mediante buzón de correo, libro de visitas y foros.
 
 ## La Distinción de Morisqueño y el Bosque Genealógico (1645)
 

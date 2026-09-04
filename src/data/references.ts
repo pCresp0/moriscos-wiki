@@ -37,6 +37,22 @@ export const referencesData: ReferenceItem[] = [
     ],
   },
   {
+    id: 'morisquenos-resena-historica',
+    titulo: 'Reseña Histórica de Moriscos (Portal Morisqueños)',
+    autorInstitucion: 'Portal de Memoria Local y Archivo Histórico Morisqueños',
+    anioRegistro: '2003 - Actualidad',
+    categoria: 'digital',
+    tipoFuente: 'Compilación y Cronología Histórica Documental',
+    url: 'https://sites.google.com/view/morisquenos/resena-historica',
+    aportacionHistorica: [
+      'Cronología documental exhaustiva de Moriscos desde la Antigüedad y la repoblación de 1102 hasta las reformas municipales contemporáneas.',
+      'Transcripción de escrituras y legajos notariales: compraventas medievales en Castellanos de Morisco (1289) y El Hoyo (1398), pleito en Chancillería de 1594 y censos de pecheros de 1528 y 1591.',
+      'Memoria trágica de la invasión francesa de 1812: testimonio manuscrito del párroco Francisco Palomero Ábila y padecimientos vecinales en Velasco Muñoz.',
+      'Documentación de hitos contemporáneos: tormenta de pedrisco de 1890 (tren de socorro salmantino), primer teléfono en 1966, anexión de 1976 y segregación por Real Decreto en 1982.',
+      'Análisis crítico del origen del topónimo Moriscos como comunidad andalusí previa a las pragmáticas de 1502 y 1609.',
+    ],
+  },
+  {
     id: 'escritura-1164',
     titulo: 'Escritura de compraventa eclesiástica de la aldea de Mozodiel',
     autorInstitucion: 'Pedro Juan / Canónigo D. Martín (Archivo Catedralicio de Salamanca)',

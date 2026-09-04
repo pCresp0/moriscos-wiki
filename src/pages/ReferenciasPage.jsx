@@ -31,6 +31,25 @@ export default function ReferenciasPage({ target }) {
         Principales fuentes históricas, legajos de archivos eclesiásticos y estatales, monografías académicas, crónicas de prensa y portales digitales de los que se han extraído y contrastado los datos de esta web.
       </p>
 
+      {/* Reconocimiento especial a la web Morisqueños */}
+      <div className="mt-6 rounded-2xl border border-armuna/35 bg-noche-surface/80 p-4 sm:p-5 shadow-lg backdrop-blur-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="text-sm text-pergamino-muted/85 leading-relaxed">
+          <p>
+            <strong className="text-armuna-light font-serif text-base block mb-0.5">Agradecimiento y fuente documental destacada:</strong>
+            Buena parte de los datos cronológicos, transcripciones notariales y referencias históricas de Moriscos han sido obtenidos y contrastados a partir de la labor de investigación del portal{' '}
+            <strong className="text-pergamino">Morisqueños</strong> y su monografía de{' '}
+            <a
+              href="https://sites.google.com/view/morisquenos/resena-historica"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-armuna-light font-semibold hover:underline inline-flex items-center gap-1"
+            >
+              Reseña Histórica <ExternalLink size={13} />
+            </a>.
+          </p>
+        </div>
+      </div>
+
       {/* Filtros */}
       <div className="mt-8 flex flex-wrap items-center gap-2">
         <button
