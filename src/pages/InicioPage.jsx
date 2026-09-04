@@ -1,7 +1,7 @@
 import React, { Suspense, lazy, useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { counters } from '../data/site';
-import { ZoomIn, X } from 'lucide-react';
+import { ZoomIn, X, Download } from 'lucide-react';
 
 const TownLocationMap = lazy(() => import('../components/TownLocationMap'));
 import {
@@ -99,6 +99,8 @@ const panoramas = [
     id: 'atardecer',
     label: '🌅 Al atardecer · 18 jul 2026',
     src: '/moriscos-wiki/images/moriscos-panoramica-atardecer.jpg',
+    originalSrc: '/moriscos-wiki/images/originals/moriscos-panoramica-atardecer-original.jpg',
+    originalSize: '5,7 MB',
     alt: 'Panorámica aérea de Moriscos al atardecer sobre los campos de La Armuña tomada el 18 de julio de 2026',
     badge: 'Moriscos al atardecer · 18 de julio de 2026',
     caption:
@@ -108,6 +110,8 @@ const panoramas = [
     id: 'noche',
     label: '🌙 De noche · 09 ago 2026',
     src: '/moriscos-wiki/images/moriscos-panoramica-noche.jpg',
+    originalSrc: '/moriscos-wiki/images/originals/moriscos-panoramica-noche-original.jpg',
+    originalSize: '5,2 MB',
     alt: 'Panorámica aérea de Moriscos de noche iluminado tomada el 09 de agosto de 2026',
     badge: 'Moriscos de noche · 09 de agosto de 2026',
     caption:
@@ -117,6 +121,8 @@ const panoramas = [
     id: 'primavera',
     label: '🌱 Primavera · 23 mar 2025',
     src: '/moriscos-wiki/images/moriscos-panoramica-primavera.jpg',
+    originalSrc: '/moriscos-wiki/images/originals/moriscos-panoramica-primavera-original.jpg',
+    originalSize: '7,8 MB',
     alt: 'Panorámica aérea de Moriscos empezando la primavera tomada el 23 de marzo de 2025',
     badge: 'Moriscos empezando la primavera · 23 de marzo de 2025',
     caption:
@@ -201,6 +207,8 @@ export default function InicioPage({ onNavigate }) {
                 src: currentPano.src,
                 alt: currentPano.alt,
                 caption: currentPano.caption,
+                originalSrc: currentPano.originalSrc,
+                originalSize: currentPano.originalSize,
               })
             }
             className="group relative block w-full h-[260px] sm:h-[400px] md:h-[480px] overflow-hidden cursor-zoom-in"
@@ -336,6 +344,20 @@ export default function InicioPage({ onNavigate }) {
                 <p className="mt-3 text-center text-sm sm:text-base font-serif text-pergamino-muted max-w-2xl bg-noche/85 px-4 py-2.5 rounded-xl border border-piedra-400/25 shadow-lg backdrop-blur-sm">
                   {activeImage.caption}
                 </p>
+              )}
+              {activeImage.originalSrc && (
+                <div className="mt-3">
+                  <a
+                    href={activeImage.originalSrc}
+                    download="moriscos-panoramica-master.jpg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-xl bg-armuna px-4 py-2 text-xs sm:text-sm font-bold text-noche hover:bg-armuna-light transition-all shadow-md cursor-pointer hover:scale-[1.02]"
+                  >
+                    <Download size={15} strokeWidth={2.5} />
+                    <span>Descargar original en máxima resolución ({activeImage.originalSize})</span>
+                  </a>
+                </div>
               )}
             </div>
           </div>,

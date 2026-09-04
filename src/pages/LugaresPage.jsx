@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { ZoomIn, X } from 'lucide-react';
+import { ZoomIn, X, Download } from 'lucide-react';
 
 const emblematicos = [
   {
@@ -158,6 +158,8 @@ export default function LugaresPage({ onNavigate }) {
               alt: 'Panorámica aérea de Moriscos al atardecer sobre los campos de La Armuña tomada el 18 de julio de 2026',
               caption:
                 'Panorámica aérea de Moriscos al atardecer (18 de julio de 2026): vista completa de la morfología del pueblo, con la silueta de la torre de San Pedro en el centro, rodeada por el mosaico de campos de cultivo de La Armuña (Fotografía: Pablo Crespo Bellido).',
+              originalSrc: '/moriscos-wiki/images/originals/moriscos-panoramica-atardecer-original.jpg',
+              originalSize: '5,7 MB',
             })
           }
           className="group relative block w-full h-[250px] sm:h-[380px] md:h-[440px] overflow-hidden cursor-zoom-in"
@@ -247,6 +249,8 @@ export default function LugaresPage({ onNavigate }) {
                   alt: 'Campos de cultivo aledaños y rodal de encinas tomado el 23 de marzo de 2025',
                   caption:
                     'Campos de cultivo aledaños y rodal de encinas en Moriscos (23 de marzo de 2025): estos rodales en mitad del cereal son refugios biológicos indispensables para la fauna esteparia de La Armuña (Fotografía: Pablo Crespo Bellido).',
+                  originalSrc: '/moriscos-wiki/images/originals/armuna-rodal-arboles-original.jpg',
+                  originalSize: '10,8 MB',
                 })
               }
               className="group relative block w-full h-[240px] sm:h-[280px] overflow-hidden cursor-zoom-in"
@@ -278,6 +282,8 @@ export default function LugaresPage({ onNavigate }) {
                   alt: 'Campos aledaños a Moriscos y horizontes abiertos tomados el 23 de marzo de 2025',
                   caption:
                     'Campos aledaños a Moriscos y horizontes abiertos (23 de marzo de 2025): la penillanura salmantina vista desde el cielo, surcada por las sombras de nubes (Fotografía: Pablo Crespo Bellido).',
+                  originalSrc: '/moriscos-wiki/images/originals/armuna-campos-verdes-original.jpg',
+                  originalSize: '10,7 MB',
                 })
               }
               className="group relative block w-full h-[240px] sm:h-[280px] overflow-hidden cursor-zoom-in"
@@ -311,6 +317,8 @@ export default function LugaresPage({ onNavigate }) {
                 alt: 'Vista aérea cenital de Los Pilones (abrevadero comunal) tomada el 22 de marzo de 2025',
                 caption:
                   'Los Pilones: abrevadero comunal y pilas ganaderas en los caminos de concentración de Moriscos (22 de marzo de 2025): infraestructura agropecuaria tradicional (Fotografía: Pablo Crespo Bellido).',
+                originalSrc: '/moriscos-wiki/images/originals/moriscos-abrevadero-fuente-original.jpg',
+                originalSize: '8,4 MB',
               })
             }
             className="group relative block w-full h-[220px] sm:h-[290px] overflow-hidden cursor-zoom-in"
@@ -346,6 +354,8 @@ export default function LugaresPage({ onNavigate }) {
                   alt: 'Tractor transportando alpacas de paja al atardecer en Moriscos tomado el 15 de julio de 2025',
                   caption:
                     'Cosecha y empacado de cereal en La Armuña (15 de julio de 2025): un tractor con remolque de alpacas avanza junto a parcelas de girasoles y rastrojos, con la silueta de Moriscos al fondo bajo el ocaso estival (Fotografía: Pablo Crespo Bellido).',
+                  originalSrc: '/moriscos-wiki/images/originals/moriscos-cosecha-alpacas-original.jpg',
+                  originalSize: '155 KB',
                 })
               }
               className="group relative block w-full h-[320px] md:h-full overflow-hidden cursor-zoom-in"
@@ -469,6 +479,20 @@ export default function LugaresPage({ onNavigate }) {
                 <p className="mt-3 text-center text-sm sm:text-base font-serif text-pergamino-muted max-w-2xl bg-noche/85 px-4 py-2.5 rounded-xl border border-piedra-400/25 shadow-lg backdrop-blur-sm">
                   {activeImage.caption}
                 </p>
+              )}
+              {activeImage.originalSrc && (
+                <div className="mt-3">
+                  <a
+                    href={activeImage.originalSrc}
+                    download="moriscos-master.jpg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-xl bg-armuna px-4 py-2 text-xs sm:text-sm font-bold text-noche hover:bg-armuna-light transition-all shadow-md cursor-pointer hover:scale-[1.02]"
+                  >
+                    <Download size={15} strokeWidth={2.5} />
+                    <span>Descargar original en máxima resolución ({activeImage.originalSize})</span>
+                  </a>
+                </div>
               )}
             </div>
           </div>,

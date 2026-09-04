@@ -1,6 +1,6 @@
 import React, { Suspense, lazy, useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { ZoomIn, X } from 'lucide-react';
+import { ZoomIn, X, Download } from 'lucide-react';
 
 // Leaflet solo hace falta en esta página: se carga aparte para que el resto de
 // la web arranque con menos JavaScript.
@@ -40,6 +40,8 @@ export default function RutaNocturnaPage({ target }) {
               alt: 'Panorámica aérea de Moriscos de noche, punto de inicio de la Ruta Nocturna',
               caption:
                 'Panorámica aérea de Moriscos de noche (09 de agosto de 2026): el pueblo iluminado bajo el cielo estrellado de La Armuña, punto de encuentro y salida tradicional de la marcha nocturna hacia La Flecha. Fotografía: Pablo Crespo Bellido.',
+              originalSrc: '/moriscos-wiki/images/originals/moriscos-panoramica-noche-original.jpg',
+              originalSize: '5,2 MB',
             })
           }
           className="group relative block w-full h-[220px] sm:h-[320px] md:h-[380px] overflow-hidden cursor-zoom-in"
@@ -107,7 +109,21 @@ export default function RutaNocturnaPage({ target }) {
               />
               {activeImage.caption && (
                 <div className="p-4 bg-noche-surface border-t border-piedra-border text-center text-sm text-pergamino-muted font-serif">
-                  {activeImage.caption}
+                  <p>{activeImage.caption}</p>
+                  {activeImage.originalSrc && (
+                    <div className="mt-3 flex justify-center">
+                      <a
+                        href={activeImage.originalSrc}
+                        download="moriscos-panoramica-noche-master.jpg"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-xl bg-armuna px-4 py-2 text-xs sm:text-sm font-bold text-noche hover:bg-armuna-light transition-all shadow-md cursor-pointer hover:scale-[1.02]"
+                      >
+                        <Download size={15} strokeWidth={2.5} />
+                        <span>Descargar original en máxima resolución ({activeImage.originalSize})</span>
+                      </a>
+                    </div>
+                  )}
                 </div>
               )}
             </div>

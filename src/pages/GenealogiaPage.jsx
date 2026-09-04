@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Award, Trees, ZoomIn, X } from 'lucide-react';
+import { Award, Trees, ZoomIn, X, Download } from 'lucide-react';
 import { personajes } from '../data/personajesData';
 import Markdown from '../components/Markdown';
 
@@ -58,6 +58,8 @@ export default function GenealogiaPage({ target }) {
                   alt: 'Vista aérea cenital del Cementerio Municipal de Moriscos tomada el 23 de marzo de 2025',
                   caption:
                     'Plano cenital a 90° del Cementerio Municipal de Moriscos (23 de marzo de 2025): tapias encaladas, panteones con teja árabe y reposo de las familias morisqueñas entre las tierras de labor (Fotografía: Pablo Crespo Bellido).',
+                  originalSrc: '/moriscos-wiki/images/originals/moriscos-cementerio-cenital-original.jpg',
+                  originalSize: '10,3 MB',
                 })
               }
               className="group relative block w-full h-[260px] md:h-[300px] overflow-hidden cursor-zoom-in"
@@ -188,6 +190,20 @@ export default function GenealogiaPage({ target }) {
                 <p className="mt-3 text-center text-sm sm:text-base font-serif text-pergamino-muted max-w-2xl bg-noche/85 px-4 py-2.5 rounded-xl border border-piedra-400/25 shadow-lg backdrop-blur-sm">
                   {activeImage.caption}
                 </p>
+              )}
+              {activeImage.originalSrc && (
+                <div className="mt-3">
+                  <a
+                    href={activeImage.originalSrc}
+                    download="moriscos-cementerio-master.jpg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-xl bg-armuna px-4 py-2 text-xs sm:text-sm font-bold text-noche hover:bg-armuna-light transition-all shadow-md cursor-pointer hover:scale-[1.02]"
+                  >
+                    <Download size={15} strokeWidth={2.5} />
+                    <span>Descargar original en máxima resolución ({activeImage.originalSize})</span>
+                  </a>
+                </div>
               )}
             </div>
           </div>,

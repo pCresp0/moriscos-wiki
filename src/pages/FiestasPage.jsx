@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { ZoomIn, X } from 'lucide-react';
+import { ZoomIn, X, Download } from 'lucide-react';
 
 const otrasFiestas = [
   {
@@ -212,6 +212,8 @@ export default function FiestasPage() {
                 alt: 'Nuestra Señora de la Virgen de la Peregrina en su paso procesional',
                 caption:
                   'Nuestra Señora de la Virgen de la Peregrina en su paso procesional durante las Fiestas Patronales de Moriscos: ataviada con el manto carmesí bordado en oro, sombrero con conchas de Santiago y báculo de peregrina. Fotografía: Pablo Crespo Bellido.',
+                originalSrc: '/moriscos-wiki/images/originals/virgen-peregrina-original.jpg',
+                originalSize: '244 KB',
               })
             }
             className="group relative shrink-0 w-44 sm:w-56 h-64 sm:h-72 rounded-2xl bg-noche-surface border border-piedra-400/25 p-2.5 overflow-hidden shadow-xl cursor-zoom-in transition-all hover:border-armuna-light/60 hover:shadow-armuna-light/10"
@@ -368,6 +370,20 @@ export default function FiestasPage() {
                 <p className="mt-3 text-center text-sm sm:text-base font-serif text-pergamino-muted max-w-2xl bg-noche/85 px-4 py-2.5 rounded-xl border border-piedra-400/25 shadow-lg backdrop-blur-sm">
                   {activeImage.caption}
                 </p>
+              )}
+              {activeImage.originalSrc && (
+                <div className="mt-3">
+                  <a
+                    href={activeImage.originalSrc}
+                    download="virgen-peregrina-moriscos-master.jpg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-xl bg-armuna px-4 py-2 text-xs sm:text-sm font-bold text-noche hover:bg-armuna-light transition-all shadow-md cursor-pointer hover:scale-[1.02]"
+                  >
+                    <Download size={15} strokeWidth={2.5} />
+                    <span>Descargar original en máxima resolución ({activeImage.originalSize})</span>
+                  </a>
+                </div>
               )}
             </div>
           </div>,

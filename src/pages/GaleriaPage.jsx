@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
-import { ZoomIn, X, ChevronLeft, ChevronRight, Calendar, MapPin, Tag, ExternalLink, Camera } from 'lucide-react';
+import { ZoomIn, X, ChevronLeft, ChevronRight, Calendar, MapPin, Tag, ExternalLink, Camera, Download, Sparkles } from 'lucide-react';
 
 const categories = [
   { id: 'todas', label: 'Todas las fotos' },
@@ -22,11 +22,14 @@ export const galleryPhotos = [
     categoryLabel: 'Iglesia y Memoria',
     location: 'Plaza de la Iglesia · Casco urbano de Moriscos',
     src: '/moriscos-wiki/images/iglesia-san-pedro-aerea.jpg',
-    width: 1024,
-    height: 576,
+    originalSrc: '/moriscos-wiki/images/originals/iglesia-san-pedro-aerea-original.jpg',
+    originalResolution: '8064 × 4536 (36,6 MP)',
+    originalSize: '9,1 MB',
+    width: 3200,
+    height: 1800,
     aspect: 'horizontal',
     alt: 'Perspectiva aérea cenital de la Iglesia de San Pedro Apóstol de Moriscos tomada el 23 de marzo de 2025',
-    badge: '23 mar 2025 · Iglesia de Moriscos',
+    badge: '23 mar 2025 · Master 48 MP',
     description:
       'Perspectiva aérea de conjunto del templo de San Pedro Apóstol capturada la mañana del 23 de marzo de 2025: la nave única, la esbelta espadaña-torre de cantería de Villamayor, los tejados de teja curva árabe y el atrio cercado por petril de piedra en la plaza central.',
     tabLink: 'iglesia',
@@ -42,11 +45,14 @@ export const galleryPhotos = [
     categoryLabel: 'Iglesia y Memoria',
     location: 'Campanario de San Pedro · Moriscos',
     src: '/moriscos-wiki/images/iglesia-torre-ciguenas.jpg',
-    width: 575,
-    height: 1024,
+    originalSrc: '/moriscos-wiki/images/originals/iglesia-torre-ciguenas-original.jpg',
+    originalResolution: '3133 × 5570 (17,5 MP)',
+    originalSize: '5,1 MB',
+    width: 1440,
+    height: 2560,
     aspect: 'vertical',
     alt: 'Detalle aéreo de la torre campanario de San Pedro con nido y cigüeña blanca tomada el 23 de marzo de 2025',
-    badge: '23 mar 2025 · Nido y cigüeña',
+    badge: '23 mar 2025 · Master 17,5 MP',
     description:
       'Detalle aéreo en plano medio capturado el 23 de marzo de 2025: la espadaña-torre rematada por tejado a cuatro aguas, la veleta de forja tradicional con cruz y sol radiante, y una pareja de cigüeñas blancas descansando en su nido en el alero, con el campo de La Armuña al fondo.',
     tabLink: 'iglesia',
@@ -62,11 +68,14 @@ export const galleryPhotos = [
     categoryLabel: 'Panorámicas Aéreas',
     location: 'Vista aérea cenital · Término de Moriscos',
     src: '/moriscos-wiki/images/moriscos-panoramica-horizonte.jpg',
-    width: 1024,
-    height: 576,
+    originalSrc: '/moriscos-wiki/images/originals/moriscos-panoramica-horizonte-original.jpg',
+    originalResolution: '8064 × 4536 (36,6 MP)',
+    originalSize: '7,7 MB',
+    width: 3200,
+    height: 1800,
     aspect: 'horizontal',
     alt: 'Gran panorámica total de Moriscos tomada el 23 de marzo de 2025 con cielo de nubes y horizonte hacia Salamanca',
-    badge: '23 mar 2025 · Panorámica total',
+    badge: '23 mar 2025 · Master 48 MP',
     description:
       'Gran panorámica aérea de gran angular tomada el 23 de marzo de 2025: el caserío de Moriscos en el centro de la llanura de La Armuña, con sombras dinámicas de nubes proyectadas sobre las parcelas verdes y la silueta de Salamanca en el horizonte.',
     tabLink: 'lugares',
@@ -82,11 +91,14 @@ export const galleryPhotos = [
     categoryLabel: 'Panorámicas Aéreas',
     location: 'Término municipal de Moriscos',
     src: '/moriscos-wiki/images/moriscos-panoramica-primavera.jpg',
-    width: 1024,
-    height: 576,
+    originalSrc: '/moriscos-wiki/images/originals/moriscos-panoramica-primavera-original.jpg',
+    originalResolution: '8064 × 4536 (36,6 MP)',
+    originalSize: '7,8 MB',
+    width: 3200,
+    height: 1800,
     aspect: 'horizontal',
     alt: 'Fotografía aérea de Moriscos empezando la primavera tomada el 23 de marzo de 2025',
-    badge: '23 mar 2025 · Empezando la primavera',
+    badge: '23 mar 2025 · Master 48 MP',
     description:
       'Vista aérea capturada el 23 de marzo de 2025 al inicio de la estación primaveral: el pueblo agrupado en el llano castellano contrastando con el mosaico verde de los brotes de cereal y legumbres que alfombran el término municipal.',
     tabLink: 'lugares',
@@ -102,11 +114,14 @@ export const galleryPhotos = [
     categoryLabel: 'Campo y Faenas',
     location: 'Caminos de concentración · La Armuña',
     src: '/moriscos-wiki/images/moriscos-cosecha-alpacas.jpg',
-    width: 576,
-    height: 1024,
-    aspect: 'vertical',
+    originalSrc: '/moriscos-wiki/images/originals/moriscos-cosecha-alpacas-original.jpg',
+    originalResolution: '1024 × 576',
+    originalSize: '155 KB',
+    width: 1024,
+    height: 576,
+    aspect: 'horizontal',
     alt: 'Tractor transportando remolque de alpacas de paja de cereal al atardecer tomado el 15 de julio de 2025',
-    badge: '15 jul 2025 · Cosecha y alpacas',
+    badge: '15 jul 2025 · Cosecha estival',
     description:
       'Instantánea aérea capturada al caer la tarde del 15 de julio de 2025: un tractor traslada un remolque colmado de alpacas de paja por los caminos de labor, flanqueado por un campo de girasoles en flor y rastrojo segado, con el caserío de Moriscos al fondo bañado por la luz poniente.',
     tabLink: 'lugares',
@@ -122,11 +137,14 @@ export const galleryPhotos = [
     categoryLabel: 'Campo y Faenas',
     location: 'Los Pilones · Caminos de labor de Moriscos',
     src: '/moriscos-wiki/images/moriscos-abrevadero-fuente.jpg',
-    width: 1024,
-    height: 576,
+    originalSrc: '/moriscos-wiki/images/originals/moriscos-abrevadero-fuente-original.jpg',
+    originalResolution: '8064 × 4536 (36,6 MP)',
+    originalSize: '8,4 MB',
+    width: 3200,
+    height: 1800,
     aspect: 'horizontal',
     alt: 'Vista aérea cenital de Los Pilones (abrevadero y pilas ganaderas) tomada el 22 de marzo de 2025',
-    badge: '22 mar 2025 · Los Pilones',
+    badge: '22 mar 2025 · Master 48 MP',
     description:
       'Vista aérea de Los Pilones tomada el 22 de marzo de 2025: histórica infraestructura agropecuaria comunal compuesta por largas pilas corridas de hormigón y caseta de manantial/bombeo para abrevar a los rebaños de ovejas y vacas en los caminos de labor pecuaria.',
     tabLink: 'lugares',
@@ -142,11 +160,14 @@ export const galleryPhotos = [
     categoryLabel: 'Iglesia y Memoria',
     location: 'Camino del cementerio · Afueras de Moriscos',
     src: '/moriscos-wiki/images/moriscos-cementerio-cenital.jpg',
-    width: 576,
-    height: 1024,
-    aspect: 'vertical',
+    originalSrc: '/moriscos-wiki/images/originals/moriscos-cementerio-cenital-original.jpg',
+    originalResolution: '8064 × 4536 (36,6 MP)',
+    originalSize: '10,3 MB',
+    width: 2560,
+    height: 1440,
+    aspect: 'horizontal',
     alt: 'Plano cenital perpendicular a 90 grados del Cementerio Municipal de Moriscos tomado el 23 de marzo de 2025',
-    badge: '23 mar 2025 · Vista cenital',
+    badge: '23 mar 2025 · Master 48 MP',
     description:
       'Impresionante plano cenital directo a 90 grados capturado el 23 de marzo de 2025: el recinto rectangular con tapias encaladas de blanco, los panteones con cubiertas de teja árabe, las hileras de sepulturas y el silencio del camposanto en la campiña.',
     tabLink: 'genealogia',
@@ -162,11 +183,14 @@ export const galleryPhotos = [
     categoryLabel: 'Iglesia y Memoria',
     location: 'Llanura de Moriscos · La Armuña',
     src: '/moriscos-wiki/images/moriscos-cementerio-soledad.jpg',
-    width: 576,
-    height: 1024,
-    aspect: 'vertical',
+    originalSrc: '/moriscos-wiki/images/originals/moriscos-cementerio-soledad-original.jpg',
+    originalResolution: '8064 × 4536 (36,6 MP)',
+    originalSize: '10,4 MB',
+    width: 2560,
+    height: 1440,
+    aspect: 'horizontal',
     alt: 'Vista cenital alejada del Cementerio Municipal de Moriscos tomada el 23 de marzo de 2025',
-    badge: '23 mar 2025 · Vista alejada',
+    badge: '23 mar 2025 · Master 48 MP',
     description:
       'Perspectiva cenital en altura capturada el 23 de marzo de 2025: el camposanto de Moriscos como un reducto de serenidad emplazado en medio de las grandes franjas agrícolas de La Armuña, flanqueado por el camino rural de tierra.',
     tabLink: 'genealogia',
@@ -182,11 +206,14 @@ export const galleryPhotos = [
     categoryLabel: 'Campo y Faenas',
     location: 'Fincas de secano · Término de Moriscos',
     src: '/moriscos-wiki/images/armuna-rodal-arboles.jpg',
-    width: 576,
-    height: 1024,
-    aspect: 'vertical',
+    originalSrc: '/moriscos-wiki/images/originals/armuna-rodal-arboles-original.jpg',
+    originalResolution: '8064 × 4536 (36,6 MP)',
+    originalSize: '10,8 MB',
+    width: 2560,
+    height: 1440,
+    aspect: 'horizontal',
     alt: 'Toma aérea cenital de campos de cultivo y rodal de encinas tomada el 23 de marzo de 2025',
-    badge: '23 mar 2025 · Campos aledaños',
+    badge: '23 mar 2025 · Master 48 MP',
     description:
       'Toma aérea cenital capturada el 23 de marzo de 2025 que documenta los campos aledaños y un rodal de encinas autóctonas aislado en mitad del cereal, refugio biológico indispensable para la perdiz roja y liebres de La Armuña.',
     tabLink: 'lugares',
@@ -202,11 +229,14 @@ export const galleryPhotos = [
     categoryLabel: 'Campo y Faenas',
     location: 'Llanura de secano · Término de Moriscos',
     src: '/moriscos-wiki/images/armuna-campos-verdes.jpg',
-    width: 576,
-    height: 1024,
-    aspect: 'vertical',
-    alt: 'Vista aérea vertical de los campos aledaños a Moriscos tomada el 23 de marzo de 2025',
-    badge: '23 mar 2025 · Paisaje armuñés',
+    originalSrc: '/moriscos-wiki/images/originals/armuna-campos-verdes-original.jpg',
+    originalResolution: '8064 × 4536 (36,6 MP)',
+    originalSize: '10,7 MB',
+    width: 2560,
+    height: 1440,
+    aspect: 'horizontal',
+    alt: 'Vista aérea de los campos aledaños a Moriscos tomada el 23 de marzo de 2025',
+    badge: '23 mar 2025 · Master 48 MP',
     description:
       'Perspectiva cenital capturada el 23 de marzo de 2025 que retrata las suaves ondulaciones y franjas de labor en los campos aledaños a Moriscos bajo el cielo salmantino.',
     tabLink: 'lugares',
@@ -222,11 +252,14 @@ export const galleryPhotos = [
     categoryLabel: 'Panorámicas Aéreas',
     location: 'Vista aérea de Moriscos · La Armuña',
     src: '/moriscos-wiki/images/moriscos-panoramica-atardecer.jpg',
-    width: 1024,
-    height: 576,
+    originalSrc: '/moriscos-wiki/images/originals/moriscos-panoramica-atardecer-original.jpg',
+    originalResolution: '4032 × 2268 (4K UHD · 9,1 MP)',
+    originalSize: '5,7 MB',
+    width: 3200,
+    height: 1800,
     aspect: 'horizontal',
     alt: 'Panorámica aérea de Moriscos al atardecer tomada el 18 de julio de 2026 sobre los campos de La Armuña',
-    badge: '18 jul 2026 · Al atardecer',
+    badge: '18 jul 2026 · Master 4K UHD',
     description:
       'Perspectiva cenital y panorámica tomada el 18 de julio de 2026 al caer la tarde: la morfología del pueblo con la silueta de la torre de San Pedro sobresaliendo entre los tejados de teja curva y las parcelas cerealistas bajo el crepúsculo.',
     tabLink: 'inicio',
@@ -242,11 +275,14 @@ export const galleryPhotos = [
     categoryLabel: 'Panorámicas Aéreas',
     location: 'Vista aérea nocturna sobre el casco urbano',
     src: '/moriscos-wiki/images/moriscos-panoramica-noche.jpg',
-    width: 1024,
-    height: 576,
+    originalSrc: '/moriscos-wiki/images/originals/moriscos-panoramica-noche-original.jpg',
+    originalResolution: '4032 × 2268 (4K UHD · 9,1 MP)',
+    originalSize: '5,2 MB',
+    width: 3200,
+    height: 1800,
     aspect: 'horizontal',
     alt: 'Panorámica aérea nocturna de Moriscos tomada el 09 de agosto de 2026',
-    badge: '09 ago 2026 · De noche',
+    badge: '09 ago 2026 · Master 4K UHD',
     description:
       'Fotografía aérea nocturna tomada el 09 de agosto de 2026 durante las fechas festivas: el pueblo con sus calles y plazas iluminadas, punto de concentración y salida de la tradicional marcha nocturna hacia La Flecha.',
     tabLink: 'ruta-nocturna',
@@ -262,8 +298,11 @@ export const galleryPhotos = [
     categoryLabel: 'Fiestas y Tradición',
     location: 'Parroquia y calles del pueblo',
     src: '/moriscos-wiki/images/virgen-peregrina.jpg',
-    width: 676,
-    height: 1024,
+    originalSrc: '/moriscos-wiki/images/originals/virgen-peregrina-original.jpg',
+    originalResolution: '846 × 1280 (1,1 MP)',
+    originalSize: '244 KB',
+    width: 846,
+    height: 1280,
     aspect: 'vertical',
     alt: 'Imagen procesional de la Virgen Peregrina engalanada en sus fiestas patronales',
     badge: 'Fiestas patronales · Agosto',
@@ -282,6 +321,9 @@ export const galleryPhotos = [
     categoryLabel: 'Heráldica',
     location: 'Ayuntamiento de Moriscos',
     src: '/moriscos-wiki/images/escudo-moriscos-1024.jpg',
+    originalSrc: '/moriscos-wiki/images/escudo-moriscos-1024.jpg',
+    originalResolution: '1024 × 1024 (Vectorial oficial)',
+    originalSize: '360 KB',
     width: 1024,
     height: 1024,
     aspect: 'square',
@@ -447,8 +489,16 @@ export default function GaleriaPage({ onNavigate }) {
                     {photo.title}
                   </h2>
 
+                  {photo.originalResolution && (
+                    <div className="mt-1 flex flex-wrap items-center gap-1.5">
+                      <span className="font-mono text-[10px] text-armuna-light/90 bg-noche/70 px-2 py-0.5 rounded border border-armuna/25">
+                        4K Ultra-HD · Master: {photo.originalResolution.split('(')[1]?.replace(')', '') || photo.originalSize}
+                      </span>
+                    </div>
+                  )}
+
                   {photo.originalTitle && (
-                    <p className="mt-1 font-mono text-[11px] text-armuna-light/80 truncate">
+                    <p className="mt-1 font-mono text-[11px] text-pergamino-muted/70 truncate">
                       Título en archivo: {photo.originalTitle}
                     </p>
                   )}
@@ -519,8 +569,14 @@ export default function GaleriaPage({ onNavigate }) {
                   <span className="inline-flex items-center gap-1 text-pergamino font-bold">
                     <Calendar size={13} className="text-armuna-light" /> {currentPhoto.date}
                   </span>
-                  <span className="text-pergamino-muted/60">•</span>
-                  <span className="text-pergamino-muted font-normal">📸 {currentPhoto.author}</span>
+                  {currentPhoto.originalResolution && (
+                    <>
+                      <span className="text-pergamino-muted/60">•</span>
+                      <span className="inline-flex items-center gap-1 rounded-md bg-armuna/20 text-armuna-light px-2.5 py-0.5 border border-armuna/40 font-mono text-[11px]">
+                        <Sparkles size={11} /> 4K Ultra-HD · Master: {currentPhoto.originalResolution}
+                      </span>
+                    </>
+                  )}
                 </div>
                 <span className="text-xs font-mono font-medium text-pergamino-muted/70 shrink-0">
                   {activePhotoIndex + 1} / {filteredPhotos.length}
@@ -594,19 +650,35 @@ export default function GaleriaPage({ onNavigate }) {
                     </p>
                   </div>
 
-                  {currentPhoto.tabLink && (
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setActivePhotoIndex(null);
-                        onNavigate(currentPhoto.tabLink);
-                      }}
-                      className="inline-flex items-center gap-2 rounded-xl bg-armuna px-4 py-2.5 text-xs sm:text-sm font-bold text-noche hover:bg-armuna-light transition-colors shadow-md cursor-pointer shrink-0 self-start sm:self-center"
-                    >
-                      <span>{currentPhoto.tabLabel}</span>
-                      <ExternalLink size={14} />
-                    </button>
-                  )}
+                  <div className="flex flex-wrap items-center gap-3 shrink-0 self-start sm:self-center">
+                    {currentPhoto.originalSrc && (
+                      <a
+                        href={currentPhoto.originalSrc}
+                        download={`${currentPhoto.id}-master.jpg`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-xl bg-armuna px-4 py-2.5 text-xs sm:text-sm font-bold text-noche hover:bg-armuna-light transition-all shadow-md cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+                        title={`Descargar archivo maestro original (${currentPhoto.originalResolution} · ${currentPhoto.originalSize})`}
+                      >
+                        <Download size={16} strokeWidth={2.5} />
+                        <span>Descargar original ({currentPhoto.originalSize})</span>
+                      </a>
+                    )}
+
+                    {currentPhoto.tabLink && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setActivePhotoIndex(null);
+                          onNavigate(currentPhoto.tabLink);
+                        }}
+                        className="inline-flex items-center gap-2 rounded-xl bg-noche-surface border border-piedra-400/30 px-4 py-2.5 text-xs sm:text-sm font-medium text-pergamino hover:border-armuna-light hover:text-armuna-light transition-colors shadow-md cursor-pointer"
+                      >
+                        <span>{currentPhoto.tabLabel}</span>
+                        <ExternalLink size={14} />
+                      </button>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>

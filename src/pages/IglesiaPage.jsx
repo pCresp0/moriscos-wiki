@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { ZoomIn, X, Church, Sparkles } from 'lucide-react';
+import { ZoomIn, X, Church, Sparkles, Download } from 'lucide-react';
 
 const ficha = [
   { label: 'Época', value: 'Siglos XII–XVI' },
@@ -68,6 +68,8 @@ export default function IglesiaPage() {
               alt: 'Vista aérea de la Iglesia de San Pedro Apóstol de Moriscos, su atrio y plaza tomada el 23 de marzo de 2025',
               caption:
                 'Perspectiva aérea de la Iglesia Parroquial de San Pedro Apóstol de Moriscos (23 de marzo de 2025): nave única, esbelta torre campanario de sillería de Villamayor, tejados de teja árabe, atrio exterior con cruz de piedra y su emplazamiento en la plaza del pueblo (Fotografía: Pablo Crespo Bellido).',
+              originalSrc: '/moriscos-wiki/images/originals/iglesia-san-pedro-aerea-original.jpg',
+              originalSize: '9,1 MB',
             })
           }
           className="group relative block w-full h-[280px] sm:h-[420px] md:h-[500px] overflow-hidden cursor-zoom-in"
@@ -126,6 +128,8 @@ export default function IglesiaPage() {
                 alt: 'Torre campanario de San Pedro Apóstol con nido y cigüeña tomada el 23 de marzo de 2025',
                 caption:
                   'Nido y cigüeña de la iglesia de San Pedro Apóstol (23 de marzo de 2025): cantería dorada de Villamayor, tejado a cuatro aguas de teja árabe, veleta de hierro forjado con cruz y sol radiante, y una pareja de cigüeñas blancas en su nido (Fotografía: Pablo Crespo Bellido).',
+                originalSrc: '/moriscos-wiki/images/originals/iglesia-torre-ciguenas-original.jpg',
+                originalSize: '5,1 MB',
               })
             }
             className="group relative shrink-0 w-48 sm:w-60 h-72 sm:h-80 rounded-2xl bg-noche-surface border border-piedra-400/25 p-2 overflow-hidden shadow-xl cursor-zoom-in transition-all hover:border-armuna-light/60 hover:shadow-armuna-light/10"
@@ -172,6 +176,8 @@ export default function IglesiaPage() {
                 alt: 'Nuestra Señora de la Virgen de la Peregrina, patrona de Moriscos',
                 caption:
                   'Nuestra Señora de la Virgen de la Peregrina, patrona de Moriscos: talla procesional en su paso bajo el arco de gloria, vestida con manto carmesí bordado en oro, sombrero jacobeo con conchas y báculo de peregrina (Fotografía: Pablo Crespo Bellido).',
+                originalSrc: '/moriscos-wiki/images/originals/virgen-peregrina-original.jpg',
+                originalSize: '244 KB',
               })
             }
             className="group relative shrink-0 w-48 sm:w-60 h-72 sm:h-80 rounded-2xl bg-noche-surface border border-piedra-400/25 p-2.5 overflow-hidden shadow-xl cursor-zoom-in transition-all hover:border-armuna-light/60 hover:shadow-armuna-light/10"
@@ -282,6 +288,20 @@ export default function IglesiaPage() {
                 <p className="mt-3 text-center text-sm sm:text-base font-serif text-pergamino-muted max-w-2xl bg-noche/85 px-4 py-2.5 rounded-xl border border-piedra-400/25 shadow-lg backdrop-blur-sm">
                   {activeImage.caption}
                 </p>
+              )}
+              {activeImage.originalSrc && (
+                <div className="mt-3">
+                  <a
+                    href={activeImage.originalSrc}
+                    download="moriscos-foto-master.jpg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-xl bg-armuna px-4 py-2 text-xs sm:text-sm font-bold text-noche hover:bg-armuna-light transition-all shadow-md cursor-pointer hover:scale-[1.02]"
+                  >
+                    <Download size={15} strokeWidth={2.5} />
+                    <span>Descargar original en máxima resolución ({activeImage.originalSize})</span>
+                  </a>
+                </div>
               )}
             </div>
           </div>,
