@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
 import Fuse from 'fuse.js';
-import { Search, X, Compass, ChevronRight } from 'lucide-react';
+import { Search, X, ChevronRight } from 'lucide-react';
 import { searchIndex } from '../data/searchIndex';
 import { MIN_QUERY_LENGTH, SEARCH_OPTIONS } from '../utils/search';
 import ErrorBoundary from './ErrorBoundary';
@@ -9,6 +9,23 @@ import ErrorBoundary from './ErrorBoundary';
 interface SearchModalProps {
   onSelectResult?: (tab: string, target?: string | null) => void;
 }
+
+const FREQUENT_SEARCHES = [
+  'Vértice Andorra',
+  'Virgen de la Peregrina',
+  'Lenteja de La Armuña',
+  'Iglesia de San Pedro',
+  'Árbol de Valdepega',
+  'Las Cavenes',
+  'El Escudo',
+  'Ruta Nocturna',
+  'Los Pilones',
+  'Novartis',
+  'Aceñas del Tormes',
+  'Fray Luis de León',
+  'El Hoyo',
+  'moriscos.info',
+];
 
 export function SearchModalInner({ onSelectResult }: SearchModalProps) {
   const [open, setOpen] = useState(false);
@@ -91,10 +108,10 @@ export function SearchModalInner({ onSelectResult }: SearchModalProps) {
               ? { top: `${coords.top}px`, right: `${coords.right}px` }
               : undefined
           }
-          className="fixed z-[260] overflow-hidden rounded-2xl border border-noche-border/90 bg-noche-surface shadow-2xl outline-none top-[12vh] left-1/2 -translate-x-1/2 w-[94vw] max-w-lg lg:w-[460px] lg:max-w-[460px] lg:top-[72px] lg:right-8 lg:left-auto lg:translate-x-0 p-0"
+          className="fixed z-[260] overflow-hidden rounded-[26px] border border-noche-border/90 bg-noche-surface shadow-2xl outline-none top-[calc(env(safe-area-inset-top,0px)+64px)] left-2.5 right-2.5 sm:left-4 sm:right-4 w-auto max-h-[82vh] lg:w-[460px] lg:max-w-[460px] lg:top-[72px] lg:right-8 lg:left-auto lg:rounded-2xl p-0"
         >
           <Dialog.Title className="sr-only">Buscar en Moriscos Wiki</Dialog.Title>
-          <div className="flex items-center gap-2 border-b border-noche-border px-4 py-3 bg-noche">
+          <div className="flex items-center gap-2.5 border-b border-noche-border px-4 py-3.5 bg-noche">
             <Search className="h-5 w-5 shrink-0 text-armuna-light" />
             <input
               ref={inputRef}
@@ -113,17 +130,36 @@ export function SearchModalInner({ onSelectResult }: SearchModalProps) {
             />
             <Dialog.Close
               aria-label="Cerrar buscador"
-              className="rounded-full p-1 text-pergamino-muted/70 hover:bg-white/10 hover:text-pergamino transition-colors cursor-pointer"
+              className="rounded-full p-1.5 text-pergamino-muted/70 hover:bg-white/10 hover:text-pergamino transition-colors cursor-pointer shrink-0"
             >
               <X className="h-5 w-5" />
             </Dialog.Close>
           </div>
 
-          <div className="max-h-[60vh] overflow-y-auto p-4 space-y-2">
+          <div className="max-h-[70vh] overflow-y-auto p-4 sm:p-5 space-y-2">
             {!trimmedQuery && (
-              <div className="flex flex-col items-center justify-center py-10 text-center text-pergamino-muted/60">
-                <Compass className="h-10 w-10 mb-2 opacity-40 text-armuna-light" />
-                <p className="text-sm">Escribe al menos 2 letras para buscar en toda la enciclopedia.</p>
+              <div className="py-1">
+                <p className="text-[11px] font-display font-bold uppercase tracking-wider text-armuna-light/85 mb-3">
+                  Búsquedas frecuentes
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {FREQUENT_SEARCHES.map((term) => (
+                    <button
+                      key={term}
+                      type="button"
+                      onClick={() => {
+                        setQuery(term);
+                        inputRef.current?.focus();
+                      }}
+                      className="rounded-full border border-armuna/25 bg-armuna/10 px-3.5 py-1.5 text-xs font-semibold text-pergamino hover:border-armuna-light hover:bg-armuna/25 active:scale-95 transition-all cursor-pointer shadow-xs"
+                    >
+                      {term}
+                    </button>
+                  ))}
+                </div>
+                <p className="mt-4 pt-3 border-t border-noche-border/60 text-xs text-pergamino-muted/65 leading-relaxed">
+                  Escribe al menos 2 letras. Lugares, historia, personajes, fiestas, curiosidades...
+                </p>
               </div>
             )}
 
