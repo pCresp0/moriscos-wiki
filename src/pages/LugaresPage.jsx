@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
+import { ZoomIn, X } from 'lucide-react';
 
 const emblematicos = [
   {
@@ -108,6 +110,22 @@ const desaparecidos = [
 ];
 
 export default function LugaresPage({ onNavigate }) {
+  const [activeImage, setActiveImage] = useState(null);
+
+  useEffect(() => {
+    if (!activeImage) return;
+    const onKey = (e) => {
+      if (e.key === 'Escape') setActiveImage(null);
+    };
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [activeImage]);
+
   return (
     <div className="container-editorial py-10 sm:py-16">
       <p className="kicker">Geografía y memoria</p>
@@ -117,6 +135,40 @@ export default function LugaresPage({ onNavigate }) {
       <p className="mt-4 text-balance text-lg text-pergamino-muted/80">
         El término municipal y el casco urbano albergan un patrimonio geográfico, histórico y urbano repleto de rincones con historia. Algunos son puntos clave de la vida comunitaria actual; otros han sido transformados por el paso del tiempo, la mecanización agrícola o la expansión urbanística.
       </p>
+
+      {/* Panorámica general aérea de Moriscos */}
+      <div className="mt-8 overflow-hidden rounded-3xl border border-piedra-border/40 bg-noche-card shadow-2xl">
+        <button
+          type="button"
+          onClick={() =>
+            setActiveImage({
+              src: '/moriscos-wiki/images/moriscos-panoramica-atardecer.jpg',
+              alt: 'Panorámica aérea de Moriscos al atardecer sobre los campos de La Armuña',
+              caption:
+                'Panorámica aérea de Moriscos al atardecer (18 de julio de 2026): vista completa de la morfología del pueblo, con la silueta de la torre de San Pedro en el centro, rodeada por el mosaico de campos de cultivo de La Armuña.',
+            })
+          }
+          className="group relative block w-full h-[250px] sm:h-[380px] md:h-[440px] overflow-hidden cursor-zoom-in"
+          aria-label="Ampliar vista aérea de Moriscos"
+        >
+          <img
+            src="/moriscos-wiki/images/moriscos-panoramica-atardecer.jpg"
+            alt="Morfología urbana y entorno natural de Moriscos al atardecer"
+            className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+            width="1024"
+            height="576"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-noche/90 via-noche/25 to-transparent pointer-events-none" />
+          <div className="absolute bottom-4 left-4 right-4 sm:left-6 sm:right-6 flex items-center justify-between gap-2 text-xs sm:text-sm text-pergamino-muted bg-noche/85 p-3 rounded-xl border border-piedra-400/25 backdrop-blur-md">
+            <span className="font-serif font-medium truncate">
+              Morfología urbana y campos de labor de La Armuña al atardecer · 18 de julio de 2026
+            </span>
+            <span className="inline-flex items-center gap-1.5 text-armuna-light font-semibold shrink-0">
+              <ZoomIn size={15} /> Ampliar
+            </span>
+          </div>
+        </button>
+      </div>
 
       {/* 1. Lugares Emblemáticos */}
       <div className="mt-12">
@@ -199,6 +251,51 @@ export default function LugaresPage({ onNavigate }) {
           ))}
         </div>
       </div>
+
+      {/* Modal Lightbox para la foto panorámica */}
+      {activeImage &&
+        createPortal(
+          <div
+            className="dialog-content fixed inset-0 z-[400] flex flex-col items-center justify-center bg-black/90 p-4 sm:p-6 backdrop-blur-md"
+            data-state="open"
+            role="dialog"
+            aria-modal="true"
+            aria-label={activeImage.alt || 'Imagen ampliada'}
+            onClick={() => setActiveImage(null)}
+          >
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                setActiveImage(null);
+              }}
+              aria-label="Cerrar imagen ampliada"
+              className="fixed z-[410] inline-flex h-12 w-12 items-center justify-center rounded-full bg-white text-noche shadow-xl cursor-pointer active:scale-95 transition-transform hover:scale-105"
+              style={{
+                top: 'calc(env(safe-area-inset-top, 0px) + 12px)',
+                right: 'calc(env(safe-area-inset-right, 0px) + 12px)',
+              }}
+            >
+              <X size={28} strokeWidth={2.5} />
+            </button>
+            <div
+              className="flex flex-col items-center max-w-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={activeImage.src}
+                alt={activeImage.alt}
+                className="max-h-[75vh] max-w-[92vw] rounded-2xl object-contain shadow-2xl ring-1 ring-white/10"
+              />
+              {activeImage.caption && (
+                <p className="mt-3 text-center text-sm sm:text-base font-serif text-pergamino-muted max-w-2xl bg-noche/85 px-4 py-2.5 rounded-xl border border-piedra-400/25 shadow-lg backdrop-blur-sm">
+                  {activeImage.caption}
+                </p>
+              )}
+            </div>
+          </div>,
+          document.body,
+        )}
     </div>
   );
 }

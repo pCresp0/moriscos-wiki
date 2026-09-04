@@ -1,6 +1,8 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import VisitorStatsModal from '../components/VisitorStatsModal';
 import { counters } from '../data/site';
+import { ZoomIn, X } from 'lucide-react';
 
 const TownLocationMap = lazy(() => import('../components/TownLocationMap'));
 import {
@@ -87,6 +89,22 @@ const sections = [
 ];
 
 export default function InicioPage({ onNavigate }) {
+  const [activeImage, setActiveImage] = useState(null);
+
+  useEffect(() => {
+    if (!activeImage) return;
+    const onKey = (e) => {
+      if (e.key === 'Escape') setActiveImage(null);
+    };
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [activeImage]);
+
   return (
     <div className="flex flex-col">
       {/* Hero */}
@@ -121,6 +139,40 @@ export default function InicioPage({ onNavigate }) {
             Descubre toda la historia en El Libro
           </button>
           <VisitorStatsModal />
+        </div>
+
+        {/* Panorámica aérea de Moriscos al atardecer */}
+        <div className="mt-10 overflow-hidden rounded-3xl border border-piedra-border/40 bg-noche-card shadow-2xl">
+          <button
+            type="button"
+            onClick={() =>
+              setActiveImage({
+                src: '/moriscos-wiki/images/moriscos-panoramica-atardecer.jpg',
+                alt: 'Panorámica aérea de Moriscos al atardecer sobre los campos de La Armuña',
+                caption:
+                  'Panorámica aérea de Moriscos al atardecer (18 de julio de 2026): el casco urbano tradicional, la torre campanario de la iglesia parroquial y los campos de cereal de La Armuña bajo el cielo crepuscular.',
+              })
+            }
+            className="group relative block w-full h-[260px] sm:h-[400px] md:h-[480px] overflow-hidden cursor-zoom-in"
+            aria-label="Ampliar panorámica aérea de Moriscos al atardecer"
+          >
+            <img
+              src="/moriscos-wiki/images/moriscos-panoramica-atardecer.jpg"
+              alt="Panorámica aérea de Moriscos al atardecer sobre los campos de La Armuña"
+              className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+              width="1024"
+              height="576"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-noche/90 via-noche/25 to-transparent pointer-events-none" />
+            <div className="absolute bottom-4 left-4 right-4 sm:left-6 sm:right-6 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs sm:text-sm text-pergamino-muted bg-noche/85 p-3 rounded-xl border border-piedra-400/25 backdrop-blur-md">
+              <span className="font-serif font-medium">
+                Moriscos y la llanura cerealista de La Armuña al atardecer · 18 de julio de 2026
+              </span>
+              <span className="inline-flex items-center gap-1.5 text-armuna-light font-semibold shrink-0">
+                <ZoomIn size={15} /> Ampliar
+              </span>
+            </div>
+          </button>
         </div>
       </section>
 
@@ -181,6 +233,51 @@ export default function InicioPage({ onNavigate }) {
           ))}
         </div>
       </section>
+
+      {/* Modal Lightbox para la foto panorámica */}
+      {activeImage &&
+        createPortal(
+          <div
+            className="dialog-content fixed inset-0 z-[400] flex flex-col items-center justify-center bg-black/90 p-4 sm:p-6 backdrop-blur-md"
+            data-state="open"
+            role="dialog"
+            aria-modal="true"
+            aria-label={activeImage.alt || 'Imagen ampliada'}
+            onClick={() => setActiveImage(null)}
+          >
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                setActiveImage(null);
+              }}
+              aria-label="Cerrar imagen ampliada"
+              className="fixed z-[410] inline-flex h-12 w-12 items-center justify-center rounded-full bg-white text-noche shadow-xl cursor-pointer active:scale-95 transition-transform hover:scale-105"
+              style={{
+                top: 'calc(env(safe-area-inset-top, 0px) + 12px)',
+                right: 'calc(env(safe-area-inset-right, 0px) + 12px)',
+              }}
+            >
+              <X size={28} strokeWidth={2.5} />
+            </button>
+            <div
+              className="flex flex-col items-center max-w-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={activeImage.src}
+                alt={activeImage.alt}
+                className="max-h-[75vh] max-w-[92vw] rounded-2xl object-contain shadow-2xl ring-1 ring-white/10"
+              />
+              {activeImage.caption && (
+                <p className="mt-3 text-center text-sm sm:text-base font-serif text-pergamino-muted max-w-2xl bg-noche/85 px-4 py-2.5 rounded-xl border border-piedra-400/25 shadow-lg backdrop-blur-sm">
+                  {activeImage.caption}
+                </p>
+              )}
+            </div>
+          </div>,
+          document.body,
+        )}
     </div>
   );
 }
