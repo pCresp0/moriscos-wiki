@@ -14,17 +14,37 @@ export function SearchModalInner({ onSelectResult }: SearchModalProps) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const [coords, setCoords] = useState<{ top: number; right: number } | null>(null);
+
+  const updateCoords = () => {
+    if (triggerRef.current) {
+      const rect = triggerRef.current.getBoundingClientRect();
+      setCoords({
+        top: Math.round(rect.bottom + 8),
+        right: Math.max(16, Math.round(window.innerWidth - rect.right)),
+      });
+    }
+  };
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
+        updateCoords();
         setOpen((v) => !v);
       }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const onResize = () => updateCoords();
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, [open]);
 
   const fuse = useMemo(() => new Fuse(searchIndex, SEARCH_OPTIONS), []);
 
@@ -45,8 +65,12 @@ export function SearchModalInner({ onSelectResult }: SearchModalProps) {
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <button
+        ref={triggerRef}
         type="button"
-        onClick={() => setOpen(true)}
+        onClick={() => {
+          updateCoords();
+          setOpen(true);
+        }}
         className="flex h-10 w-10 sm:w-auto sm:px-3.5 items-center justify-center gap-2 rounded-full border border-piedra-300/40 bg-black/35 text-sm font-semibold text-pergamino shadow-sm backdrop-blur-sm transition-all hover:border-piedra-300 hover:bg-black/50 cursor-pointer"
         aria-label="Buscar en el sitio"
       >
@@ -55,14 +79,19 @@ export function SearchModalInner({ onSelectResult }: SearchModalProps) {
       </button>
 
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 z-[250] bg-black/70 backdrop-blur-sm dialog-overlay" />
+        <Dialog.Overlay className="fixed inset-0 z-[250] bg-black/60 backdrop-blur-sm lg:bg-black/15 lg:backdrop-blur-[1px] dialog-overlay" />
         <Dialog.Content
           aria-describedby={undefined}
           onOpenAutoFocus={(e) => {
             e.preventDefault();
             inputRef.current?.focus({ preventScroll: true });
           }}
-          className="fixed z-[260] overflow-hidden rounded-2xl border border-noche-border bg-noche-surface shadow-2xl outline-none top-[12vh] left-1/2 -translate-x-1/2 w-[94vw] max-w-lg p-0"
+          style={
+            coords && typeof window !== 'undefined' && window.innerWidth >= 1024
+              ? { top: `${coords.top}px`, right: `${coords.right}px` }
+              : undefined
+          }
+          className="fixed z-[260] overflow-hidden rounded-2xl border border-noche-border/90 bg-noche-surface shadow-2xl outline-none top-[12vh] left-1/2 -translate-x-1/2 w-[94vw] max-w-lg lg:w-[460px] lg:max-w-[460px] lg:top-[72px] lg:right-8 lg:left-auto lg:translate-x-0 p-0"
         >
           <Dialog.Title className="sr-only">Buscar en Moriscos Wiki</Dialog.Title>
           <div className="flex items-center gap-2 border-b border-noche-border px-4 py-3 bg-noche">
