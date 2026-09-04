@@ -38,19 +38,19 @@ export default function ReferenciasPage({ target }) {
             Agradecimiento de honor: Miguel Blanco González y moriscos.info
           </p>
           <p className="mt-2 text-sm text-pergamino-muted/85 leading-relaxed">
-            Gran parte de los datos cronológicos, transcripciones notariales, censos, memoria oral y referencias históricas reunidas en esta web han sido corroborados gracias a la exhaustiva labor de investigación de <strong className="text-pergamino">Miguel Blanco González</strong>, desarrollador e ingeniero de la web <a href="https://www.moriscos.info" target="_blank" rel="noopener noreferrer" className="font-semibold text-armuna-light hover:underline inline-flex items-center gap-1">moriscos.info <ExternalLink size={13} /></a>.
+            Gran parte de los datos cronológicos, transcripciones notariales, censos, memoria oral y referencias históricas reunidas en esta web han sido corroborados gracias a la exhaustiva labor de investigación de <strong className="text-pergamino">Miguel Blanco González</strong>, desarrollador e ingeniero de la web <a href="https://sites.google.com/view/morisquenos" target="_blank" rel="noopener noreferrer" className="font-semibold text-armuna-light hover:underline inline-flex items-center gap-1">moriscos.info <ExternalLink size={13} /></a>.
           </p>
           <p className="mt-2 text-sm text-pergamino-muted/80">
             Con <strong className="text-pergamino">más de 15 años de trayectoria</strong>, su portal es la piedra angular digital de la memoria local. Si deseas obtener más información o profundizar en cualquier aspecto sobre Moriscos, es un verdadero gusto poder informarse y adentrarse en su trabajo.
           </p>
           <div className="mt-3.5">
             <a
-              href="https://www.moriscos.info"
+              href="https://sites.google.com/view/morisquenos"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-armuna-light hover:text-pergamino transition-colors"
             >
-              Visitar la web moriscos.info →
+              Visitar la web moriscos.info (Google Sites) →
             </a>
           </div>
         </div>

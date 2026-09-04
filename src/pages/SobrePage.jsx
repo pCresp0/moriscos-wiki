@@ -22,18 +22,18 @@ export default function SobrePage({ onNavigate }) {
             </h2>
           </div>
           <p className="mt-4 leading-relaxed text-pergamino-muted/90 text-sm sm:text-base">
-            Esta web no habría sido posible sin la extraordinaria labor de recopilación, investigación y conservación desarrollada por <strong className="text-pergamino">Miguel Blanco González</strong>, creador e ingeniero de la web histórica de referencia <a href="https://www.moriscos.info" target="_blank" rel="noopener noreferrer" className="font-semibold text-armuna-light hover:underline inline-flex items-center gap-1">moriscos.info <ExternalLink size={14} /></a>.
+            Esta web no habría sido posible sin la extraordinaria labor de recopilación, investigación y conservación desarrollada por <strong className="text-pergamino">Miguel Blanco González</strong>, creador e ingeniero de la web histórica de referencia <a href="https://sites.google.com/view/morisquenos" target="_blank" rel="noopener noreferrer" className="font-semibold text-armuna-light hover:underline inline-flex items-center gap-1">moriscos.info <ExternalLink size={14} /></a>.
           </p>
           <p className="mt-3 leading-relaxed text-pergamino-muted/90 text-sm sm:text-base">
             De su web se ha corroborado gran parte de la información cronológica, genealógica, etnográfica y toponímica reunida en este espacio, habiendo servido como <strong>fuente de inspiración directa y pilar fundamental</strong> para poner en marcha esta iniciativa.
           </p>
           <div className="mt-5 rounded-2xl border border-armuna/35 bg-noche/70 p-4 sm:p-5">
             <p className="text-sm leading-relaxed text-pergamino-muted/85">
-              ⭐ <strong className="text-armuna-light">Para saber más sobre Moriscos:</strong> Si deseas profundizar e informarte más a fondo sobre el pueblo, sus familias y sus vivencias, te invitamos a visitar <a href="https://www.moriscos.info" target="_blank" rel="noopener noreferrer" className="font-bold text-armuna-light hover:underline">moriscos.info</a>. Lleva <strong>más de 15 años realizada y cuidada</strong> por Miguel Blanco González, y es un verdadero gusto poder informarse y conocer la riqueza de Moriscos gracias a su trabajo.
+              ⭐ <strong className="text-armuna-light">Para saber más sobre Moriscos:</strong> Si deseas profundizar e informarte más a fondo sobre el pueblo, sus familias y sus vivencias, te invitamos a visitar <a href="https://sites.google.com/view/morisquenos" target="_blank" rel="noopener noreferrer" className="font-bold text-armuna-light hover:underline">moriscos.info</a>. Lleva <strong>más de 15 años realizada y cuidada</strong> por Miguel Blanco González, y es un verdadero gusto poder informarse y conocer la riqueza de Moriscos gracias a su trabajo.
             </p>
             <div className="mt-4">
               <a
-                href="https://www.moriscos.info"
+                href="https://sites.google.com/view/morisquenos"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-xl border border-armuna/50 bg-armuna/20 px-4 py-2 text-xs sm:text-sm font-bold text-pergamino hover:bg-armuna/30 hover:border-armuna transition-all cursor-pointer shadow-sm"
@@ -55,7 +55,7 @@ export default function SobrePage({ onNavigate }) {
         <article className="card-editorial p-6 sm:p-8">
           <h2 className="font-serif text-xl sm:text-2xl font-bold text-armuna-light">¿De dónde procede la información?</h2>
           <p className="mt-3 leading-relaxed text-pergamino-muted/80 text-sm sm:text-base">
-            Los contenidos se basan en el legado documental del portal <a href="https://www.moriscos.info" target="_blank" rel="noopener noreferrer" className="font-semibold text-armuna-light hover:underline">moriscos.info (Morisqueños)</a> creado por Miguel Blanco González, en monografías históricas locales sobre geografía, toponimia, economía tradicional y sucesos del pueblo, en legajos de archivos históricos diocesanos y estatales, y en fuentes oficiales como el Instituto Geográfico Nacional (IGN) y el Instituto Nacional de Estadística (INE) para datos de altitud, superficie y población. Puedes consultar el listado completo en el apartado de{' '}
+            Los contenidos se basan en el legado documental del portal <a href="https://sites.google.com/view/morisquenos" target="_blank" rel="noopener noreferrer" className="font-semibold text-armuna-light hover:underline">moriscos.info (Morisqueños)</a> creado por Miguel Blanco González, en monografías históricas locales sobre geografía, toponimia, economía tradicional y sucesos del pueblo, en legajos de archivos históricos diocesanos y estatales, y en fuentes oficiales como el Instituto Geográfico Nacional (IGN) y el Instituto Nacional de Estadística (INE) para datos de altitud, superficie y población. Puedes consultar el listado completo en el apartado de{' '}
             <button
               type="button"
               onClick={() => onNavigate('referencias')}
