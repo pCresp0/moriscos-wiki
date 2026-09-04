@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
-import { ZoomIn, X, ChevronLeft, ChevronRight, Calendar, MapPin, Tag, ExternalLink, Camera, Download, Sparkles } from 'lucide-react';
+import { ZoomIn, X, ChevronLeft, ChevronRight, Calendar, MapPin, Tag, ExternalLink, Camera, Download, Loader2 } from 'lucide-react';
 
 const categories = [
   { id: 'todas', label: 'Todas las fotos' },
@@ -385,6 +385,34 @@ export const galleryPhotos = [
 export default function GaleriaPage({ onNavigate }) {
   const [selectedCategory, setSelectedCategory] = useState('todas');
   const [activePhotoIndex, setActivePhotoIndex] = useState(null);
+  const [downloading, setDownloading] = useState(false);
+
+  const handleDownload = async (photo) => {
+    if (!photo) return;
+    const url = photo.originalSrc || photo.src;
+    const isPng = url.toLowerCase().endsWith('.png');
+    const filename = `${photo.id || 'moriscos'}.${isPng ? 'png' : 'jpg'}`;
+
+    try {
+      setDownloading(true);
+      const res = await fetch(url);
+      if (!res.ok) throw new Error('Error al descargar');
+      const blob = await res.blob();
+      const blobUrl = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = blobUrl;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      setTimeout(() => window.URL.revokeObjectURL(blobUrl), 1500);
+    } catch {
+      // Fallback seguro si no permite fetch de blob
+      window.open(url, '_blank');
+    } finally {
+      setDownloading(false);
+    }
+  };
 
   const filteredPhotos =
     selectedCategory === 'todas'
@@ -535,20 +563,6 @@ export default function GaleriaPage({ onNavigate }) {
                     {photo.title}
                   </h2>
 
-                  {photo.originalResolution && (
-                    <div className="mt-1 flex flex-wrap items-center gap-1.5">
-                      <span className="font-mono text-[10px] text-armuna-light/90 bg-noche/70 px-2 py-0.5 rounded border border-armuna/25">
-                        4K Ultra-HD · Master: {photo.originalResolution.split('(')[1]?.replace(')', '') || photo.originalSize}
-                      </span>
-                    </div>
-                  )}
-
-                  {photo.originalTitle && (
-                    <p className="mt-1 font-mono text-[11px] text-pergamino-muted/70 truncate">
-                      Título en archivo: {photo.originalTitle}
-                    </p>
-                  )}
-
                   <p className="mt-2 text-xs sm:text-sm text-pergamino-muted/80 leading-relaxed line-clamp-3">
                     {photo.description}
                   </p>
@@ -605,30 +619,14 @@ export default function GaleriaPage({ onNavigate }) {
               className="relative my-auto w-full max-w-5xl rounded-2xl sm:rounded-3xl border border-piedra-400/35 bg-noche-card shadow-[0_25px_70px_rgba(0,0,0,0.85)] overflow-hidden flex flex-col"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Barra superior del visor con categoría, fecha, resolución y contador */}
+              {/* Barra superior del visor: categoría y contador */}
               <div className="w-full flex items-center justify-between border-b border-piedra-border/60 bg-noche-surface/95 px-4 py-3 sm:px-6">
-                <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-armuna-light pr-8">
-                  <span className="rounded-md bg-noche/80 px-2.5 py-1 border border-armuna/30">
-                    {currentPhoto.categoryLabel}
-                  </span>
-                  <span className="text-pergamino-muted/60 hidden sm:inline">•</span>
-                  <span className="inline-flex items-center gap-1 text-pergamino font-bold">
-                    <Calendar size={13} className="text-armuna-light" /> {currentPhoto.date}
-                  </span>
-                  {currentPhoto.originalResolution && (
-                    <>
-                      <span className="text-pergamino-muted/60 hidden md:inline">•</span>
-                      <span className="hidden md:inline-flex items-center gap-1 rounded-md bg-armuna/20 text-armuna-light px-2.5 py-0.5 border border-armuna/40 font-mono text-[11px]">
-                        <Sparkles size={11} /> 4K Ultra-HD · Master: {currentPhoto.originalResolution}
-                      </span>
-                    </>
-                  )}
-                </div>
-                <div className="flex items-center gap-3 shrink-0">
-                  <span className="text-xs font-mono font-medium text-pergamino-muted/70">
-                    {activePhotoIndex + 1} / {filteredPhotos.length}
-                  </span>
-                </div>
+                <span className="rounded-md bg-noche/80 px-2.5 py-1 text-xs font-semibold text-armuna-light border border-armuna/30">
+                  {currentPhoto.categoryLabel}
+                </span>
+                <span className="text-xs font-mono font-medium text-pergamino-muted/70">
+                  {activePhotoIndex + 1} / {filteredPhotos.length}
+                </span>
               </div>
 
               {/* Visor de imagen con fondo neutro y controles de navegación */}
@@ -664,7 +662,7 @@ export default function GaleriaPage({ onNavigate }) {
                 )}
               </div>
 
-              {/* Ficha descriptiva inferior con fecha destacada y autoría */}
+              {/* Ficha descriptiva inferior armónica y limpia */}
               <div className="w-full p-5 sm:p-6 bg-noche-surface border-t border-piedra-border/80">
                 <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-5">
                   <div className="space-y-2.5 flex-1 min-w-0">
@@ -672,46 +670,44 @@ export default function GaleriaPage({ onNavigate }) {
                       {currentPhoto.title}
                     </h3>
                     <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs sm:text-sm text-pergamino-muted/80">
-                      <span className="inline-flex items-center gap-1.5 font-semibold text-armuna-light">
-                        <Calendar size={14} /> Fecha: {currentPhoto.date}
-                      </span>
-                      <span>•</span>
-                      <span className="flex items-center gap-1.5">
+                      <span className="inline-flex items-center gap-1.5 text-pergamino">
                         <MapPin size={14} className="text-armuna-light shrink-0" />
                         {currentPhoto.location}
                       </span>
                       <span>•</span>
-                      <span className="text-pergamino-muted">
-                        Fotografía: <strong className="text-pergamino">{currentPhoto.author}</strong>
+                      <span className="inline-flex items-center gap-1.5 font-medium text-armuna-light">
+                        <Calendar size={14} className="shrink-0" /> {currentPhoto.date}
                       </span>
-                      {currentPhoto.originalTitle && (
-                        <>
-                          <span className="hidden sm:inline">•</span>
-                          <span className="font-mono text-[11px] text-armuna-light/90 bg-noche/80 px-2 py-0.5 rounded border border-piedra-400/20">
-                            Título en archivo: {currentPhoto.originalTitle}
-                          </span>
-                        </>
-                      )}
+                      <span>•</span>
+                      <span className="text-pergamino-muted">
+                        Fotografía: <strong className="text-pergamino font-medium">{currentPhoto.author}</strong>
+                      </span>
                     </div>
-                    <p className="font-serif text-sm sm:text-base text-pergamino-muted leading-relaxed pt-1">
+                    <p className="text-sm sm:text-base text-pergamino-muted/90 leading-relaxed pt-1">
                       {currentPhoto.description}
                     </p>
                   </div>
 
                   <div className="flex flex-col sm:flex-row lg:flex-col gap-2.5 shrink-0 self-stretch lg:self-center">
-                    {currentPhoto.originalSrc && (
-                      <a
-                        href={currentPhoto.originalSrc}
-                        download={`${currentPhoto.id}-master.jpg`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2 rounded-xl bg-armuna px-4 py-2.5 text-xs sm:text-sm font-bold text-noche hover:bg-armuna-light transition-all shadow-md cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
-                        title={`Descargar archivo maestro original (${currentPhoto.originalResolution} · ${currentPhoto.originalSize})`}
-                      >
-                        <Download size={16} strokeWidth={2.5} />
-                        <span>Descargar original ({currentPhoto.originalSize})</span>
-                      </a>
-                    )}
+                    <button
+                      type="button"
+                      onClick={() => handleDownload(currentPhoto)}
+                      disabled={downloading}
+                      className="inline-flex items-center justify-center gap-2 rounded-xl bg-armuna px-4 py-2.5 text-xs sm:text-sm font-bold text-noche hover:bg-armuna-light disabled:opacity-60 transition-all shadow-md cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+                      title="Descargar fotografía"
+                    >
+                      {downloading ? (
+                        <>
+                          <Loader2 size={16} className="animate-spin" />
+                          <span>Descargando...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Download size={16} strokeWidth={2.5} />
+                          <span>Descargar fotografía</span>
+                        </>
+                      )}
+                    </button>
 
                     {currentPhoto.tabLink && (
                       <button

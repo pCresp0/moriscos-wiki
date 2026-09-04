@@ -52,6 +52,10 @@ export default defineConfig({
         skipWaiting: true,
         clientsClaim: true,
         navigateFallback: '/moriscos-wiki/index.html',
+        navigateFallbackDenylist: [
+          /^\/moriscos-wiki\/images\//,
+          /\.(jpg|jpeg|png|gif|svg|webp|ico|pdf|zip)$/i,
+        ],
         // Se precachea woff2 (soportado por todos los navegadores actuales) y
         // no woff, para no duplicar el peso de las tipografías sin conexión.
         globPatterns: ['**/*.{js,css,html,png,svg,ico,jpg,jpeg,webp,woff2}'],
