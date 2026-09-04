@@ -425,12 +425,12 @@ export default function GaleriaPage({ onNavigate }) {
   return (
     <div className="container-editorial py-10 sm:py-16">
       {/* Cabecera Editorial */}
-      <div className="max-w-3xl">
+      <div className="w-full">
         <p className="kicker">Fototeca de Moriscos · Archivo de Pablo Crespo Bellido</p>
-        <h1 className="mt-2 text-balance font-serif text-3xl font-bold text-pergamino sm:text-5xl">
+        <h1 className="mt-2 font-serif text-3xl font-bold text-pergamino sm:text-5xl">
           Galería de Moriscos
         </h1>
-        <p className="mt-4 text-balance text-lg leading-relaxed text-pergamino-muted/80">
+        <p className="mt-4 text-lg leading-relaxed text-pergamino-muted/80">
           Colección fotográfica documental de Moriscos y La Armuña: tomas aéreas y de dron capturadas por <strong>Pablo Crespo Bellido</strong> con indicación de fecha y ubicación, mostrando el patrimonio histórico, las faenas agrícolas y los paisajes del municipio.
         </p>
       </div>
@@ -667,7 +667,7 @@ export default function GaleriaPage({ onNavigate }) {
               {/* Ficha descriptiva inferior con fecha destacada y autoría */}
               <div className="w-full p-5 sm:p-6 bg-noche-surface border-t border-piedra-border/80">
                 <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-5">
-                  <div className="space-y-2.5 max-w-3xl">
+                  <div className="space-y-2.5 flex-1 min-w-0">
                     <h3 className="font-serif text-xl sm:text-2xl font-bold text-pergamino leading-tight">
                       {currentPhoto.title}
                     </h3>
