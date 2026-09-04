@@ -580,61 +580,63 @@ export default function GaleriaPage({ onNavigate }) {
       {currentPhoto &&
         createPortal(
           <div
-            className="fixed inset-0 z-[500] flex flex-col items-center justify-center bg-black/92 p-3 sm:p-6 backdrop-blur-lg"
+            className="fixed inset-0 z-[500] overflow-y-auto bg-black/95 backdrop-blur-xl p-3 sm:p-5 md:p-8 flex flex-col items-center justify-start sm:justify-center"
             role="dialog"
             aria-modal="true"
             aria-label={`${currentPhoto.title} (${currentPhoto.date})`}
             onClick={() => setActivePhotoIndex(null)}
           >
-            {/* Botón cerrar */}
+            {/* Botón flotante cerrar en esquina superior derecha */}
             <button
               type="button"
               onClick={() => setActivePhotoIndex(null)}
               aria-label="Cerrar imagen ampliada (Escape)"
-              className="fixed z-[510] inline-flex h-11 w-11 items-center justify-center rounded-full bg-noche/90 text-pergamino border border-piedra-border shadow-2xl hover:bg-armuna hover:text-noche hover:scale-105 active:scale-95 transition-all cursor-pointer"
+              className="fixed z-[520] inline-flex h-11 w-11 items-center justify-center rounded-full bg-noche/90 text-pergamino border border-armuna/40 shadow-2xl hover:bg-armuna hover:text-noche hover:scale-105 active:scale-95 transition-all cursor-pointer"
               style={{
-                top: 'calc(env(safe-area-inset-top, 0px) + 16px)',
-                right: 'calc(env(safe-area-inset-right, 0px) + 16px)',
+                top: 'calc(env(safe-area-inset-top, 0px) + 14px)',
+                right: 'calc(env(safe-area-inset-right, 0px) + 14px)',
               }}
             >
               <X size={22} strokeWidth={2.5} />
             </button>
 
-            {/* Contenedor principal de la foto ampliada */}
+            {/* Contenedor principal de la foto ampliada (centrado mediante margin auto) */}
             <div
-              className="relative flex flex-col items-center max-w-5xl w-full max-h-[92vh] overflow-y-auto rounded-2xl border border-armuna/40 bg-noche-card shadow-2xl"
+              className="relative my-auto w-full max-w-5xl rounded-2xl sm:rounded-3xl border border-piedra-400/35 bg-noche-card shadow-[0_25px_70px_rgba(0,0,0,0.85)] overflow-hidden flex flex-col"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Barra superior del visor con fecha y autoría */}
-              <div className="w-full flex items-center justify-between border-b border-piedra-border/60 bg-noche-surface/90 px-4 py-3 sm:px-6">
-                <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-armuna-light">
+              {/* Barra superior del visor con categoría, fecha, resolución y contador */}
+              <div className="w-full flex items-center justify-between border-b border-piedra-border/60 bg-noche-surface/95 px-4 py-3 sm:px-6">
+                <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-armuna-light pr-8">
                   <span className="rounded-md bg-noche/80 px-2.5 py-1 border border-armuna/30">
                     {currentPhoto.categoryLabel}
                   </span>
-                  <span className="text-pergamino-muted/60">•</span>
+                  <span className="text-pergamino-muted/60 hidden sm:inline">•</span>
                   <span className="inline-flex items-center gap-1 text-pergamino font-bold">
                     <Calendar size={13} className="text-armuna-light" /> {currentPhoto.date}
                   </span>
                   {currentPhoto.originalResolution && (
                     <>
-                      <span className="text-pergamino-muted/60">•</span>
-                      <span className="inline-flex items-center gap-1 rounded-md bg-armuna/20 text-armuna-light px-2.5 py-0.5 border border-armuna/40 font-mono text-[11px]">
+                      <span className="text-pergamino-muted/60 hidden md:inline">•</span>
+                      <span className="hidden md:inline-flex items-center gap-1 rounded-md bg-armuna/20 text-armuna-light px-2.5 py-0.5 border border-armuna/40 font-mono text-[11px]">
                         <Sparkles size={11} /> 4K Ultra-HD · Master: {currentPhoto.originalResolution}
                       </span>
                     </>
                   )}
                 </div>
-                <span className="text-xs font-mono font-medium text-pergamino-muted/70 shrink-0">
-                  {activePhotoIndex + 1} / {filteredPhotos.length}
-                </span>
+                <div className="flex items-center gap-3 shrink-0">
+                  <span className="text-xs font-mono font-medium text-pergamino-muted/70">
+                    {activePhotoIndex + 1} / {filteredPhotos.length}
+                  </span>
+                </div>
               </div>
 
-              {/* Visor de imagen con controles flecha */}
-              <div className="relative flex items-center justify-center w-full bg-black/60 p-2 sm:p-4 min-h-[300px]">
+              {/* Visor de imagen con fondo neutro y controles de navegación */}
+              <div className="relative flex items-center justify-center w-full bg-black/75 p-2 sm:p-4 min-h-[260px]">
                 <img
                   src={currentPhoto.src}
                   alt={currentPhoto.alt}
-                  className="max-h-[65vh] w-auto max-w-full rounded-lg object-contain shadow-2xl"
+                  className="max-h-[48vh] sm:max-h-[52vh] md:max-h-[56vh] w-auto max-w-full rounded-lg object-contain shadow-2xl"
                 />
 
                 {/* Botón flecha izquierda */}
@@ -643,7 +645,7 @@ export default function GaleriaPage({ onNavigate }) {
                     type="button"
                     onClick={handlePrev}
                     aria-label="Foto anterior (Flecha izquierda)"
-                    className="absolute left-3 top-1/2 -translate-y-1/2 inline-flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-noche/85 text-pergamino border border-piedra-border shadow-xl hover:bg-armuna hover:text-noche hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                    className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 inline-flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-noche/85 text-pergamino border border-piedra-border shadow-xl hover:bg-armuna hover:text-noche hover:scale-105 active:scale-95 transition-all cursor-pointer backdrop-blur-xs"
                   >
                     <ChevronLeft size={24} />
                   </button>
@@ -655,7 +657,7 @@ export default function GaleriaPage({ onNavigate }) {
                     type="button"
                     onClick={handleNext}
                     aria-label="Foto siguiente (Flecha derecha)"
-                    className="absolute right-3 top-1/2 -translate-y-1/2 inline-flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-noche/85 text-pergamino border border-piedra-border shadow-xl hover:bg-armuna hover:text-noche hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                    className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 inline-flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-noche/85 text-pergamino border border-piedra-border shadow-xl hover:bg-armuna hover:text-noche hover:scale-105 active:scale-95 transition-all cursor-pointer backdrop-blur-xs"
                   >
                     <ChevronRight size={24} />
                   </button>
@@ -663,13 +665,13 @@ export default function GaleriaPage({ onNavigate }) {
               </div>
 
               {/* Ficha descriptiva inferior con fecha destacada y autoría */}
-              <div className="w-full p-5 sm:p-6 bg-noche-surface border-t border-piedra-border">
-                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
-                  <div className="space-y-2 max-w-3xl">
-                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-pergamino">
+              <div className="w-full p-5 sm:p-6 bg-noche-surface border-t border-piedra-border/80">
+                <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-5">
+                  <div className="space-y-2.5 max-w-3xl">
+                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-pergamino leading-tight">
                       {currentPhoto.title}
                     </h3>
-                    <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm text-pergamino-muted/80">
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs sm:text-sm text-pergamino-muted/80">
                       <span className="inline-flex items-center gap-1.5 font-semibold text-armuna-light">
                         <Calendar size={14} /> Fecha: {currentPhoto.date}
                       </span>
@@ -684,7 +686,7 @@ export default function GaleriaPage({ onNavigate }) {
                       </span>
                       {currentPhoto.originalTitle && (
                         <>
-                          <span>•</span>
+                          <span className="hidden sm:inline">•</span>
                           <span className="font-mono text-[11px] text-armuna-light/90 bg-noche/80 px-2 py-0.5 rounded border border-piedra-400/20">
                             Título en archivo: {currentPhoto.originalTitle}
                           </span>
@@ -696,14 +698,14 @@ export default function GaleriaPage({ onNavigate }) {
                     </p>
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-3 shrink-0 self-start sm:self-center">
+                  <div className="flex flex-col sm:flex-row lg:flex-col gap-2.5 shrink-0 self-stretch lg:self-center">
                     {currentPhoto.originalSrc && (
                       <a
                         href={currentPhoto.originalSrc}
                         download={`${currentPhoto.id}-master.jpg`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-xl bg-armuna px-4 py-2.5 text-xs sm:text-sm font-bold text-noche hover:bg-armuna-light transition-all shadow-md cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+                        className="inline-flex items-center justify-center gap-2 rounded-xl bg-armuna px-4 py-2.5 text-xs sm:text-sm font-bold text-noche hover:bg-armuna-light transition-all shadow-md cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
                         title={`Descargar archivo maestro original (${currentPhoto.originalResolution} · ${currentPhoto.originalSize})`}
                       >
                         <Download size={16} strokeWidth={2.5} />
@@ -718,7 +720,7 @@ export default function GaleriaPage({ onNavigate }) {
                           setActivePhotoIndex(null);
                           onNavigate(currentPhoto.tabLink);
                         }}
-                        className="inline-flex items-center gap-2 rounded-xl bg-noche-surface border border-piedra-400/30 px-4 py-2.5 text-xs sm:text-sm font-medium text-pergamino hover:border-armuna-light hover:text-armuna-light transition-colors shadow-md cursor-pointer"
+                        className="inline-flex items-center justify-center gap-2 rounded-xl bg-noche-surface border border-piedra-400/30 px-4 py-2.5 text-xs sm:text-sm font-medium text-pergamino hover:border-armuna-light hover:text-armuna-light transition-colors shadow-md cursor-pointer"
                       >
                         <span>{currentPhoto.tabLabel}</span>
                         <ExternalLink size={14} />
