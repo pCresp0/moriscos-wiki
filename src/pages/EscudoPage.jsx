@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { ZoomIn, X } from 'lucide-react';
 
 export default function EscudoPage() {
@@ -9,8 +10,13 @@ export default function EscudoPage() {
     const onKey = (e) => {
       if (e.key === 'Escape') setLightboxOpen(false);
     };
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
     window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener('keydown', onKey);
+    };
   }, [lightboxOpen]);
 
   return (
@@ -100,33 +106,44 @@ export default function EscudoPage() {
         </p>
       </div>
 
-      {/* Lightbox Modal */}
-      {lightboxOpen && (
-        <div
-          className="dialog-content fixed inset-0 z-[300] flex items-center justify-center bg-black/85 p-4 backdrop-blur-md"
-          data-state="open"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Escudo de Moriscos ampliado"
-          onClick={() => setLightboxOpen(false)}
-        >
-          <button
-            type="button"
+      {/* Lightbox: portal al body para que la cruz quede fija arriba a la derecha
+          en el viewport (también en móvil, por encima de la cabecera). */}
+      {lightboxOpen &&
+        createPortal(
+          <div
+            className="dialog-content fixed inset-0 z-[400] flex items-center justify-center bg-black/88 px-4 backdrop-blur-md"
+            data-state="open"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Escudo de Moriscos ampliado"
             onClick={() => setLightboxOpen(false)}
-            aria-label="Cerrar"
-            className="absolute right-5 top-5 z-10 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-pergamino hover:bg-white/20 transition-colors cursor-pointer"
           >
-            <X size={24} />
-          </button>
-          <img
-            src="/moriscos-wiki/images/escudo-moriscos-1024.jpg"
-            alt="Escudo heráldico oficial del Ayuntamiento de Moriscos, en detalle"
-            className="max-h-[85vh] max-w-[92vw] rounded-2xl object-contain shadow-2xl ring-1 ring-white/10"
-            width="1024"
-            height="1024"
-          />
-        </div>
-      )}
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                setLightboxOpen(false);
+              }}
+              aria-label="Cerrar escudo"
+              className="fixed z-[410] inline-flex h-12 w-12 items-center justify-center rounded-full bg-white text-noche shadow-xl cursor-pointer active:scale-95"
+              style={{
+                top: 'calc(env(safe-area-inset-top, 0px) + 12px)',
+                right: 'calc(env(safe-area-inset-right, 0px) + 12px)',
+              }}
+            >
+              <X size={28} strokeWidth={2.5} />
+            </button>
+            <img
+              src="/moriscos-wiki/images/escudo-moriscos-1024.jpg"
+              alt="Escudo heráldico oficial del Ayuntamiento de Moriscos, en detalle"
+              className="max-h-[85vh] max-w-[92vw] rounded-2xl object-contain shadow-2xl ring-1 ring-white/10"
+              width="1024"
+              height="1024"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>,
+          document.body,
+        )}
     </div>
   );
 }
