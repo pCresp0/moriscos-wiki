@@ -121,38 +121,9 @@ export function Drawer({ active, onChange, open, onClose }) {
         </div>
 
         {/* Lista de navegación scrolleable */}
-        <nav className="flex flex-col p-3 overflow-y-auto flex-1">
+        <nav className="flex flex-col p-3 pb-[calc(env(safe-area-inset-bottom,0px)+1.5rem)] overflow-y-auto flex-1">
           <NavLinkList active={active} onChange={onChange} onClose={onClose} />
         </nav>
-
-        {/* Accesos directos inferiores */}
-        <div className="flex items-center justify-around px-3 py-3 border-t border-[#b88432]/30 bg-black/45 backdrop-blur-sm">
-          {[
-            { id: 'inicio', icon: Home, label: 'Inicio' },
-            { id: 'historia', icon: History, label: 'Historia' },
-            { id: 'lugares', icon: MapPin, label: 'Lugares' },
-            { id: 'libro', icon: BookOpen, label: 'El Libro' },
-          ].map((quick) => {
-            const Icon = quick.icon;
-            const isActive = active === quick.id;
-            return (
-              <button
-                key={quick.id}
-                type="button"
-                onClick={() => {
-                  onChange(quick.id);
-                  onClose();
-                }}
-                title={quick.label}
-                className={`p-2 rounded-xl transition-all cursor-pointer ${
-                  isActive ? 'bg-armuna-light/25 text-armuna-light shadow-sm' : 'text-pergamino-muted/70 hover:text-pergamino'
-                }`}
-              >
-                <Icon size={20} />
-              </button>
-            );
-          })}
-        </div>
       </aside>
     </>
   );
