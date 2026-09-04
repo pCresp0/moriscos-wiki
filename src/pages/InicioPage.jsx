@@ -1,7 +1,7 @@
 import React, { Suspense, lazy, useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { counters } from '../data/site';
-import { ZoomIn, X, Download } from 'lucide-react';
+import { ZoomIn, X, Download, Loader2 } from 'lucide-react';
 
 const TownLocationMap = lazy(() => import('../components/TownLocationMap'));
 import {
@@ -94,45 +94,45 @@ const sections = [
   },
 ];
 
-const panoramas = [
-  {
-    id: 'atardecer',
-    label: '🌅 Al atardecer · 18 jul 2026',
-    src: '/moriscos-wiki/images/moriscos-panoramica-atardecer.jpg',
-    originalSrc: '/moriscos-wiki/images/originals/moriscos-panoramica-atardecer-original.jpg',
-    originalSize: '5,7 MB',
-    alt: 'Panorámica aérea de Moriscos al atardecer sobre los campos de La Armuña tomada el 18 de julio de 2026',
-    badge: 'Moriscos al atardecer · 18 de julio de 2026',
-    caption:
-      'Panorámica aérea de Moriscos al atardecer (18 de julio de 2026): el casco urbano tradicional, la torre campanario de la iglesia parroquial y los campos de cereal de La Armuña bajo el cielo crepuscular (Fotografía: Pablo Crespo Bellido).',
-  },
-  {
-    id: 'noche',
-    label: '🌙 De noche · 09 ago 2026',
-    src: '/moriscos-wiki/images/moriscos-panoramica-noche.jpg',
-    originalSrc: '/moriscos-wiki/images/originals/moriscos-panoramica-noche-original.jpg',
-    originalSize: '5,2 MB',
-    alt: 'Panorámica aérea de Moriscos de noche iluminado tomada el 09 de agosto de 2026',
-    badge: 'Moriscos de noche · 09 de agosto de 2026',
-    caption:
-      'Panorámica aérea de Moriscos de noche (09 de agosto de 2026): el casco urbano y las nuevas urbanizaciones iluminadas durante las fiestas patronales, con la iglesia parroquial en el centro (Fotografía: Pablo Crespo Bellido).',
-  },
-  {
-    id: 'primavera',
-    label: '🌱 Primavera · 23 mar 2025',
-    src: '/moriscos-wiki/images/moriscos-panoramica-primavera.jpg',
-    originalSrc: '/moriscos-wiki/images/originals/moriscos-panoramica-primavera-original.jpg',
-    originalSize: '7,8 MB',
-    alt: 'Panorámica aérea de Moriscos empezando la primavera tomada el 23 de marzo de 2025',
-    badge: 'Moriscos empezando la primavera · 23 de marzo de 2025',
-    caption:
-      'Panorámica aérea «Moriscos empezando la primavera» (23 de marzo de 2025): el pueblo rodeado por el manto verde de las parcelas de cereal naciente y legumbres de La Armuña (Fotografía: Pablo Crespo Bellido).',
-  },
-];
+const HERO_PANORAMA = {
+  id: 'moriscos-panoramica-horizonte',
+  title: 'Panorámica total de Moriscos y horizonte',
+  src: '/moriscos-wiki/images/moriscos-panoramica-horizonte.jpg',
+  originalSrc: '/moriscos-wiki/images/originals/moriscos-panoramica-horizonte-original.jpg',
+  alt: 'Gran panorámica aérea de Moriscos en el centro de la llanura de La Armuña tomada el 23 de marzo de 2025',
+  badge: 'Panorámica total de Moriscos y horizonte · 23 de marzo de 2025',
+  caption:
+    'Gran panorámica aérea de Moriscos en el centro de la llanura de La Armuña, con sombras dinámicas de nubes proyectadas sobre las parcelas verdes y la silueta de Salamanca en el horizonte (23 de marzo de 2025). Fotografía: Pablo Crespo Bellido.',
+};
 
 export default function InicioPage({ onNavigate }) {
   const [activeImage, setActiveImage] = useState(null);
-  const [selectedPanoIndex, setSelectedPanoIndex] = useState(0);
+  const [downloading, setDownloading] = useState(false);
+
+  const handleDownload = async (img) => {
+    if (!img) return;
+    const url = img.originalSrc || img.src;
+    const filename = `${img.id || 'moriscos-panoramica'}.jpg`;
+
+    try {
+      setDownloading(true);
+      const res = await fetch(url);
+      if (!res.ok) throw new Error('Error al descargar');
+      const blob = await res.blob();
+      const blobUrl = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = blobUrl;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      setTimeout(() => window.URL.revokeObjectURL(blobUrl), 1500);
+    } catch {
+      window.open(url, '_blank');
+    } finally {
+      setDownloading(false);
+    }
+  };
 
   useEffect(() => {
     if (!activeImage) return;
@@ -147,8 +147,6 @@ export default function InicioPage({ onNavigate }) {
       window.removeEventListener('keydown', onKey);
     };
   }, [activeImage]);
-
-  const currentPano = panoramas[selectedPanoIndex];
 
   return (
     <div className="flex flex-col">
@@ -176,48 +174,26 @@ export default function InicioPage({ onNavigate }) {
           </p>
         </div>
 
-        {/* Galería Panorámica aérea interactiva (Atardecer / Noche) */}
+        {/* Panorámica aérea destacada de Moriscos */}
         <div className="mt-10 overflow-hidden rounded-3xl border border-piedra-border/40 bg-noche-card shadow-2xl">
           <div className="flex items-center justify-between border-b border-noche-border/80 bg-noche-surface/90 px-4 py-2.5 sm:px-6">
             <span className="text-xs font-semibold uppercase tracking-wider text-armuna-light">
-              Panorámica aérea
+              Panorámica aérea de Moriscos
             </span>
-            <div className="flex items-center gap-1.5">
-              {panoramas.map((p, idx) => (
-                <button
-                  key={p.id}
-                  type="button"
-                  onClick={() => setSelectedPanoIndex(idx)}
-                  className={`rounded-lg px-2.5 py-1 text-xs font-medium transition-all cursor-pointer ${
-                    selectedPanoIndex === idx
-                      ? 'bg-armuna text-noche font-bold shadow-xs'
-                      : 'bg-noche/60 text-pergamino-muted/70 hover:text-pergamino border border-piedra-400/20'
-                  }`}
-                >
-                  {p.label}
-                </button>
-              ))}
-            </div>
+            <span className="text-xs text-pergamino-muted/70 font-mono">
+              23 de marzo de 2025
+            </span>
           </div>
 
           <button
             type="button"
-            onClick={() =>
-              setActiveImage({
-                src: currentPano.src,
-                alt: currentPano.alt,
-                caption: currentPano.caption,
-                originalSrc: currentPano.originalSrc,
-                originalSize: currentPano.originalSize,
-              })
-            }
-            className="group relative block w-full h-[260px] sm:h-[400px] md:h-[480px] overflow-hidden cursor-zoom-in"
-            aria-label={`Ampliar ${currentPano.alt}`}
+            onClick={() => setActiveImage(HERO_PANORAMA)}
+            className="group relative block w-full h-[280px] sm:h-[420px] md:h-[500px] overflow-hidden cursor-zoom-in"
+            aria-label={`Ampliar ${HERO_PANORAMA.alt}`}
           >
             <img
-              key={currentPano.src}
-              src={currentPano.src}
-              alt={currentPano.alt}
+              src={HERO_PANORAMA.src}
+              alt={HERO_PANORAMA.alt}
               className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
               width="1024"
               height="576"
@@ -225,7 +201,7 @@ export default function InicioPage({ onNavigate }) {
             <div className="absolute inset-0 bg-gradient-to-t from-noche/90 via-noche/25 to-transparent pointer-events-none" />
             <div className="absolute bottom-4 left-4 right-4 sm:left-6 sm:right-6 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs sm:text-sm text-pergamino-muted bg-noche/85 p-3 rounded-xl border border-piedra-400/25 backdrop-blur-md">
               <span className="font-serif font-medium truncate">
-                {currentPano.badge}
+                {HERO_PANORAMA.badge}
               </span>
               <span className="inline-flex items-center gap-1.5 text-armuna-light font-semibold shrink-0">
                 <ZoomIn size={15} /> Ampliar
@@ -234,7 +210,7 @@ export default function InicioPage({ onNavigate }) {
           </button>
           <div className="flex items-center justify-between border-t border-noche-border/80 bg-noche-surface/90 px-4 py-2.5 sm:px-6 text-xs text-pergamino-muted">
             <span className="hidden sm:inline font-serif text-pergamino-muted/70">
-              Colección fotográfica de Moriscos
+              Colección fotográfica · Pablo Crespo Bellido
             </span>
             <button
               type="button"
@@ -347,16 +323,24 @@ export default function InicioPage({ onNavigate }) {
               )}
               {activeImage.originalSrc && (
                 <div className="mt-3">
-                  <a
-                    href={activeImage.originalSrc}
-                    download="moriscos-panoramica-master.jpg"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-xl bg-armuna px-4 py-2 text-xs sm:text-sm font-bold text-noche hover:bg-armuna-light transition-all shadow-md cursor-pointer hover:scale-[1.02]"
+                  <button
+                    type="button"
+                    onClick={() => handleDownload(activeImage)}
+                    disabled={downloading}
+                    className="inline-flex items-center gap-2 rounded-xl bg-armuna px-4 py-2 text-xs sm:text-sm font-bold text-noche hover:bg-armuna-light disabled:opacity-60 transition-all shadow-md cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
                   >
-                    <Download size={15} strokeWidth={2.5} />
-                    <span>Descargar original en máxima resolución ({activeImage.originalSize})</span>
-                  </a>
+                    {downloading ? (
+                      <>
+                        <Loader2 size={15} className="animate-spin" />
+                        <span>Descargando...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Download size={15} strokeWidth={2.5} />
+                        <span>Descargar fotografía</span>
+                      </>
+                    )}
+                  </button>
                 </div>
               )}
             </div>
