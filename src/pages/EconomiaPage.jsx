@@ -83,7 +83,7 @@ const sourcesData = [
     badge: 'Monografía comarcal',
     summary:
       'Estudio agronómico y socioeconómico de la penillanura armuñesa. Aporta las características del suelo arcilloso (800–900 m de altitud, materia orgánica media del 0,97%), el sistema de rotación «a dos hojas», la primacía del trigo candeal, mocho y rubión, la simbiosis biológica de la bacteria Rhizobium con la Lenteja Rubia de La Armuña («gigante de Gomecello»), la llegada del ferrocarril en 1877, los silos de hormigón de la Red Nacional (1949–1990), la planta biotecnológica de radioligandos de Novartis (12,9 M€ en Castellanos de Moriscos), la presencia de Helcesa (1984), el CTR de Gomecello (2007) y las firmas agroalimentarias de calidad (Legumbres Montes y Legumer).',
-    citas: ['cite: 24, 25, 26, 27, 28', 'cite: 33, 34, 35, 36, 37, 38, 44, 54'],
+    temas: ['Suelo y agronomía', 'Rotación a dos hojas', 'Lenteja de La Armuña', 'Ferrocarril y polígonos industriales'],
   },
   {
     id: 'fuente-analisis-multidimensional',
@@ -91,7 +91,7 @@ const sourcesData = [
     badge: 'Análisis histórico',
     summary:
       'Explica la fuerza de tracción empleada en la labranza y documenta la frontera geográfica y cultural en el uso del ganado de tiro: en La Armuña y la Tierra de Charra se utilizaban tradicionalmente bueyes de labor, a diferencia de las comarcas vecinas de Peñaranda y Cantalapiedra, donde predominaba el uso de las mulas.',
-    citas: ['cite: 1'],
+    temas: ['Tracción animal', 'Bueyes de labor frente a mulas', 'Fronteras agropecuarias'],
   },
   {
     id: 'fuente-lexico-mozodiel',
@@ -99,7 +99,7 @@ const sourcesData = [
     badge: 'Etnografía y léxico',
     summary:
       'Recoge los términos tradicionales de labor armuñesa como «alzar» (primera labor profunda a los barbechos con bueyes), «aricar» (escarda ligera para arrimar tierra) y la «boyá» (rebaño comunal guiado por el boyero concejil). Asimismo documenta la plaga histórica del gorgojo, la conservación arcaica en tinajas de aceite de oliva de la Sierra de Gata, la máquina de tostar de D. Gonzalo Sánchez (herrero de Calzada) y la posterior revolución de los «asfixies» con bobolina para exterminar la plaga por anoxia.',
-    citas: ['cite: 98, 99, 100, 101, 106, 117, 118'],
+    temas: ['Vocabulario tradicional', 'Plaga del gorgojo', 'Boyero concejil', 'Conservación del grano'],
   },
   {
     id: 'fuente-historia-cabrerizos',
@@ -107,7 +107,7 @@ const sourcesData = [
     badge: 'Archivo municipal',
     summary:
       'Describe la economía hidráulica de molienda en las márgenes del río Tormes. La construcción de costosas aceñas de cantería constituyó un lucrativo monopolio feudal en manos del Cabildo catedralicio (como el Chantre Pedro en 1240) y de la oligarquía salmantina, desencadenando disputas entre regidores como Juan Vázquez Coronado y Gonzalo de Villafuerte por el control de la harina armuñesa.',
-    citas: ['cite: 19, 20, 21, 23, 29, 30'],
+    temas: ['Molinos y aceñas del Tormes', 'Monopolio señorial y capitular', 'Comercio harinero'],
   },
   {
     id: 'fuente-guion-la-flecha',
@@ -115,7 +115,7 @@ const sourcesData = [
     badge: 'Guion etnográfico local',
     summary:
       'Detalla el régimen de la maquila (1/12 parte de la fanega, es decir, 1 celemín por fanega) y cómo los molineros acababan convertidos en los panaderos de Moriscos y Castellanos. Registra que los labradores bajaban los bueyes a invernar al soto de La Flecha, subían agua blanda del río para cocinar ante la dureza extrema de los pozos de Moriscos (>40º de dureza) y recoge oficios artesanales como Miguel el Silletero recolectando esparto para confeccionar asientos.',
-    citas: ['cite: 151, 152, 156'],
+    temas: ['Régimen de la maquila', 'Invernada en La Flecha', 'Pozos y aguadores', 'Oficios artesanales'],
   },
   {
     id: 'fuente-madoz-silos',
@@ -123,7 +123,7 @@ const sourcesData = [
     badge: 'Geografía histórica & FEGA',
     summary:
       'Radiografía decimonónica de Moriscos (40 casas, pozos hondos, gran charca comunal) y Castellanos (72 casas mezquinas para 312 vecinos). Constata los dos grandes silos de cereal de Gomecello construidos por el Servicio Nacional del Trigo y su desamortización mediante subasta pública por el FEGA en 2021.',
-    citas: ['cite: 17, 158, 159'],
+    temas: ['Censo decimonónico', 'Red Nacional de Silos', 'Servicio Nacional del Trigo'],
   },
 ];
 
@@ -681,14 +681,21 @@ export default function EconomiaPage({ onNavigate, target }) {
                   {src.summary}
                 </p>
 
-                <div className="mt-3 flex flex-wrap items-center gap-2 pt-2 border-t border-noche-border/40 text-[11px] font-mono text-piedra-300">
-                  <span className="font-semibold text-purple-300">Citas en el cuaderno de investigación:</span>
-                  {src.citas.map((c, i) => (
-                    <span key={i} className="rounded bg-noche-border/60 px-2 py-0.5 text-pergamino-muted">
-                      {c}
+                {src.temas && src.temas.length > 0 && (
+                  <div className="mt-3 flex flex-wrap items-center gap-1.5 pt-2.5 border-t border-noche-border/40 text-xs">
+                    <span className="text-[11px] font-semibold text-armuna-light uppercase tracking-wider mr-1">
+                      Materias tratadas:
                     </span>
-                  ))}
-                </div>
+                    {src.temas.map((t, i) => (
+                      <span
+                        key={i}
+                        className="inline-flex items-center rounded-md bg-noche-card/90 border border-piedra-400/25 px-2 py-0.5 text-[11px] font-medium text-pergamino-muted"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </article>
             ))}
           </div>
