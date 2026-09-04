@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { MapPin, Navigation, ExternalLink, Copy, Check, Compass, LocateFixed } from 'lucide-react';
+import { MapPin, Copy, Check, Compass, LocateFixed } from 'lucide-react';
 import ErrorBoundary from './ErrorBoundary';
 
 const MORISCOS_COORDS = [41.007944, -5.58325];
 const MORISCOS_DMS = '41°00\'28.6"N 5°34\'59.7"W';
-const GOOGLE_MAPS_URL = 'https://maps.app.goo.gl/XPNFxrrBATuwPfG29';
 
 const pinIcon = L.divIcon({
   className: 'moriscos-center-pin',
