@@ -269,13 +269,19 @@ export default function InicioPage({ onNavigate }) {
               key={id}
               type="button"
               onClick={() => onNavigate(id)}
-              className="group flex flex-col gap-3 rounded-2xl border border-noche-border bg-noche-card/80 p-6 text-left transition-all hover:-translate-y-1 hover:border-piedra-400/50 hover:bg-noche-surface hover:shadow-xl cursor-pointer"
+              className="group flex flex-col gap-3 rounded-2xl border border-noche-border bg-noche-card/80 p-5 sm:p-6 text-left transition-all hover:-translate-y-1 hover:border-piedra-400/50 hover:bg-noche-surface hover:shadow-xl cursor-pointer"
             >
-              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-armuna/15 text-armuna-light group-hover:scale-110 transition-transform">
-                <Icon size={20} strokeWidth={2} />
+              <div className="flex items-center gap-3.5">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-armuna/15 text-armuna-light group-hover:scale-105 transition-transform">
+                  <Icon size={20} strokeWidth={2} />
+                </span>
+                <span className="font-serif text-lg font-semibold text-pergamino group-hover:text-armuna-light transition-colors">
+                  {title}
+                </span>
+              </div>
+              <span className="text-xs sm:text-sm text-pergamino-muted/75 leading-relaxed">
+                {description}
               </span>
-              <span className="font-serif text-lg font-semibold text-pergamino group-hover:text-armuna-light transition-colors">{title}</span>
-              <span className="text-sm text-pergamino-muted/70 leading-relaxed">{description}</span>
             </button>
           ))}
         </div>
