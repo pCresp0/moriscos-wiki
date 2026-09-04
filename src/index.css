@@ -350,20 +350,37 @@ main > div > * {
   }
 }
 
-/* Resalta el elemento al que apunta un resultado del buscador. */
+/* Resalta el elemento al que apunta un resultado del buscador con halo dorado y anillo visible */
 @keyframes search-pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(212, 163, 89, 0.7);
+    box-shadow: 0 0 0 0 rgba(212, 163, 89, 0);
+    outline: 2px solid transparent;
+  }
+  15% {
+    box-shadow: 0 0 0 4px rgba(212, 163, 89, 0.95), 0 0 40px rgba(212, 163, 89, 0.65);
+    outline: 2px solid #d4a359;
+  }
+  35% {
+    box-shadow: 0 0 0 2px rgba(212, 163, 89, 0.6), 0 0 20px rgba(212, 163, 89, 0.4);
+    outline: 2px solid #d4a359;
+  }
+  55% {
+    box-shadow: 0 0 0 4px rgba(212, 163, 89, 0.95), 0 0 40px rgba(212, 163, 89, 0.65);
+    outline: 2px solid #d4a359;
   }
   100% {
-    box-shadow: 0 0 0 16px rgba(212, 163, 89, 0);
+    box-shadow: 0 0 0 0 rgba(212, 163, 89, 0);
+    outline: 2px solid transparent;
   }
 }
 
 .search-target {
-  animation: search-pulse 1s ease-out 2;
-  border-radius: 1rem;
   scroll-margin-top: 96px;
+}
+
+.target-highlight {
+  animation: search-pulse 3.2s cubic-bezier(0.22, 1, 0.36, 1) forwards !important;
+  border-radius: 1rem;
 }
 
 /* Los paneles internos de Leaflet no deben taparse nunca con el menú lateral

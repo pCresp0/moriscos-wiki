@@ -4,6 +4,7 @@ import { ZoomIn, X, Download } from 'lucide-react';
 
 const otrasFiestas = [
   {
+    id: 'fiesta-san-pedro',
     title: 'San Pedro Apóstol',
     date: '29 de junio',
     tag: 'Patrón del pueblo',
@@ -11,6 +12,7 @@ const otrasFiestas = [
       'Patrón titular de la parroquia y del municipio. Aunque los festejos multitudinarios de verano se centran en la Virgen Peregrina, este día se celebran los actos litúrgicos e institucionales en su honor.',
   },
   {
+    id: 'fiesta-san-isidro',
     title: 'San Isidro Labrador',
     date: '15 de mayo',
     tag: 'Fiesta agrícola',
@@ -18,6 +20,7 @@ const otrasFiestas = [
       'Homenaje de los agricultores a San Isidro con la bendición de los campos de cultivo y una jornada de convivencia, en un municipio históricamente volcado en el secano de La Armuña (trigo, cebada y la I.G.P. Lenteja de La Armuña).',
   },
   {
+    id: 'fiesta-lunes-aguas',
     title: 'El Lunes de Agua',
     date: 'Lunes siguiente al Lunes de Pascua',
     tag: 'Tradición salmantina',
@@ -229,7 +232,7 @@ export default function FiestasPage() {
         </h2>
 
         {/* Tarjeta destacada con la imagen de la Virgen Peregrina */}
-        <div className="mt-6 card-editorial p-6 sm:p-8 flex flex-col md:flex-row gap-6 items-center md:items-start">
+        <div id="fiesta-peregrina" className="mt-6 card-editorial p-6 sm:p-8 flex flex-col md:flex-row gap-6 items-center md:items-start scroll-mt-24">
           <button
             type="button"
             onClick={() =>
@@ -345,7 +348,7 @@ export default function FiestasPage() {
         <h2 className="mt-2 font-serif text-2xl font-bold text-armuna-light">Otras fiestas del año</h2>
         <div className="mt-6 grid gap-5 sm:grid-cols-3">
           {otrasFiestas.map((f) => (
-            <article key={f.title} className="card-editorial flex flex-col justify-between">
+            <article key={f.title} id={f.id} className="card-editorial flex flex-col justify-between scroll-mt-24">
               <div>
                 <span className="mb-2 inline-block rounded-md bg-armuna/20 px-2.5 py-1 text-xs font-semibold text-armuna-light">
                   {f.tag}

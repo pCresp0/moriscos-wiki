@@ -59,7 +59,7 @@ export default function EscudoPage() {
 
       <div className="mt-12 space-y-8">
         {/* 1. Primer cuartel */}
-        <div className="card-editorial p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-center sm:items-start">
+        <div id="cuartel-1" className="card-editorial p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-center sm:items-start scroll-mt-24">
           <button
             type="button"
             onClick={() =>
@@ -102,7 +102,7 @@ export default function EscudoPage() {
         </div>
 
         {/* 2. Segundo cuartel */}
-        <div className="card-editorial p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-center sm:items-start">
+        <div id="cuartel-2" className="card-editorial p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-center sm:items-start scroll-mt-24">
           <button
             type="button"
             onClick={() =>
@@ -145,7 +145,7 @@ export default function EscudoPage() {
         </div>
 
         {/* 3. Entado en punta */}
-        <div className="card-editorial p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-center sm:items-start">
+        <div id="entado-punta" className="card-editorial p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-center sm:items-start scroll-mt-24">
           <button
             type="button"
             onClick={() =>
@@ -187,7 +187,7 @@ export default function EscudoPage() {
         </div>
 
         {/* 4. El timbre */}
-        <div className="card-editorial p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-center sm:items-start">
+        <div id="timbre-corona" className="card-editorial p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-center sm:items-start scroll-mt-24">
           <button
             type="button"
             onClick={() =>

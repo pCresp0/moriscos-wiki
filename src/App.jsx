@@ -56,12 +56,55 @@ export default function App() {
     setRoute({ tab: validTab, target });
   }, []);
 
-  // Al cambiar de sección se vuelve arriba. Si la ruta apunta a un elemento
-  // concreto (un capítulo, un término), es la propia página la que decide
-  // dónde colocar el scroll.
+  // Al cambiar de sección se vuelve arriba si no hay un target específico.
   useEffect(() => {
     if (route.target) return;
     scrollContainerRef.current?.scrollTo({ top: 0, behavior: 'auto' });
+  }, [route.tab, route.target]);
+
+  // Al seleccionar un resultado del buscador con destino concreto (target),
+  // se busca el elemento en el DOM, se desplaza suavemente hasta él y se
+  // sobresalta con el halo visual distintivo.
+  useEffect(() => {
+    if (!route.target) return;
+    const targetId = route.target;
+    let attempts = 0;
+    let removeTimer = null;
+
+    const tryHighlight = () => {
+      const el = document.getElementById(targetId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        el.classList.remove('search-target', 'target-highlight');
+        void el.offsetWidth;
+        el.classList.add('search-target', 'target-highlight');
+
+        removeTimer = setTimeout(() => {
+          el.classList.remove('target-highlight');
+        }, 3600);
+        return true;
+      }
+      return false;
+    };
+
+    // Intentar de inmediato o reintentar en los primeros frames si la página está montándose
+    if (!tryHighlight()) {
+      const interval = setInterval(() => {
+        attempts += 1;
+        if (tryHighlight() || attempts >= 12) {
+          clearInterval(interval);
+        }
+      }, 70);
+
+      return () => {
+        clearInterval(interval);
+        if (removeTimer) clearTimeout(removeTimer);
+      };
+    }
+
+    return () => {
+      if (removeTimer) clearTimeout(removeTimer);
+    };
   }, [route.tab, route.target]);
 
   // Gesto lateral para abrir y cerrar el menú en el móvil.
