@@ -54,7 +54,19 @@ export default function Footer() {
               Pablo Crespo Bellido
             </a>
           </p>
-          <p className="text-xs text-pergamino-muted/60">
+          <p className="text-xs text-pergamino-muted/70 max-w-md mx-auto mt-0.5">
+            Inspirada y fundamentada en la web decana{' '}
+            <a
+              href="https://www.moriscos.info"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-armuna-light hover:underline font-medium"
+            >
+              moriscos.info
+            </a>
+            , ideada e ingeniada por Miguel Blanco González.
+          </p>
+          <p className="text-xs text-pergamino-muted/60 mt-1">
             &copy; {year} · Moriscos
           </p>
           <div className="mt-2">

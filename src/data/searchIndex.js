@@ -96,7 +96,7 @@ export const searchIndex = [
     "target": "11-portal-morisquenos",
     "title": "Cap. 11 · La Memoria Digital de la Villa: Análisis del Portal 'Morisqueños'",
     "excerpt": "El Bosque Genealógico desde 1645, la desmitificación del topónimo y la galería de paisanos ilustres.",
-    "content": "La conservación y divulgación del patrimonio de Moriscos ha encontrado su principal referente en la plataforma [«Morisqueños - Memoria e historia de Moriscos»](https://sites.google.com/view/morisquenos/resena-historica), un proyecto pionero de microhistoria participativa articulado en torno a tres objetivos: servir de punto de encuentro para vecinos, emigrados y simpatizantes; investigar y divulgar la historia y etnografía del municipio a través de su exhaustiva Reseña Histórica, el vaciado del Catastro de 1752, el estudio de tratamientos «DONes y ELes» y la sección «Ventanas del Ayer»; y canalizar la colaboración ciudadana mediante buzón de correo, libro de visitas y foros. Se define como «morisqueño» a toda persona con un lazo de unión —residencial, genealógico, histórico o afectivo— con el pueblo. Esta condición se acredita incorporándose al Bosque Genealógico de Moriscos (geneaweb.org/moriscos), elaborado mediante el vaciado sistemático de los libros sacramentales de la Iglesia de San Pedro Apóstol, que permite rastrear los linajes familiares ininterrumpidamente hasta el año 1645. La adscripción da además derecho a figurar en el archivo fotográfico «Ventanas del Ayer y Hoy»,…",
+    "content": "La conservación y divulgación del patrimonio de Moriscos ha encontrado su principal referente e inspiración en la plataforma decana [«moriscos.info»](https://www.moriscos.info), una obra desarrollada e ingeniada por Miguel Blanco González con más de 15 años de dedicación ejemplar. Este proyecto pionero de microhistoria y preservación comunitaria se articula en torno a tres grandes objetivos: servir de punto de encuentro para vecinos, emigrados y simpatizantes; investigar y divulgar con rigurosa minuciosidad la historia y etnografía del municipio a través de su exhaustiva Reseña Histórica, el vaciado del Catastro de 1752, el estudio de tratamientos «DONes y ELes» y la sección «Ventanas del Ayer»; y canalizar la colaboración ciudadana mediante buzón de correo, libro de visitas y foros. Cualquier persona que desee ampliar y conocer en profundidad la historia viva del pueblo encuentra en su web una fuente insustituible y un auténtico placer de consulta. Se define como «morisqueño» a toda persona con un lazo de unión —residencial, genealógico, histórico o afectivo— con el pueblo. Esta condición se acredita incorporándose al Bosque Genealógico de Moriscos (geneaweb.org/moriscos),…",
     "badge": "Capítulo 11"
   },
   {
@@ -627,16 +627,16 @@ export const searchIndex = [
     "target": null,
     "title": "Referencias y fuentes documentales",
     "excerpt": "Archivos, monografías, hemeroteca y portales digitales en los que se basa esta web.",
-    "content": "bibliografía fuentes archivo diocesano Catastro de Ensenada Madoz INE IGN hemeroteca Morisqueños Cabrerizos Mozodiel",
+    "content": "bibliografía fuentes archivo diocesano Catastro de Ensenada Madoz INE IGN hemeroteca Morisqueños moriscos.info Miguel Blanco González Cabrerizos Mozodiel",
     "badge": "Fuentes"
   },
   {
     "id": "seccion-sobre",
     "tab": "sobre-la-web",
     "target": null,
-    "title": "Sobre esta web",
-    "excerpt": "Por qué existe el proyecto, de dónde sale la información y cómo contactar o colaborar.",
-    "content": "proyecto personal independiente contacto colaboración código abierto GitHub aviso Pablo Crespo Bellido",
+    "title": "Sobre esta web: proyecto y agradecimientos",
+    "excerpt": "Agradecimiento a Miguel Blanco González (moriscos.info), por qué existe el proyecto, fuentes y contacto.",
+    "content": "proyecto personal independiente contacto colaboración código abierto GitHub aviso Pablo Crespo Bellido Miguel Blanco González moriscos.info agradecimiento",
     "badge": "El proyecto"
   }
 ];

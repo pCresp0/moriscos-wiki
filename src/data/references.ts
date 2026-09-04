@@ -22,13 +22,14 @@ export const referenceCategories: Record<ReferenceItem['categoria'], { label: st
 export const referencesData: ReferenceItem[] = [
   {
     id: 'web-morisquenos',
-    titulo: 'Morisqueños - Memoria e historia de Moriscos',
-    autorInstitucion: 'Comunidad de Vecinos y Creadores de Moriscos / Álex Herrera Pedraz',
-    anioRegistro: '2003 - Actualidad',
+    titulo: 'moriscos.info (Morisqueños) - Memoria e historia de Moriscos',
+    autorInstitucion: 'Miguel Blanco González (creador e ingeniero de moriscos.info) / Álex Herrera Pedraz',
+    anioRegistro: 'Más de 15 años de andadura (2003 - Actualidad)',
     categoria: 'digital',
-    tipoFuente: 'Portal Web de Memoria Local y Archivo Genealógico',
-    url: 'https://sites.google.com/view/morisquenos',
+    tipoFuente: 'Portal Web de Memoria Local, Archivo Genealógico e Historia',
+    url: 'https://www.moriscos.info',
     aportacionHistorica: [
+      'Web decana y pionera de Moriscos desarrollada e ingeniada por Miguel Blanco González, con más de 15 años de labor ininterrumpida que han servido de base e inspiración imprescindible para esta enciclopedia.',
       "Vaciado de libros sacramentales de la parroquia de San Pedro para la creación del 'Bosque Genealógico de Moriscos' (registros desde 1645).",
       'Galería prosopográfica de Paisanos Ilustres: Eugenio Blanco Carbayo (escultor naïf, 1858-1935) y el clérigo Sebastián Romo (S. XVII).',
       'Inventario del Museo Etnográfico de Hipólito (aperos de tracción, yugos, celemines, trillos, medias fanegas).',
@@ -38,12 +39,12 @@ export const referencesData: ReferenceItem[] = [
   },
   {
     id: 'morisquenos-resena-historica',
-    titulo: 'Reseña Histórica de Moriscos (Portal Morisqueños)',
-    autorInstitucion: 'Portal de Memoria Local y Archivo Histórico Morisqueños',
-    anioRegistro: '2003 - Actualidad',
+    titulo: 'Reseña Histórica de Moriscos (moriscos.info)',
+    autorInstitucion: 'Miguel Blanco González (moriscos.info)',
+    anioRegistro: 'Más de 15 años de investigación documental',
     categoria: 'digital',
     tipoFuente: 'Compilación y Cronología Histórica Documental',
-    url: 'https://sites.google.com/view/morisquenos/resena-historica',
+    url: 'https://www.moriscos.info',
     aportacionHistorica: [
       'Cronología documental exhaustiva de Moriscos desde la Antigüedad y la repoblación de 1102 hasta las reformas municipales contemporáneas.',
       'Transcripción de escrituras y legajos notariales: compraventas medievales en Castellanos de Morisco (1289) y El Hoyo (1398), pleito en Chancillería de 1594 y censos de pecheros de 1528 y 1591.',

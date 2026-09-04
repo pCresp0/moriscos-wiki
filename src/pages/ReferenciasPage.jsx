@@ -31,22 +31,28 @@ export default function ReferenciasPage({ target }) {
         Principales fuentes históricas, legajos de archivos eclesiásticos y estatales, monografías académicas, crónicas de prensa y portales digitales de los que se han extraído y contrastado los datos de esta web.
       </p>
 
-      {/* Reconocimiento especial a la web Morisqueños */}
-      <div className="mt-6 rounded-2xl border border-armuna/35 bg-noche-surface/80 p-4 sm:p-5 shadow-lg backdrop-blur-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-        <div className="text-sm text-pergamino-muted/85 leading-relaxed">
-          <p>
-            <strong className="text-armuna-light font-serif text-base block mb-0.5">Agradecimiento y fuente documental destacada:</strong>
-            Buena parte de los datos cronológicos, transcripciones notariales y referencias históricas de Moriscos han sido obtenidos y contrastados a partir de la labor de investigación del portal{' '}
-            <strong className="text-pergamino">Morisqueños</strong> y su monografía de{' '}
+      {/* Reconocimiento especial a Miguel Blanco González y moriscos.info */}
+      <div className="mt-6 rounded-2xl border border-armuna/40 bg-gradient-to-r from-armuna/15 via-noche-surface to-noche-card p-5 sm:p-6 shadow-xl backdrop-blur-xs">
+        <div className="text-sm text-pergamino-muted/90 leading-relaxed">
+          <p className="font-serif text-lg font-bold text-armuna-light mb-1">
+            Agradecimiento de honor: Miguel Blanco González y moriscos.info
+          </p>
+          <p className="mt-2 text-sm text-pergamino-muted/85 leading-relaxed">
+            Gran parte de los datos cronológicos, transcripciones notariales, censos, memoria oral y referencias históricas reunidas en esta web han sido corroborados gracias a la exhaustiva labor de investigación de <strong className="text-pergamino">Miguel Blanco González</strong>, desarrollador e ingeniero de la web <a href="https://www.moriscos.info" target="_blank" rel="noopener noreferrer" className="font-semibold text-armuna-light hover:underline inline-flex items-center gap-1">moriscos.info <ExternalLink size={13} /></a>.
+          </p>
+          <p className="mt-2 text-sm text-pergamino-muted/80">
+            Con <strong className="text-pergamino">más de 15 años de trayectoria</strong>, su portal es la piedra angular digital de la memoria local. Si deseas obtener más información o profundizar en cualquier aspecto sobre Moriscos, es un verdadero gusto poder informarse y adentrarse en su trabajo.
+          </p>
+          <div className="mt-3.5">
             <a
-              href="https://sites.google.com/view/morisquenos/resena-historica"
+              href="https://www.moriscos.info"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-armuna-light font-semibold hover:underline inline-flex items-center gap-1"
+              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-armuna-light hover:text-pergamino transition-colors"
             >
-              Reseña Histórica <ExternalLink size={13} />
-            </a>.
-          </p>
+              Visitar la web moriscos.info →
+            </a>
+          </div>
         </div>
       </div>
 

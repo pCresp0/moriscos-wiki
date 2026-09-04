@@ -6,9 +6,9 @@ order: 11
 readingMinutes: 10
 ---
 
-## El proyecto digital "Morisqueños" y su marco documental
+## El proyecto digital moriscos.info y la obra de Miguel Blanco González
 
-La conservación y divulgación del patrimonio de Moriscos ha encontrado su principal referente en la plataforma [**«Morisqueños - Memoria e historia de Moriscos»**](https://sites.google.com/view/morisquenos/resena-historica), un proyecto pionero de microhistoria participativa articulado en torno a tres objetivos: servir de punto de encuentro para vecinos, emigrados y simpatizantes; investigar y divulgar la historia y etnografía del municipio a través de su exhaustiva **Reseña Histórica**, el vaciado del **Catastro de 1752**, el estudio de tratamientos **«DONes y ELes»** y la sección **«Ventanas del Ayer»**; y canalizar la colaboración ciudadana mediante buzón de correo, libro de visitas y foros.
+La conservación y divulgación del patrimonio de Moriscos ha encontrado su principal referente e inspiración en la plataforma decana [**«moriscos.info»**](https://www.moriscos.info), una obra desarrollada e ingeniada por **Miguel Blanco González** con más de 15 años de dedicación ejemplar. Este proyecto pionero de microhistoria y preservación comunitaria se articula en torno a tres grandes objetivos: servir de punto de encuentro para vecinos, emigrados y simpatizantes; investigar y divulgar con rigurosa minuciosidad la historia y etnografía del municipio a través de su exhaustiva **Reseña Histórica**, el vaciado del **Catastro de 1752**, el estudio de tratamientos **«DONes y ELes»** y la sección **«Ventanas del Ayer»**; y canalizar la colaboración ciudadana mediante buzón de correo, libro de visitas y foros. Cualquier persona que desee ampliar y conocer en profundidad la historia viva del pueblo encuentra en su web una fuente insustituible y un auténtico placer de consulta.
 
 ## La Distinción de Morisqueño y el Bosque Genealógico (1645)
 
@@ -36,4 +36,4 @@ El portal documenta la **Iglesia de San Pedro Apóstol**, con sillares de piedra
 
 ## Hemeroteca y evolución urbana
 
-Completa el archivo una hemeroteca con recortes de *El Adelanto*, *Tribuna de Salamanca* y *Salamanca24horas* —desde la supresión de pasos a nivel en 2003 hasta el IV MotoCross de Moriscos en Las Cavenes (2009)— y una serie de ortofotos de **evolución urbana entre 1954 y 2007**, testigo de la transición del caserío tradicional a las modernas urbanizaciones. Esta plataforma —de la que el presente sitio es heredero y continuador— se consagra así como modelo de salvaguarda de la identidad viva de Moriscos para las generaciones futuras.
+Completa el archivo una hemeroteca con recortes de *El Adelanto*, *Tribuna de Salamanca* y *Salamanca24horas* —desde la supresión de pasos a nivel en 2003 hasta el IV MotoCross de Moriscos en Las Cavenes (2009)— y una serie de ortofotos de **evolución urbana entre 1954 y 2007**, testigo de la transición del caserío tradicional a las modernas urbanizaciones. Esta plataforma —de la que el presente sitio es deudor, continuador y admirador, agradeciendo profundamente el magno trabajo de su artífice Miguel Blanco González— se consagra así como modelo de salvaguarda de la identidad viva de Moriscos para las generaciones futuras.
