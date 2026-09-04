@@ -73,19 +73,18 @@ export function Drawer({ active, onChange, open, onClose }) {
     <>
       {/* Fondo oscuro difuminado */}
       <div
-        className={`fixed inset-0 z-[200] bg-black/60 backdrop-blur-[2px] transition-opacity duration-300 ${
+        className={`fixed inset-0 z-[200] bg-black/65 backdrop-blur-[2px] transition-opacity duration-300 ${
           open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
         onClick={onClose}
         aria-hidden="true"
       />
 
-      {/* Menú deslizante */}
+      {/* Menú deslizante con textura de trigo y calidez de piedra de Villamayor */}
       <aside
-        className="fixed top-0 left-0 h-full flex flex-col z-[210] border-r border-[#3d332a] shadow-[6px_0_32px_rgba(0,0,0,0.45)]"
+        className="fixed top-0 left-0 h-full flex flex-col z-[210] sidebar-panel shadow-[6px_0_32px_rgba(0,0,0,0.55)]"
         style={{
           width: 256,
-          background: 'linear-gradient(165deg, rgba(36, 30, 24, 0.99) 0%, rgba(28, 24, 20, 0.98) 100%)',
           transform: open ? 'translateX(0)' : 'translateX(-100%)',
           transition: 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.3s linear',
           // Oculto de verdad al cerrarse: así el menú no queda en el orden de
@@ -98,7 +97,7 @@ export function Drawer({ active, onChange, open, onClose }) {
         aria-label="Menú principal de navegación"
       >
         {/* Cabecera del Drawer */}
-        <div className="flex items-center justify-between px-5 pt-[calc(env(safe-area-inset-top,0px)+1rem)] pb-4 border-b border-white/10">
+        <div className="flex items-center justify-between px-5 pt-[calc(env(safe-area-inset-top,0px)+1rem)] pb-4 border-b border-[#b88432]/30">
           <div className="flex items-center gap-2.5 font-display text-lg font-bold tracking-wider text-pergamino">
             <img
               src="/moriscos-wiki/images/escudo-moriscos-160.jpg"
@@ -125,7 +124,7 @@ export function Drawer({ active, onChange, open, onClose }) {
         </nav>
 
         {/* Accesos directos inferiores */}
-        <div className="flex items-center justify-around px-3 py-3 border-t border-white/10 bg-noche/80">
+        <div className="flex items-center justify-around px-3 py-3 border-t border-[#b88432]/30 bg-black/45 backdrop-blur-sm">
           {[
             { id: 'inicio', icon: Home, label: 'Inicio' },
             { id: 'historia', icon: History, label: 'Historia' },
@@ -144,7 +143,7 @@ export function Drawer({ active, onChange, open, onClose }) {
                 }}
                 title={quick.label}
                 className={`p-2 rounded-xl transition-all cursor-pointer ${
-                  isActive ? 'bg-armuna-light/20 text-armuna-light' : 'text-pergamino-muted/60 hover:text-pergamino'
+                  isActive ? 'bg-armuna-light/25 text-armuna-light shadow-sm' : 'text-pergamino-muted/70 hover:text-pergamino'
                 }`}
               >
                 <Icon size={20} />
@@ -162,7 +161,7 @@ export default function Nav({ active, onChange, open, setOpen }) {
   return (
     <>
       <header
-        className="relative w-full shrink-0 z-40 flex items-center justify-between px-3 sm:px-6 lg:hidden border-b border-noche-border bg-noche-surface/95 backdrop-blur-md shadow-md"
+        className="relative w-full shrink-0 z-40 flex items-center justify-between px-3 sm:px-6 lg:hidden header-panel"
         style={{
           height: 'var(--mobile-topbar, 58px)',
           paddingTop: 'env(safe-area-inset-top, 0px)',
@@ -205,15 +204,12 @@ export default function Nav({ active, onChange, open, setOpen }) {
   );
 }
 
-// Barra lateral para Desktop (lg:flex)
+// Barra lateral para Desktop (lg:flex) con textura de trigo y arenisca dorada
 export function Sidebar({ active, onChange }) {
   return (
     <aside
-      className="hidden lg:flex flex-col border-r border-noche-border shrink-0 z-30"
-      style={{
-        width: 250,
-        background: 'linear-gradient(180deg, rgba(36, 30, 24, 0.98) 0%, rgba(28, 24, 20, 0.98) 100%)',
-      }}
+      className="hidden lg:flex flex-col sidebar-panel shrink-0 z-30"
+      style={{ width: 250 }}
       aria-label="Navegación principal"
     >
       <div className="p-4 overflow-y-auto flex-1">
@@ -223,10 +219,10 @@ export function Sidebar({ active, onChange }) {
   );
 }
 
-// Barra superior para Desktop (lg:flex). Centrado horizontal del logo/marca.
+// Barra superior para Desktop (lg:flex) con textura de trigo y escudo centrado
 export function DesktopTopBar({ onChange }) {
   return (
-    <header className="relative hidden lg:flex items-center justify-between px-8 py-3.5 border-b border-noche-border bg-noche-surface/95 backdrop-blur-md shrink-0">
+    <header className="relative hidden lg:flex items-center justify-between px-8 py-3.5 header-panel shrink-0">
       <div className="flex items-center w-36" />
 
       <button

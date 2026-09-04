@@ -19,32 +19,32 @@
 
 @theme {
   --color-pergamino: #fdfbf7;
-  --color-pergamino-muted: #f4efe4;
-  --color-pergamino-border: #e8e0ce;
-  --color-tinta: #24282c;
-  --color-tinta-muted: #5b6570;
-  --color-tinta-subtle: #8a96a3;
+  --color-pergamino-muted: #f5eedf;
+  --color-pergamino-border: #ebd9bf;
+  --color-tinta: #221a14;
+  --color-tinta-muted: #5e5043;
+  --color-tinta-subtle: #8c7b6c;
   --color-soto: #8c4a32;
   --color-soto-dark: #5b2e1d;
-  --color-soto-light: #b06548;
+  --color-soto-light: #b85d38;
   --color-armuna: #b88432;
-  --color-armuna-dark: #734f1e;
+  --color-armuna-dark: #7a4e18;
   --color-armuna-light: #d4a359;
-  --color-piedra-50: #faf7f2;
-  --color-piedra-100: #f2ece1;
-  --color-piedra-200: #e5dac9;
-  --color-piedra-300: #d1c0a5;
-  --color-piedra-400: #b9a07e;
-  --color-piedra-500: #9e825f;
-  --color-piedra-600: #7f6648;
-  --color-piedra-700: #624e38;
-  --color-piedra-800: #463829;
-  --color-piedra-900: #2d241b;
-  --color-piedra-border: #dcd0bf;
-  --color-noche: #1c1814;
-  --color-noche-surface: #241e18;
-  --color-noche-card: #2c251e;
-  --color-noche-border: #3d332a;
+  --color-piedra-50: #faf5eb;
+  --color-piedra-100: #f3e7ce;
+  --color-piedra-200: #e6cf9f;
+  --color-piedra-300: #d4a359;
+  --color-piedra-400: #c48d3b;
+  --color-piedra-500: #b88432;
+  --color-piedra-600: #9c6b24;
+  --color-piedra-700: #7a501a;
+  --color-piedra-800: #543612;
+  --color-piedra-900: #2c1b09;
+  --color-piedra-border: #d4a359;
+  --color-noche: #1a140e;
+  --color-noche-surface: #241b12;
+  --color-noche-card: #2e2317;
+  --color-noche-border: #4a3824;
   --font-serif: "Cinzel", "Playfair Display", "Times New Roman", Georgia, serif;
   --font-display: "Cinzel", "Playfair Display", serif;
   --font-body: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -52,15 +52,15 @@
 
 :root {
   --ink: #fdfbf7;
-  --ink-soft: #b0a698;
-  --paper: #1c1814;
-  --paper-raised: #241e18;
+  --ink-soft: #bfae99;
+  --paper: #1a140e;
+  --paper-raised: #241b12;
   --primary: #8c4a32;
   --primary-deep: #5b2e1d;
   --accent: #b88432;
-  --accent-deep: #734f1e;
+  --accent-deep: #7a501a;
   --gold: #d4a359;
-  --line: #3d332a;
+  --line: #4a3824;
   --mobile-topbar: calc(58px + env(safe-area-inset-top, 0px));
 }
 
@@ -128,25 +128,47 @@ main > div > * {
 
 .paper-texture {
   background-image:
-    radial-gradient(circle at 20% 20%, rgba(229, 218, 201, 0.08) 0%, transparent 45%),
-    radial-gradient(circle at 80% 80%, rgba(184, 132, 50, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 15% 15%, rgba(212, 163, 89, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(184, 93, 56, 0.08) 0%, transparent 50%),
     url("./assets/images/stone-texture.svg"),
-    linear-gradient(180deg, rgba(28, 24, 20, 0.98) 0%, rgba(36, 30, 24, 0.98) 100%);
+    linear-gradient(180deg, #18120b 0%, #20170f 50%, #18120b 100%);
   background-repeat: no-repeat, no-repeat, repeat, no-repeat;
   background-size: auto, auto, 720px 480px, auto;
   background-attachment: fixed;
 }
 
-/* Paneles con la textura del trigal de La Armuña: identidad visual del sitio. */
-.brand-panel {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
+/* Paneles temáticos con la textura del campo de trigo de La Armuña y piedra de Villamayor */
+.brand-panel,
+.sidebar-panel {
+  color: #fdfbf7;
   background-image:
-    linear-gradient(165deg, rgba(46, 37, 28, 0.95) 0%, rgba(28, 24, 20, 0.97) 100%),
+    linear-gradient(180deg, rgba(62, 38, 20, 0.94) 0%, rgba(36, 21, 10, 0.97) 100%),
     url("./assets/images/campo-trigo.jpg");
   background-size: cover;
   background-position: center;
+  border-right: 1px solid rgba(184, 132, 50, 0.32);
+}
+
+.header-panel {
+  color: #fdfbf7;
+  background-image:
+    linear-gradient(90deg, rgba(74, 45, 23, 0.93) 0%, rgba(98, 60, 31, 0.89) 50%, rgba(74, 45, 23, 0.93) 100%),
+    url("./assets/images/campo-trigo.jpg");
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid rgba(184, 132, 50, 0.35);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.35);
+}
+
+.footer-panel {
+  color: #fdfbf7;
+  background-image:
+    linear-gradient(172deg, rgba(66, 39, 20, 0.94) 0%, rgba(32, 18, 9, 0.98) 100%),
+    url("./assets/images/campo-trigo.jpg");
+  background-size: cover;
+  background-position: center;
+  border-top: 1px solid rgba(184, 132, 50, 0.32);
+  box-shadow: 0 -4px 24px -2px rgba(0, 0, 0, 0.35);
 }
 
 .container-editorial {
@@ -174,7 +196,7 @@ main > div > * {
   font-family: var(--font-serif);
   font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: #d4a359;
 }
@@ -189,12 +211,13 @@ main > div > * {
   font-size: 0.875rem;
   font-weight: 600;
   color: #fdfbf7;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px -2px rgba(140, 74, 50, 0.35);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-primary:hover {
   background-color: #723a26;
   transform: translateY(-1px);
+  box-shadow: 0 6px 16px -2px rgba(140, 74, 50, 0.45);
 }
 
 .btn-secondary {
@@ -202,32 +225,33 @@ main > div > * {
   align-items: center;
   gap: 0.5rem;
   border-radius: 0.75rem;
-  border: 1px solid #3d332a;
-  background-color: rgba(36, 30, 24, 0.8);
+  border: 1px solid rgba(184, 132, 50, 0.35);
+  background-color: rgba(38, 29, 20, 0.85);
   padding: 0.75rem 1.25rem;
   font-size: 0.875rem;
   font-weight: 600;
-  color: #f4efe4;
+  color: #f5eedf;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-secondary:hover {
-  background-color: rgba(44, 37, 30, 0.95);
-  border-color: #b9a07e;
+  background-color: rgba(48, 37, 26, 0.95);
+  border-color: #d4a359;
+  color: #ffffff;
   transform: translateY(-1px);
 }
 
 .card-editorial {
   border-radius: 1rem;
-  border: 1px solid #3d332a;
-  background-color: rgba(36, 30, 24, 0.7);
+  border: 1px solid rgba(184, 132, 50, 0.22);
+  background-color: rgba(38, 29, 20, 0.75);
   padding: 1.5rem;
   backdrop-filter: blur(8px);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .card-editorial:hover {
-  border-color: rgba(212, 163, 89, 0.4);
-  background-color: rgba(36, 30, 24, 0.95);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+  border-color: rgba(212, 163, 89, 0.5);
+  background-color: rgba(46, 35, 24, 0.95);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 0 15px -3px rgba(212, 163, 89, 0.15);
 }
 
 .nav-item {
@@ -239,18 +263,19 @@ main > div > * {
   padding: 0.6875rem 1rem;
   font-weight: 500;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  color: rgba(244, 239, 228, 0.8);
+  color: rgba(245, 238, 223, 0.82);
   border-left: 3px solid transparent;
   cursor: pointer;
 }
 .nav-item[data-active="true"] {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(212, 163, 89, 0.18);
   color: #ffffff;
   border-left: 3px solid #d4a359;
   font-weight: 700;
+  box-shadow: inset 0 0 12px rgba(212, 163, 89, 0.1);
 }
 .nav-item:hover:not([data-active="true"]) {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(212, 163, 89, 0.09);
   color: #ffffff;
 }
 

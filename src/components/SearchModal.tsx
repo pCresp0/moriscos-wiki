@@ -47,7 +47,7 @@ export function SearchModalInner({ onSelectResult }: SearchModalProps) {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="flex h-10 w-10 sm:w-auto sm:px-3.5 items-center justify-center gap-2 rounded-full border border-pergamino/20 bg-pergamino/15 text-sm font-semibold text-pergamino shadow-sm backdrop-blur-sm transition-colors hover:border-pergamino/35 hover:bg-pergamino/25 cursor-pointer"
+        className="flex h-10 w-10 sm:w-auto sm:px-3.5 items-center justify-center gap-2 rounded-full border border-piedra-300/40 bg-black/35 text-sm font-semibold text-pergamino shadow-sm backdrop-blur-sm transition-all hover:border-piedra-300 hover:bg-black/50 cursor-pointer"
         aria-label="Buscar en el sitio"
       >
         <Search className="h-4 w-4 shrink-0" />

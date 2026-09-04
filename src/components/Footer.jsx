@@ -9,7 +9,7 @@ export default function Footer({ onNavigate }) {
 
   return (
     <footer
-      className="brand-panel w-full shrink-0 mt-auto border-t border-noche-border text-xs text-pergamino-muted/70 sm:text-sm"
+      className="footer-panel w-full shrink-0 mt-auto text-xs text-pergamino-muted/75 sm:text-sm"
       style={{ paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 2rem)', paddingTop: '2.5rem' }}
     >
       <div className="container-editorial flex flex-col items-center gap-6">
@@ -18,7 +18,7 @@ export default function Footer({ onNavigate }) {
             href="mailto:pcbcrespo@gmail.com"
             aria-label="Enviar correo de contacto a pcbcrespo@gmail.com"
             title="Contacto por email: pcbcrespo@gmail.com"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-pergamino/25 text-pergamino/80 transition-colors hover:border-[#ea4335] hover:text-[#ea4335]"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-piedra-300/40 bg-black/30 text-pergamino/85 transition-all hover:border-[#ea4335] hover:text-[#ea4335] hover:scale-105"
           >
             <Mail size={18} />
           </a>
@@ -28,7 +28,7 @@ export default function Footer({ onNavigate }) {
             rel="noopener noreferrer"
             aria-label="Perfil de LinkedIn de Pablo Crespo Bellido"
             title="LinkedIn: Pablo Crespo Bellido"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-pergamino/25 text-pergamino/80 transition-colors hover:border-[#4db5e8] hover:text-[#4db5e8]"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-piedra-300/40 bg-black/30 text-pergamino/85 transition-all hover:border-[#4db5e8] hover:text-[#4db5e8] hover:scale-105"
           >
             <Linkedin size={18} />
           </a>
@@ -38,7 +38,7 @@ export default function Footer({ onNavigate }) {
             rel="noopener noreferrer"
             aria-label="Repositorio en GitHub de Moriscos Wiki"
             title="Repositorio en GitHub: pCresp0/moriscos-wiki"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-pergamino/25 text-pergamino/80 transition-colors hover:border-pergamino hover:text-pergamino"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-piedra-300/40 bg-black/30 text-pergamino/85 transition-all hover:border-piedra-300 hover:text-piedra-300 hover:scale-105"
           >
             <Github size={18} />
           </a>
@@ -52,7 +52,7 @@ export default function Footer({ onNavigate }) {
                 key={id}
                 type="button"
                 onClick={() => onNavigate(id)}
-                className="cursor-pointer transition-colors hover:text-pergamino"
+                className="cursor-pointer font-medium text-pergamino-muted/80 transition-colors hover:text-piedra-300"
               >
                 {item?.label ?? id}
               </button>
@@ -61,11 +61,11 @@ export default function Footer({ onNavigate }) {
         </nav>
 
         <div className="flex flex-col items-center gap-1.5 text-center">
-          <p className="text-sm text-pergamino/80">
+          <p className="text-sm text-pergamino/90">
             Web diseñada y desarrollada por{' '}
             <span className="font-semibold text-pergamino">Pablo Crespo Bellido</span>
           </p>
-          <p className="text-xs text-pergamino/50">
+          <p className="text-xs text-pergamino-muted/60">
             &copy; {year} · Moriscos · Historia, Lugares y Curiosidades
           </p>
         </div>

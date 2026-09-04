@@ -66,7 +66,7 @@ function RouteMapInner({ target }: { target?: string | null }) {
             attribution='&copy; OpenStreetMap contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          <Polyline positions={positions} pathOptions={{ color: '#2D5A43', weight: 3, dashArray: '6 8' }} />
+          <Polyline positions={positions} pathOptions={{ color: '#b88432', weight: 3.5, dashArray: '6 8' }} />
           {routePoints.map((p) => (
             <Marker
               key={p.id}
