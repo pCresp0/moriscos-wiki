@@ -72,7 +72,7 @@ export function SearchModalInner({ onSelectResult }: SearchModalProps) {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Buscar lugares, historia, fiestas, libro, glosario..."
-              className="w-full bg-transparent font-body text-base text-pergamino outline-none placeholder:text-pergamino-muted/50"
+              className="w-full bg-transparent font-body text-[16px] leading-normal text-pergamino outline-none placeholder:text-pergamino-muted/50"
             />
             {query && (
               <button

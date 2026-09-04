@@ -121,6 +121,13 @@ body {
   line-height: 1.65;
 }
 
+/* Safari en iOS hace zoom al enfocar un campo con letra menor de 16px. */
+input,
+textarea,
+select {
+  font-size: 16px;
+}
+
 h1,
 h2,
 h3,

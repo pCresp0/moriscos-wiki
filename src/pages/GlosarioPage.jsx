@@ -58,7 +58,7 @@ export default function GlosarioPage({ target }) {
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Buscar término o palabra tradicional..."
             aria-label="Buscar en el glosario"
-            className="w-full rounded-xl border border-noche-border bg-noche-card/90 py-2.5 pl-10 pr-10 text-sm text-pergamino placeholder:text-pergamino-muted/50 focus:border-armuna-light focus:outline-none"
+            className="w-full rounded-xl border border-noche-border bg-noche-card/90 py-2.5 pl-10 pr-10 text-[16px] leading-normal text-pergamino placeholder:text-pergamino-muted/50 focus:border-armuna-light focus:outline-none"
           />
           {query && (
             <button
