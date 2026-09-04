@@ -13,6 +13,7 @@ import {
   Church,
   BookOpen,
   Map,
+  Camera,
   Users,
   BookMarked,
   Library,
@@ -61,6 +62,12 @@ const sections = [
     icon: Map,
     title: 'Ruta Nocturna',
     description: 'Mapa interactivo con los ocho hitos del camino de 7,7 km hasta el soto de La Flecha.',
+  },
+  {
+    id: 'galeria',
+    icon: Camera,
+    title: 'Galería',
+    description: 'Fototeca de Moriscos: labores del campo, panorámicas aéreas, fiestas patronales y patrimonio.',
   },
   {
     id: 'genealogia',
@@ -219,6 +226,18 @@ export default function InicioPage({ onNavigate }) {
               </span>
             </div>
           </button>
+          <div className="flex items-center justify-between border-t border-noche-border/80 bg-noche-surface/90 px-4 py-2.5 sm:px-6 text-xs text-pergamino-muted">
+            <span className="hidden sm:inline font-serif text-pergamino-muted/70">
+              Colección fotográfica de Moriscos
+            </span>
+            <button
+              type="button"
+              onClick={() => onNavigate('galeria')}
+              className="inline-flex items-center gap-1.5 font-semibold text-armuna-light hover:text-pergamino transition-colors cursor-pointer ml-auto sm:ml-0"
+            >
+              Explorar fototeca completa →
+            </button>
+          </div>
         </div>
       </section>
 

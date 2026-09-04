@@ -220,6 +220,70 @@ export default function LugaresPage({ onNavigate }) {
         </div>
       </div>
 
+      {/* Campiña y labores de la cosecha en La Armuña */}
+      <div className="mt-14 overflow-hidden rounded-3xl border border-piedra-border/40 bg-noche-card shadow-2xl">
+        <div className="grid md:grid-cols-12 gap-0 items-stretch">
+          <div className="md:col-span-5 relative bg-noche">
+            <button
+              type="button"
+              onClick={() =>
+                setActiveImage({
+                  src: '/moriscos-wiki/images/moriscos-cosecha-alpacas.jpg',
+                  alt: 'Tractor transportando alpacas de paja al atardecer en los caminos rurales de Moriscos',
+                  caption:
+                    'Cosecha y empacado de cereal en La Armuña (15 de julio de 2025): un tractor con remolque de alpacas avanza junto a parcelas de girasoles y rastrojos, con la silueta de Moriscos al fondo bajo el ocaso estival.',
+                })
+              }
+              className="group relative block w-full h-[320px] md:h-full overflow-hidden cursor-zoom-in"
+              aria-label="Ampliar fotografía de la cosecha y empacado de cereal"
+            >
+              <img
+                src="/moriscos-wiki/images/moriscos-cosecha-alpacas.jpg"
+                alt="Tractor con remolque de alpacas de paja de cereal al atardecer en Moriscos"
+                className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                width="576"
+                height="1024"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-noche/90 via-noche/15 to-transparent pointer-events-none md:bg-gradient-to-r md:from-transparent md:to-noche/40" />
+              <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-pergamino-muted bg-noche/85 p-2.5 rounded-xl border border-piedra-400/25 backdrop-blur-md">
+                <span className="font-serif font-medium truncate">15 de julio de 2025 · Cosecha estival</span>
+                <span className="inline-flex items-center gap-1 text-armuna-light font-semibold shrink-0">
+                  <ZoomIn size={14} /> Ampliar
+                </span>
+              </div>
+            </button>
+          </div>
+
+          <div className="md:col-span-7 p-6 sm:p-8 flex flex-col justify-between">
+            <div>
+              <p className="kicker">Identidad agrícola</p>
+              <h2 className="mt-1 font-serif text-2xl sm:text-3xl font-bold text-pergamino">
+                La campiña de La Armuña: tiempo de mies y cosecha
+              </h2>
+              <p className="mt-4 text-sm sm:text-base text-pergamino-muted/80 leading-relaxed">
+                Durante las semanas de julio, los pagos de Moriscos se transforman al compás del ciclo cerealista. Tras la siega del trigo y la cebada, las empacadoras recogen la paja dorada en grandes fardos rectangulares («alpacas») que los tractores trasladan a las naves ganaderas antes de que caiga la noche.
+              </p>
+              <p className="mt-3 text-sm sm:text-base text-pergamino-muted/80 leading-relaxed">
+                En esta estampa del 15 de julio de 2025, el camino de concentración parcelaria dibuja una frontera natural entre el amarillo intenso de los girasoles en plena floración y el rastrojo segado, con el caserío del pueblo recortándose en el horizonte bajo la luz dorada del poniente salmantino.
+              </p>
+            </div>
+
+            <div className="mt-6 pt-4 border-t border-piedra-border/40 flex flex-wrap items-center justify-between gap-3">
+              <span className="text-xs text-pergamino-muted/70 font-mono">
+                Coordenadas 41°00′28″N 5°34′59″O
+              </span>
+              <button
+                type="button"
+                onClick={() => onNavigate('galeria')}
+                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-armuna-light hover:text-pergamino transition-colors cursor-pointer"
+              >
+                Ver esta y más fotos en la Galería →
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* 3. Lugares Desaparecidos */}
       <div className="mt-14">
         <p className="kicker">Memoria colectiva</p>

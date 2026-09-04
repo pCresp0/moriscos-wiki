@@ -203,6 +203,15 @@ const staticEntries = [
     badge: 'Ruta',
   },
   {
+    id: 'seccion-galeria',
+    tab: 'galeria',
+    target: null,
+    title: 'Galería fotográfica de Moriscos',
+    excerpt: 'Fototeca comunitaria con labores del campo y la cosecha, panorámicas aéreas, fiestas y patrimonio.',
+    content: 'galería fototeca fotos imágenes fotografías panorámica atardecer noche tractor alpacas cosecha mies girasoles iglesia San Pedro Virgen Peregrina escudo',
+    badge: 'Fototeca',
+  },
+  {
     id: 'seccion-genealogia',
     tab: 'genealogia',
     target: null,
