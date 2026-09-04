@@ -21,6 +21,18 @@ const markerIcon = (order: number, active: boolean) =>
     iconAnchor: [active ? 15 : 11, active ? 15 : 11],
   });
 
+function MapInvalidateController() {
+  const map = useMap();
+  useEffect(() => {
+    map.invalidateSize();
+    const timer = setTimeout(() => {
+      map.invalidateSize();
+    }, 250);
+    return () => clearTimeout(timer);
+  }, [map]);
+  return null;
+}
+
 function FlyToActive({ lat, lng }: { lat: number; lng: number }) {
   const map = useMap();
   // En un efecto y no durante el render: mover el mapa es un efecto secundario.
@@ -83,6 +95,7 @@ function RouteMapInner({ target }: { target?: string | null }) {
               </Popup>
             </Marker>
           ))}
+          <MapInvalidateController />
           <FlyToActive lat={active.lat} lng={active.lng} />
         </MapContainer>
       </div>

@@ -9,7 +9,7 @@
     "build": "npm run content && node scripts/generate-icons.mjs && vite build",
     "typecheck": "tsc --noEmit",
     "lint": "oxlint . --ignore-path=.gitignore",
-    "test": "vitest run",
+    "test": "npm run lint && vitest run",
     "preview": "vite preview"
   },
   "dependencies": {

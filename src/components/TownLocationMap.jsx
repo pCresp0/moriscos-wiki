@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { MapPin, Copy, Check, Compass, LocateFixed } from 'lucide-react';
+import { MapPin, Copy, Check, Compass, LocateFixed, Navigation, ExternalLink } from 'lucide-react';
 import ErrorBoundary from './ErrorBoundary';
 
 const MORISCOS_COORDS = [41.007944, -5.58325];
 const MORISCOS_DMS = '41°00\'28.6"N 5°34\'59.7"W';
+const GOOGLE_MAPS_URL = 'https://www.google.com/maps/search/?api=1&query=41.007944,-5.583250';
 
 const pinIcon = L.divIcon({
   className: 'moriscos-center-pin',
@@ -25,6 +26,18 @@ const pinIcon = L.divIcon({
   iconAnchor: [22, 22],
   popupAnchor: [0, -22],
 });
+
+function MapInvalidateController() {
+  const map = useMap();
+  useEffect(() => {
+    map.invalidateSize();
+    const timer = setTimeout(() => {
+      map.invalidateSize();
+    }, 250);
+    return () => clearTimeout(timer);
+  }, [map]);
+  return null;
+}
 
 function MapRecenterController({ trigger }) {
   const map = useMap();
@@ -124,6 +137,7 @@ function TownLocationMapInner({ onNavigateLugares }) {
                 </div>
               </Popup>
             </Marker>
+            <MapInvalidateController />
             <MapRecenterController trigger={recenterCount} />
           </MapContainer>
 
@@ -195,6 +209,17 @@ function TownLocationMapInner({ onNavigateLugares }) {
                   Límite con los despoblados medievales de El Hoyo y Ribas, y próximo al soto de La Flecha a orillas del Tormes.
                 </p>
               </div>
+
+              {onNavigateLugares && (
+                <button
+                  type="button"
+                  onClick={onNavigateLugares}
+                  className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-noche-card/90 border border-piedra-400/30 px-3 py-2.5 text-xs font-medium text-armuna-light hover:bg-noche hover:text-pergamino transition-colors cursor-pointer"
+                >
+                  <span>Explorar los parajes y lugares de Moriscos</span>
+                  <ExternalLink size={13} />
+                </button>
+              )}
             </div>
           </div>
         </div>
