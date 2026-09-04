@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
+import { ZoomIn, X } from 'lucide-react';
 
 const otrasFiestas = [
   {
@@ -129,11 +131,26 @@ function computeCountdown(now = new Date()) {
 
 export default function FiestasPage() {
   const [countdown, setCountdown] = useState(() => computeCountdown());
+  const [activeImage, setActiveImage] = useState(null);
 
   useEffect(() => {
     const interval = setInterval(() => setCountdown(computeCountdown()), 1000);
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    if (!activeImage) return;
+    const onKey = (e) => {
+      if (e.key === 'Escape') setActiveImage(null);
+    };
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [activeImage]);
 
   const units = [
     { key: 'days', value: countdown.days, label: 'días' },
@@ -184,11 +201,53 @@ export default function FiestasPage() {
         <h2 className="mt-2 font-serif text-2xl font-bold text-armuna-light sm:text-3xl">
           Fiestas Patronales en honor a la Virgen de la Peregrina
         </h2>
-        <p className="mt-3 leading-relaxed text-pergamino-muted/80">
-          Es la fiesta principal del municipio. La patrona de Moriscos es la{' '}
-          <strong className="text-pergamino">Virgen de la Peregrina</strong>, cuya imagen &mdash;un valioso lienzo
-          barroco restaurado en 2016&mdash; se custodia en la Iglesia de San Pedro Apóstol.
-        </p>
+
+        {/* Tarjeta destacada con la imagen de la Virgen Peregrina */}
+        <div className="mt-6 card-editorial p-6 sm:p-8 flex flex-col md:flex-row gap-6 items-center md:items-start">
+          <button
+            type="button"
+            onClick={() =>
+              setActiveImage({
+                src: '/moriscos-wiki/images/virgen-peregrina.jpg',
+                alt: 'Nuestra Señora de la Virgen de la Peregrina en su paso procesional',
+                caption:
+                  'Nuestra Señora de la Virgen de la Peregrina en su paso procesional durante las Fiestas Patronales de Moriscos: ataviada con el manto carmesí bordado en oro, sombrero con conchas de Santiago y báculo de peregrina.',
+              })
+            }
+            className="group relative shrink-0 w-44 sm:w-56 h-64 sm:h-72 rounded-2xl bg-noche-surface border border-piedra-400/25 p-2.5 overflow-hidden shadow-xl cursor-zoom-in transition-all hover:border-armuna-light/60 hover:shadow-armuna-light/10"
+            aria-label="Ampliar imagen de la Virgen Peregrina"
+          >
+            <img
+              src="/moriscos-wiki/images/virgen-peregrina.jpg"
+              alt="Paso procesional de la Virgen Peregrina en las fiestas de Moriscos"
+              className="h-full w-full object-contain rounded-xl drop-shadow-lg transition-transform duration-300 group-hover:scale-105"
+              width="676"
+              height="1024"
+            />
+            <span className="absolute inset-0 flex items-center justify-center rounded-2xl bg-black/40 text-pergamino opacity-0 transition-opacity group-hover:opacity-100">
+              <ZoomIn size={28} />
+            </span>
+            <span className="absolute bottom-2 right-2 text-[10px] font-sans tracking-wide text-pergamino-muted bg-noche/90 px-2 py-0.5 rounded border border-piedra-400/20 backdrop-blur-xs">
+              Ver talla
+            </span>
+          </button>
+
+          <div className="flex-1 min-w-0">
+            <h3 className="font-serif text-xl sm:text-2xl font-bold text-pergamino">
+              La devoción y el encuentro morisqueño
+            </h3>
+            <p className="mt-3 leading-relaxed text-pergamino-muted/85 text-sm sm:text-base">
+              Es la fiesta principal del municipio. La patrona de Moriscos es la{' '}
+              <strong className="text-pergamino">Virgen de la Peregrina</strong>, cuya talla procesional recorre en
+              andas las calles del pueblo cada primer domingo de agosto, acompañada por el himno nacional, cohetes,
+              volteo de campanas y pasacalles tradicionales de dulzaina y tamboril.
+            </p>
+            <p className="mt-3 leading-relaxed text-pergamino-muted/80 text-sm sm:text-base">
+              La iglesia custodia asimismo su histórico lienzo barroco, restaurado en 2016, que preside los cultos de la
+              parroquia durante la semana mayor.
+            </p>
+          </div>
+        </div>
 
         <div className="mt-8 space-y-6">
           <div className="card-editorial p-6 sm:p-8">
@@ -269,6 +328,51 @@ export default function FiestasPage() {
           ))}
         </div>
       </div>
+
+      {/* Modal Lightbox para ampliar las fotos */}
+      {activeImage &&
+        createPortal(
+          <div
+            className="dialog-content fixed inset-0 z-[400] flex flex-col items-center justify-center bg-black/90 p-4 sm:p-6 backdrop-blur-md"
+            data-state="open"
+            role="dialog"
+            aria-modal="true"
+            aria-label={activeImage.alt || 'Imagen ampliada'}
+            onClick={() => setActiveImage(null)}
+          >
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                setActiveImage(null);
+              }}
+              aria-label="Cerrar imagen ampliada"
+              className="fixed z-[410] inline-flex h-12 w-12 items-center justify-center rounded-full bg-white text-noche shadow-xl cursor-pointer active:scale-95 transition-transform hover:scale-105"
+              style={{
+                top: 'calc(env(safe-area-inset-top, 0px) + 12px)',
+                right: 'calc(env(safe-area-inset-right, 0px) + 12px)',
+              }}
+            >
+              <X size={28} strokeWidth={2.5} />
+            </button>
+            <div
+              className="flex flex-col items-center max-w-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={activeImage.src}
+                alt={activeImage.alt}
+                className="max-h-[75vh] max-w-[92vw] rounded-2xl object-contain shadow-2xl ring-1 ring-white/10"
+              />
+              {activeImage.caption && (
+                <p className="mt-3 text-center text-sm sm:text-base font-serif text-pergamino-muted max-w-2xl bg-noche/85 px-4 py-2.5 rounded-xl border border-piedra-400/25 shadow-lg backdrop-blur-sm">
+                  {activeImage.caption}
+                </p>
+              )}
+            </div>
+          </div>,
+          document.body,
+        )}
     </div>
   );
 }
