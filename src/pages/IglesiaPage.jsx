@@ -65,9 +65,9 @@ export default function IglesiaPage() {
           onClick={() =>
             setActiveImage({
               src: '/moriscos-wiki/images/iglesia-san-pedro-aerea.jpg',
-              alt: 'Vista aérea de la Iglesia de San Pedro Apóstol de Moriscos, su atrio y el entorno urbano',
+              alt: 'Vista aérea de la Iglesia de San Pedro Apóstol de Moriscos, su atrio y plaza tomada el 23 de marzo de 2025',
               caption:
-                'Perspectiva aérea de la Iglesia Parroquial de San Pedro Apóstol de Moriscos: nave única, esbelta torre campanario de sillería, tejados de teja árabe, atrio exterior con cruz de piedra y su emplazamiento en el centro del pueblo.',
+                'Perspectiva aérea de la Iglesia Parroquial de San Pedro Apóstol de Moriscos (23 de marzo de 2025): nave única, esbelta torre campanario de sillería de Villamayor, tejados de teja árabe, atrio exterior con cruz de piedra y su emplazamiento en la plaza del pueblo (Fotografía: Pablo Crespo Bellido).',
             })
           }
           className="group relative block w-full h-[280px] sm:h-[420px] md:h-[500px] overflow-hidden cursor-zoom-in"
@@ -75,16 +75,21 @@ export default function IglesiaPage() {
         >
           <img
             src="/moriscos-wiki/images/iglesia-san-pedro-aerea.jpg"
-            alt="Vista aérea de la Iglesia de San Pedro Apóstol de Moriscos, su atrio y el entorno urbano"
+            alt="Vista aérea de la Iglesia de San Pedro Apóstol de Moriscos tomada el 23 de marzo de 2025"
             className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
             width="1024"
             height="576"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-noche/90 via-noche/25 to-transparent pointer-events-none" />
           <span className="absolute bottom-4 left-4 right-4 sm:left-6 sm:right-6 flex items-center justify-between gap-2 text-xs sm:text-sm text-pergamino-muted bg-noche/85 p-3 rounded-xl border border-piedra-400/25 backdrop-blur-md">
-            <span className="font-serif font-medium truncate">
-              Iglesia parroquial de San Pedro Apóstol: vista aérea de conjunto, atrio y plaza
-            </span>
+            <div>
+              <span className="font-serif font-medium block sm:inline truncate">
+                Iglesia de Moriscos: conjunto y plaza
+              </span>
+              <span className="block sm:inline sm:ml-2 text-armuna-light font-mono text-xs">
+                23 de marzo de 2025 · Foto: Pablo Crespo Bellido
+              </span>
+            </div>
             <span className="inline-flex items-center gap-1.5 text-armuna-light font-semibold shrink-0">
               <ZoomIn size={15} /> Ampliar
             </span>
@@ -118,17 +123,17 @@ export default function IglesiaPage() {
             onClick={() =>
               setActiveImage({
                 src: '/moriscos-wiki/images/iglesia-torre-ciguenas.jpg',
-                alt: 'Torre campanario de la Iglesia de San Pedro Apóstol con nido de cigüeñas y veleta de forja',
+                alt: 'Torre campanario de San Pedro Apóstol con nido y cigüeña tomada el 23 de marzo de 2025',
                 caption:
-                  'Primer plano aéreo de la torre campanario de San Pedro Apóstol: cantería dorada de Villamayor, tejado a cuatro aguas de teja árabe, veleta de hierro forjado con cruz y sol radiante, y una pareja de cigüeñas blancas en su nido con los campos de La Armuña al fondo.',
+                  'Nido y cigüeña de la iglesia de San Pedro Apóstol (23 de marzo de 2025): cantería dorada de Villamayor, tejado a cuatro aguas de teja árabe, veleta de hierro forjado con cruz y sol radiante, y una pareja de cigüeñas blancas en su nido (Fotografía: Pablo Crespo Bellido).',
               })
             }
             className="group relative shrink-0 w-48 sm:w-60 h-72 sm:h-80 rounded-2xl bg-noche-surface border border-piedra-400/25 p-2 overflow-hidden shadow-xl cursor-zoom-in transition-all hover:border-armuna-light/60 hover:shadow-armuna-light/10"
-            aria-label="Ampliar detalle de la torre y nido de cigüeñas"
+            aria-label="Ampliar detalle del nido y cigüeña de la iglesia"
           >
             <img
               src="/moriscos-wiki/images/iglesia-torre-ciguenas.jpg"
-              alt="Detalle de la torre campanario de San Pedro con nido de cigüeñas"
+              alt="Detalle de la torre campanario de San Pedro con nido de cigüeñas tomada el 23 de marzo de 2025"
               className="h-full w-full object-cover rounded-xl transition-transform duration-300 group-hover:scale-105"
               width="575"
               height="1024"
@@ -136,8 +141,8 @@ export default function IglesiaPage() {
             <span className="absolute inset-0 flex items-center justify-center rounded-2xl bg-black/40 text-pergamino opacity-0 transition-opacity group-hover:opacity-100">
               <ZoomIn size={28} />
             </span>
-            <span className="absolute bottom-2 right-2 text-[10px] font-sans tracking-wide text-pergamino-muted bg-noche/90 px-2 py-0.5 rounded border border-piedra-400/20 backdrop-blur-xs">
-              Ver torre
+            <span className="absolute bottom-2 right-2 text-[10px] font-mono tracking-wide text-armuna-light bg-noche/90 px-2 py-0.5 rounded border border-piedra-400/20 backdrop-blur-xs">
+              23 mar 2025 · Foto: Pablo Crespo
             </span>
           </button>
 
@@ -166,7 +171,7 @@ export default function IglesiaPage() {
                 src: '/moriscos-wiki/images/virgen-peregrina.jpg',
                 alt: 'Nuestra Señora de la Virgen de la Peregrina, patrona de Moriscos',
                 caption:
-                  'Nuestra Señora de la Virgen de la Peregrina, patrona de Moriscos: talla procesional en su paso bajo el arco de gloria, vestida con manto carmesí bordado en oro, sombrero jacobeo con conchas y báculo de peregrina.',
+                  'Nuestra Señora de la Virgen de la Peregrina, patrona de Moriscos: talla procesional en su paso bajo el arco de gloria, vestida con manto carmesí bordado en oro, sombrero jacobeo con conchas y báculo de peregrina (Fotografía: Pablo Crespo Bellido).',
               })
             }
             className="group relative shrink-0 w-48 sm:w-60 h-72 sm:h-80 rounded-2xl bg-noche-surface border border-piedra-400/25 p-2.5 overflow-hidden shadow-xl cursor-zoom-in transition-all hover:border-armuna-light/60 hover:shadow-armuna-light/10"
@@ -182,8 +187,8 @@ export default function IglesiaPage() {
             <span className="absolute inset-0 flex items-center justify-center rounded-2xl bg-black/40 text-pergamino opacity-0 transition-opacity group-hover:opacity-100">
               <ZoomIn size={28} />
             </span>
-            <span className="absolute bottom-2 right-2 text-[10px] font-sans tracking-wide text-pergamino-muted bg-noche/90 px-2 py-0.5 rounded border border-piedra-400/20 backdrop-blur-xs">
-              Ver talla
+            <span className="absolute bottom-2 right-2 text-[10px] font-mono tracking-wide text-armuna-light bg-noche/90 px-2 py-0.5 rounded border border-piedra-400/20 backdrop-blur-xs">
+              Foto: Pablo Crespo
             </span>
           </button>
 

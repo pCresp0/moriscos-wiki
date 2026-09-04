@@ -211,7 +211,7 @@ export default function FiestasPage() {
                 src: '/moriscos-wiki/images/virgen-peregrina.jpg',
                 alt: 'Nuestra Señora de la Virgen de la Peregrina en su paso procesional',
                 caption:
-                  'Nuestra Señora de la Virgen de la Peregrina en su paso procesional durante las Fiestas Patronales de Moriscos: ataviada con el manto carmesí bordado en oro, sombrero con conchas de Santiago y báculo de peregrina.',
+                  'Nuestra Señora de la Virgen de la Peregrina en su paso procesional durante las Fiestas Patronales de Moriscos: ataviada con el manto carmesí bordado en oro, sombrero con conchas de Santiago y báculo de peregrina. Fotografía: Pablo Crespo Bellido.',
               })
             }
             className="group relative shrink-0 w-44 sm:w-56 h-64 sm:h-72 rounded-2xl bg-noche-surface border border-piedra-400/25 p-2.5 overflow-hidden shadow-xl cursor-zoom-in transition-all hover:border-armuna-light/60 hover:shadow-armuna-light/10"
@@ -219,7 +219,7 @@ export default function FiestasPage() {
           >
             <img
               src="/moriscos-wiki/images/virgen-peregrina.jpg"
-              alt="Paso procesional de la Virgen Peregrina en las fiestas de Moriscos"
+              alt="Paso procesional de la Virgen Peregrina en las fiestas de Moriscos. Fotografía: Pablo Crespo Bellido"
               className="h-full w-full object-contain rounded-xl drop-shadow-lg transition-transform duration-300 group-hover:scale-105"
               width="676"
               height="1024"
@@ -227,8 +227,8 @@ export default function FiestasPage() {
             <span className="absolute inset-0 flex items-center justify-center rounded-2xl bg-black/40 text-pergamino opacity-0 transition-opacity group-hover:opacity-100">
               <ZoomIn size={28} />
             </span>
-            <span className="absolute bottom-2 right-2 text-[10px] font-sans tracking-wide text-pergamino-muted bg-noche/90 px-2 py-0.5 rounded border border-piedra-400/20 backdrop-blur-xs">
-              Ver talla
+            <span className="absolute bottom-2 right-2 text-[10px] font-sans tracking-wide text-armuna-light bg-noche/90 px-2 py-0.5 rounded border border-piedra-400/20 backdrop-blur-xs font-mono">
+              Foto: Pablo Crespo
             </span>
           </button>
 

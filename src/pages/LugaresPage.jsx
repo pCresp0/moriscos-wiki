@@ -155,9 +155,9 @@ export default function LugaresPage({ onNavigate }) {
           onClick={() =>
             setActiveImage({
               src: '/moriscos-wiki/images/moriscos-panoramica-atardecer.jpg',
-              alt: 'Panorámica aérea de Moriscos al atardecer sobre los campos de La Armuña',
+              alt: 'Panorámica aérea de Moriscos al atardecer sobre los campos de La Armuña tomada el 18 de julio de 2026',
               caption:
-                'Panorámica aérea de Moriscos al atardecer (18 de julio de 2026): vista completa de la morfología del pueblo, con la silueta de la torre de San Pedro en el centro, rodeada por el mosaico de campos de cultivo de La Armuña.',
+                'Panorámica aérea de Moriscos al atardecer (18 de julio de 2026): vista completa de la morfología del pueblo, con la silueta de la torre de San Pedro en el centro, rodeada por el mosaico de campos de cultivo de La Armuña (Fotografía: Pablo Crespo Bellido).',
             })
           }
           className="group relative block w-full h-[250px] sm:h-[380px] md:h-[440px] overflow-hidden cursor-zoom-in"
@@ -165,16 +165,21 @@ export default function LugaresPage({ onNavigate }) {
         >
           <img
             src="/moriscos-wiki/images/moriscos-panoramica-atardecer.jpg"
-            alt="Morfología urbana y entorno natural de Moriscos al atardecer"
+            alt="Morfología urbana y entorno natural de Moriscos al atardecer tomada el 18 de julio de 2026"
             className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
             width="1024"
             height="576"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-noche/90 via-noche/25 to-transparent pointer-events-none" />
           <div className="absolute bottom-4 left-4 right-4 sm:left-6 sm:right-6 flex items-center justify-between gap-2 text-xs sm:text-sm text-pergamino-muted bg-noche/85 p-3 rounded-xl border border-piedra-400/25 backdrop-blur-md">
-            <span className="font-serif font-medium truncate">
-              Morfología urbana y campos de labor de La Armuña al atardecer · 18 de julio de 2026
-            </span>
+            <div>
+              <span className="font-serif font-medium block sm:inline truncate">
+                Moriscos al atardecer
+              </span>
+              <span className="block sm:inline sm:ml-2 text-armuna-light font-mono text-xs">
+                18 de julio de 2026 · Foto: Pablo Crespo Bellido
+              </span>
+            </div>
             <span className="inline-flex items-center gap-1.5 text-armuna-light font-semibold shrink-0">
               <ZoomIn size={15} /> Ampliar
             </span>
@@ -239,9 +244,9 @@ export default function LugaresPage({ onNavigate }) {
               onClick={() =>
                 setActiveImage({
                   src: '/moriscos-wiki/images/armuna-rodal-arboles.jpg',
-                  alt: 'Rodal de encinas y arbolado autóctono entre las parcelas de cereal de La Armuña',
+                  alt: 'Campos de cultivo aledaños y rodal de encinas tomado el 23 de marzo de 2025',
                   caption:
-                    'Isla de arbolado autóctono en el término de Moriscos: estos rodales de encinas en mitad del cereal son refugios biológicos indispensables para la fauna esteparia, liebres y perdices de La Armuña.',
+                    'Campos de cultivo aledaños y rodal de encinas en Moriscos (23 de marzo de 2025): estos rodales en mitad del cereal son refugios biológicos indispensables para la fauna esteparia de La Armuña (Fotografía: Pablo Crespo Bellido).',
                 })
               }
               className="group relative block w-full h-[240px] sm:h-[280px] overflow-hidden cursor-zoom-in"
@@ -249,14 +254,14 @@ export default function LugaresPage({ onNavigate }) {
             >
               <img
                 src="/moriscos-wiki/images/armuna-rodal-arboles.jpg"
-                alt="Rodal de encinas en mitad del cereal de secano"
+                alt="Campos de cultivo aledaños y rodal de encinas tomado el 23 de marzo de 2025"
                 className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                 width="576"
                 height="1024"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-noche/90 via-noche/20 to-transparent pointer-events-none" />
               <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-pergamino-muted bg-noche/85 p-2.5 rounded-xl border border-piedra-400/25 backdrop-blur-md">
-                <span className="font-serif font-medium truncate">Rodal de encinas · Refugio biológico</span>
+                <span className="font-serif font-medium truncate">Encinar · 23 mar 2025 · Foto: Pablo Crespo</span>
                 <span className="inline-flex items-center gap-1 text-armuna-light font-semibold shrink-0">
                   <ZoomIn size={13} /> Ampliar
                 </span>
@@ -270,9 +275,9 @@ export default function LugaresPage({ onNavigate }) {
               onClick={() =>
                 setActiveImage({
                   src: '/moriscos-wiki/images/armuna-campos-verdes.jpg',
-                  alt: 'Perspectiva aérea de los campos ondulados de La Armuña bajo sombras de nubes',
+                  alt: 'Campos aledaños a Moriscos y horizontes abiertos tomados el 23 de marzo de 2025',
                   caption:
-                    'Ondulaciones y manto de cultivo de La Armuña: la penillanura salmantina vista desde el cielo, surcada por las sombras de nubes y los caminos rurales que unen los pagos tradicionales.',
+                    'Campos aledaños a Moriscos y horizontes abiertos (23 de marzo de 2025): la penillanura salmantina vista desde el cielo, surcada por las sombras de nubes (Fotografía: Pablo Crespo Bellido).',
                 })
               }
               className="group relative block w-full h-[240px] sm:h-[280px] overflow-hidden cursor-zoom-in"
@@ -280,14 +285,14 @@ export default function LugaresPage({ onNavigate }) {
             >
               <img
                 src="/moriscos-wiki/images/armuna-campos-verdes.jpg"
-                alt="Campos ondulados y horizonte de La Armuña"
+                alt="Campos aledaños a Moriscos y horizonte de La Armuña tomados el 23 de marzo de 2025"
                 className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                 width="576"
                 height="1024"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-noche/90 via-noche/20 to-transparent pointer-events-none" />
               <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-pergamino-muted bg-noche/85 p-2.5 rounded-xl border border-piedra-400/25 backdrop-blur-md">
-                <span className="font-serif font-medium truncate">Ondulaciones de la penillanura armuñesa</span>
+                <span className="font-serif font-medium truncate">Campos aledaños · 23 mar 2025 · Foto: Pablo Crespo</span>
                 <span className="inline-flex items-center gap-1 text-armuna-light font-semibold shrink-0">
                   <ZoomIn size={13} /> Ampliar
                 </span>
@@ -303,24 +308,24 @@ export default function LugaresPage({ onNavigate }) {
             onClick={() =>
               setActiveImage({
                 src: '/moriscos-wiki/images/moriscos-abrevadero-fuente.jpg',
-                alt: 'Vista aérea cenital del abrevadero comunal y pilas ganaderas de Moriscos',
+                alt: 'Vista aérea cenital de Los Pilones (abrevadero comunal) tomada el 22 de marzo de 2025',
                 caption:
-                  'Abrevadero ganadero y fuente en los caminos de concentración de Moriscos: largas pilas de abrevada para ganado ovino y vacuno entre parcelas de cereal de La Armuña (Fotografía: Pablo Crespo Bellido).',
+                  'Los Pilones: abrevadero comunal y pilas ganaderas en los caminos de concentración de Moriscos (22 de marzo de 2025): infraestructura agropecuaria tradicional (Fotografía: Pablo Crespo Bellido).',
               })
             }
             className="group relative block w-full h-[220px] sm:h-[290px] overflow-hidden cursor-zoom-in"
-            aria-label="Ampliar fotografía del abrevadero ganadero"
+            aria-label="Ampliar fotografía de Los Pilones"
           >
             <img
               src="/moriscos-wiki/images/moriscos-abrevadero-fuente.jpg"
-              alt="Abrevadero comunal y pilas ganaderas de Moriscos"
+              alt="Los Pilones: abrevadero comunal y pilas ganaderas tomado el 22 de marzo de 2025"
               className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
               width="1024"
               height="576"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-noche/90 via-noche/20 to-transparent pointer-events-none" />
             <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-pergamino-muted bg-noche/85 p-2.5 rounded-xl border border-piedra-400/25 backdrop-blur-md">
-              <span className="font-serif font-medium truncate">Abrevadero comunal y pilas ganaderas · Caminos de concentración</span>
+              <span className="font-serif font-medium truncate">Los Pilones · 22 mar 2025 · Foto: Pablo Crespo</span>
               <span className="inline-flex items-center gap-1 text-armuna-light font-semibold shrink-0">
                 <ZoomIn size={13} /> Ampliar
               </span>
@@ -338,9 +343,9 @@ export default function LugaresPage({ onNavigate }) {
               onClick={() =>
                 setActiveImage({
                   src: '/moriscos-wiki/images/moriscos-cosecha-alpacas.jpg',
-                  alt: 'Tractor transportando alpacas de paja al atardecer en los caminos rurales de Moriscos',
+                  alt: 'Tractor transportando alpacas de paja al atardecer en Moriscos tomado el 15 de julio de 2025',
                   caption:
-                    'Cosecha y empacado de cereal en La Armuña (15 de julio de 2025): un tractor con remolque de alpacas avanza junto a parcelas de girasoles y rastrojos, con la silueta de Moriscos al fondo bajo el ocaso estival.',
+                    'Cosecha y empacado de cereal en La Armuña (15 de julio de 2025): un tractor con remolque de alpacas avanza junto a parcelas de girasoles y rastrojos, con la silueta de Moriscos al fondo bajo el ocaso estival (Fotografía: Pablo Crespo Bellido).',
                 })
               }
               className="group relative block w-full h-[320px] md:h-full overflow-hidden cursor-zoom-in"
@@ -348,14 +353,14 @@ export default function LugaresPage({ onNavigate }) {
             >
               <img
                 src="/moriscos-wiki/images/moriscos-cosecha-alpacas.jpg"
-                alt="Tractor con remolque de alpacas de paja de cereal al atardecer en Moriscos"
+                alt="Tractor con remolque de alpacas de paja de cereal al atardecer en Moriscos tomado el 15 de julio de 2025"
                 className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                 width="576"
                 height="1024"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-noche/90 via-noche/15 to-transparent pointer-events-none md:bg-gradient-to-r md:from-transparent md:to-noche/40" />
               <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-pergamino-muted bg-noche/85 p-2.5 rounded-xl border border-piedra-400/25 backdrop-blur-md">
-                <span className="font-serif font-medium truncate">15 de julio de 2025 · Cosecha estival</span>
+                <span className="font-serif font-medium truncate">Cosecha · 15 jul 2025 · Foto: Pablo Crespo</span>
                 <span className="inline-flex items-center gap-1 text-armuna-light font-semibold shrink-0">
                   <ZoomIn size={14} /> Ampliar
                 </span>
@@ -379,7 +384,7 @@ export default function LugaresPage({ onNavigate }) {
 
             <div className="mt-6 pt-4 border-t border-piedra-border/40 flex flex-wrap items-center justify-between gap-3">
               <span className="text-xs text-pergamino-muted/70 font-mono">
-                Coordenadas 41°00′28″N 5°34′59″O
+                15 jul 2025 · Coordenadas 41°00′28″N 5°34′59″O
               </span>
               <button
                 type="button"

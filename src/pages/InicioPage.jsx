@@ -100,28 +100,28 @@ const panoramas = [
     id: 'atardecer',
     label: '🌅 Al atardecer · 18 jul 2026',
     src: '/moriscos-wiki/images/moriscos-panoramica-atardecer.jpg',
-    alt: 'Panorámica aérea de Moriscos al atardecer sobre los campos de La Armuña',
-    badge: 'Moriscos y la llanura cerealista de La Armuña al atardecer · 18 de julio de 2026',
+    alt: 'Panorámica aérea de Moriscos al atardecer sobre los campos de La Armuña tomada el 18 de julio de 2026',
+    badge: 'Moriscos al atardecer · 18 de julio de 2026',
     caption:
-      'Panorámica aérea de Moriscos al atardecer (18 de julio de 2026): el casco urbano tradicional, la torre campanario de la iglesia parroquial y los campos de cereal de La Armuña bajo el cielo crepuscular.',
+      'Panorámica aérea de Moriscos al atardecer (18 de julio de 2026): el casco urbano tradicional, la torre campanario de la iglesia parroquial y los campos de cereal de La Armuña bajo el cielo crepuscular (Fotografía: Pablo Crespo Bellido).',
   },
   {
     id: 'noche',
     label: '🌙 De noche · 09 ago 2026',
     src: '/moriscos-wiki/images/moriscos-panoramica-noche.jpg',
-    alt: 'Panorámica aérea de Moriscos de noche iluminado bajo el cielo de La Armuña',
-    badge: 'Moriscos iluminado bajo la noche de La Armuña · 09 de agosto de 2026',
+    alt: 'Panorámica aérea de Moriscos de noche iluminado tomada el 09 de agosto de 2026',
+    badge: 'Moriscos de noche · 09 de agosto de 2026',
     caption:
-      'Panorámica aérea de Moriscos de noche (09 de agosto de 2026): el casco urbano y las nuevas urbanizaciones iluminadas, con la iglesia parroquial en el centro y las dehesas armuñesas en la penumbra.',
+      'Panorámica aérea de Moriscos de noche (09 de agosto de 2026): el casco urbano y las nuevas urbanizaciones iluminadas durante las fiestas patronales, con la iglesia parroquial en el centro (Fotografía: Pablo Crespo Bellido).',
   },
   {
     id: 'primavera',
-    label: '🌱 Primavera · Campo verde',
+    label: '🌱 Primavera · 23 mar 2025',
     src: '/moriscos-wiki/images/moriscos-panoramica-primavera.jpg',
-    alt: 'Panorámica aérea de Moriscos en primavera rodeado de campos verdes en La Armuña',
-    badge: 'Moriscos y el verdor primaveral de La Armuña',
+    alt: 'Panorámica aérea de Moriscos empezando la primavera tomada el 23 de marzo de 2025',
+    badge: 'Moriscos empezando la primavera · 23 de marzo de 2025',
     caption:
-      'Panorámica aérea de Moriscos en primavera: el pueblo rodeado por el manto verde de las parcelas de cereal naciente y legumbres de La Armuña, con el horizonte abierto hacia la vega del Tormes.',
+      'Panorámica aérea «Moriscos empezando la primavera» (23 de marzo de 2025): el pueblo rodeado por el manto verde de las parcelas de cereal naciente y legumbres de La Armuña (Fotografía: Pablo Crespo Bellido).',
   },
 ];
 

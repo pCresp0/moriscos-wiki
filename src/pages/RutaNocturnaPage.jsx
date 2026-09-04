@@ -39,7 +39,7 @@ export default function RutaNocturnaPage({ target }) {
               src: '/moriscos-wiki/images/moriscos-panoramica-noche.jpg',
               alt: 'Panorámica aérea de Moriscos de noche, punto de inicio de la Ruta Nocturna',
               caption:
-                'Panorámica aérea de Moriscos de noche (09 de agosto de 2026): el pueblo iluminado bajo el cielo estrellado de La Armuña, punto de encuentro y salida tradicional de la marcha nocturna hacia La Flecha.',
+                'Panorámica aérea de Moriscos de noche (09 de agosto de 2026): el pueblo iluminado bajo el cielo estrellado de La Armuña, punto de encuentro y salida tradicional de la marcha nocturna hacia La Flecha. Fotografía: Pablo Crespo Bellido.',
             })
           }
           className="group relative block w-full h-[220px] sm:h-[320px] md:h-[380px] overflow-hidden cursor-zoom-in"
@@ -54,9 +54,14 @@ export default function RutaNocturnaPage({ target }) {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-noche/90 via-noche/20 to-transparent pointer-events-none" />
           <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs sm:text-sm text-pergamino-muted bg-noche/85 p-3 rounded-xl border border-piedra-400/25 backdrop-blur-md">
-            <span className="font-serif font-medium">
-              Moriscos iluminado de noche · Salida de la marcha nocturna
-            </span>
+            <div>
+              <span className="font-serif font-medium block sm:inline">
+                Moriscos iluminado de noche · Salida de la marcha nocturna
+              </span>
+              <span className="block sm:inline sm:ml-2 text-armuna-light text-xs font-mono">
+                09 de agosto de 2026 · Foto: Pablo Crespo Bellido
+              </span>
+            </div>
             <span className="inline-flex items-center gap-1.5 text-armuna-light font-semibold shrink-0">
               <ZoomIn size={15} /> Ampliar
             </span>

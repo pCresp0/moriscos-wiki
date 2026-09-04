@@ -14,9 +14,10 @@ const categories = [
 export const galleryPhotos = [
   {
     id: 'iglesia-san-pedro-aerea',
-    title: 'Iglesia de San Pedro Apóstol y plaza del pueblo',
+    title: 'Iglesia de Moriscos: conjunto y plaza',
+    originalTitle: 'iglesia de moriscos_20250323',
     author: 'Pablo Crespo Bellido',
-    date: 'Patrimonio monumental · Siglos XII–XVI',
+    date: '23 de marzo de 2025',
     category: 'patrimonio',
     categoryLabel: 'Iglesia y Memoria',
     location: 'Plaza de la Iglesia · Casco urbano de Moriscos',
@@ -24,18 +25,19 @@ export const galleryPhotos = [
     width: 1024,
     height: 576,
     aspect: 'horizontal',
-    alt: 'Perspectiva aérea cenital de la Iglesia de San Pedro Apóstol de Moriscos, su atrio y el entorno urbano',
-    badge: 'Catedrales de La Armuña',
+    alt: 'Perspectiva aérea cenital de la Iglesia de San Pedro Apóstol de Moriscos tomada el 23 de marzo de 2025',
+    badge: '23 mar 2025 · Iglesia de Moriscos',
     description:
-      'Vista aérea cenital del templo parroquial de San Pedro Apóstol: la nave única orientada, la sólida espadaña-torre de sillería de Villamayor, los tejados de teja árabe, el atrio exterior cerrado por petril de piedra y su posición articuladora de la plaza y calles de Moriscos.',
+      'Perspectiva aérea de conjunto del templo de San Pedro Apóstol capturada la mañana del 23 de marzo de 2025: la nave única, la esbelta espadaña-torre de cantería de Villamayor, los tejados de teja curva árabe y el atrio cercado por petril de piedra en la plaza central.',
     tabLink: 'iglesia',
     tabLabel: 'Descubrir el templo y su historia',
   },
   {
     id: 'iglesia-torre-ciguenas',
-    title: 'Espadaña-torre, veleta de forja y nido de cigüeñas',
+    title: 'Nido y cigüeña de la iglesia',
+    originalTitle: 'nido y cigue´ña de la iglesia',
     author: 'Pablo Crespo Bellido',
-    date: 'Patrimonio y Fauna · San Pedro Apóstol',
+    date: '23 de marzo de 2025',
     category: 'patrimonio',
     categoryLabel: 'Iglesia y Memoria',
     location: 'Campanario de San Pedro · Moriscos',
@@ -43,18 +45,19 @@ export const galleryPhotos = [
     width: 575,
     height: 1024,
     aspect: 'vertical',
-    alt: 'Detalle aéreo de la torre campanario de San Pedro con veleta de hierro forjado y nido de cigüeñas',
-    badge: 'Torre campanario y fauna',
+    alt: 'Detalle aéreo de la torre campanario de San Pedro con nido y cigüeña blanca tomada el 23 de marzo de 2025',
+    badge: '23 mar 2025 · Nido y cigüeña',
     description:
-      'Detalle aéreo cercano de la torre de sillería dorada: el remate a cuatro aguas de teja árabe, la veleta de forja tradicional con cruz y sol radiante, y una pareja de cigüeñas blancas descansando en su nido en el alero, con la llanura cerealista de La Armuña al fondo.',
+      'Detalle aéreo en plano medio capturado el 23 de marzo de 2025: la espadaña-torre rematada por tejado a cuatro aguas, la veleta de forja tradicional con cruz y sol radiante, y una pareja de cigüeñas blancas descansando en su nido en el alero, con el campo de La Armuña al fondo.',
     tabLink: 'iglesia',
     tabLabel: 'Ver arquitectura del templo',
   },
   {
     id: 'moriscos-panoramica-horizonte',
-    title: 'Moriscos, sombras de nubes y horizontes hacia Salamanca',
+    title: 'Panorámica total de Moriscos y horizonte',
+    originalTitle: 'panoramica total de moriscos_20250323',
     author: 'Pablo Crespo Bellido',
-    date: 'Primavera · Paisaje y campiña',
+    date: '23 de marzo de 2025',
     category: 'paisaje',
     categoryLabel: 'Panorámicas Aéreas',
     location: 'Vista aérea cenital · Término de Moriscos',
@@ -62,18 +65,19 @@ export const galleryPhotos = [
     width: 1024,
     height: 576,
     aspect: 'horizontal',
-    alt: 'Gran panorámica aérea de Moriscos en la campiña verde de La Armuña con cielo de nubes y Salamanca al fondo',
-    badge: 'Horizontes de La Armuña',
+    alt: 'Gran panorámica total de Moriscos tomada el 23 de marzo de 2025 con cielo de nubes y horizonte hacia Salamanca',
+    badge: '23 mar 2025 · Panorámica total',
     description:
-      'Gran panorámica aérea capturada sobre la penillanura armuñesa: el caserío de Moriscos en el centro de la escena, rodeado por campos de cultivo donde las nubes proyectan sombras dinámicas sobre el verdor de la tierra, con la silueta de Salamanca y las sierras en el horizonte lejano.',
+      'Gran panorámica aérea de gran angular tomada el 23 de marzo de 2025: el caserío de Moriscos en el centro de la llanura de La Armuña, con sombras dinámicas de nubes proyectadas sobre las parcelas verdes y la silueta de Salamanca en el horizonte.',
     tabLink: 'lugares',
     tabLabel: 'Explorar parajes del término',
   },
   {
     id: 'panoramica-primavera',
-    title: 'Moriscos y el mosaico primaveral de La Armuña',
+    title: 'Moriscos empezando la primavera',
+    originalTitle: 'moriscos empezando la primavera_20250323',
     author: 'Pablo Crespo Bellido',
-    date: 'Primavera · Paisaje agrario',
+    date: '23 de marzo de 2025',
     category: 'paisaje',
     categoryLabel: 'Panorámicas Aéreas',
     location: 'Término municipal de Moriscos',
@@ -81,16 +85,17 @@ export const galleryPhotos = [
     width: 1024,
     height: 576,
     aspect: 'horizontal',
-    alt: 'Panorámica aérea de Moriscos en primavera rodeado de parcelas verdes de cultivo',
-    badge: 'Verdor primaveral',
+    alt: 'Fotografía aérea de Moriscos empezando la primavera tomada el 23 de marzo de 2025',
+    badge: '23 mar 2025 · Empezando la primavera',
     description:
-      'Perspectiva cenital de Moriscos en primavera: el caserío agrupado con sus tonos terrosos y tejados rojizos contrastando vivamente con el verde intenso de los sembrados de cereal y legumbres de La Armuña en pleno crecimiento.',
+      'Vista aérea capturada el 23 de marzo de 2025 al inicio de la estación primaveral: el pueblo agrupado en el llano castellano contrastando con el mosaico verde de los brotes de cereal y legumbres que alfombran el término municipal.',
     tabLink: 'lugares',
     tabLabel: 'Explorar el término municipal',
   },
   {
     id: 'cosecha-alpacas-2025',
     title: 'La mies y el empacado de cereal al atardecer',
+    originalTitle: 'tractor con alpacas_15julio2025',
     author: 'Pablo Crespo Bellido',
     date: '15 de julio de 2025',
     category: 'campo',
@@ -100,37 +105,39 @@ export const galleryPhotos = [
     width: 576,
     height: 1024,
     aspect: 'vertical',
-    alt: 'Tractor transportando remolque de alpacas de paja de cereal al atardecer junto a un campo de girasoles con Moriscos al fondo',
-    badge: 'La mies en La Armuña · 15 jul 2025',
+    alt: 'Tractor transportando remolque de alpacas de paja de cereal al atardecer tomado el 15 de julio de 2025',
+    badge: '15 jul 2025 · Cosecha y alpacas',
     description:
-      'Instantánea aérea tomada en plena campaña de recolección de verano: un tractor remolca un gran fardo de alpacas de paja por los caminos rurales de Moriscos. A la izquierda, el dorado de los girasoles en flor contrasta con el rastrojo segado, mientras que al fondo el sol poniente baña de luz anaranjada el caserío del pueblo.',
+      'Instantánea aérea capturada al caer la tarde del 15 de julio de 2025: un tractor traslada un remolque colmado de alpacas de paja por los caminos de labor, flanqueado por un campo de girasoles en flor y rastrojo segado, con el caserío de Moriscos al fondo bañado por la luz poniente.',
     tabLink: 'lugares',
     tabLabel: 'Ver paisaje agrícola en Lugares',
   },
   {
     id: 'moriscos-abrevadero-fuente',
-    title: 'Abrevadero comunal y pilas ganaderas entre campos',
+    title: 'Los Pilones: abrevadero comunal y pilas ganaderas',
+    originalTitle: 'Lospilones-vistalateral-20250322',
     author: 'Pablo Crespo Bellido',
-    date: 'Infraestructura tradicional agraria',
+    date: '22 de marzo de 2025',
     category: 'campo',
     categoryLabel: 'Campo y Faenas',
-    location: 'Caminos de labor pecuaria · Moriscos',
+    location: 'Los Pilones · Caminos de labor de Moriscos',
     src: '/moriscos-wiki/images/moriscos-abrevadero-fuente.jpg',
     width: 1024,
     height: 576,
     aspect: 'horizontal',
-    alt: 'Vista aérea del abrevadero con largas pilas de hormigón y caseta de fuente junto a campos de cultivo',
-    badge: 'Patrimonio pecuario y rural',
+    alt: 'Vista aérea cenital de Los Pilones (abrevadero y pilas ganaderas) tomada el 22 de marzo de 2025',
+    badge: '22 mar 2025 · Los Pilones',
     description:
-      'Toma aérea cenital del abrevadero ganadero situado junto al camino rural de concentración: largas pilas corridas de abrevada para rebaños de ovejas y reses, acompañadas de la caseta de bombeo/manantial y parcelas sembradas de cereal que delimitan la cañada agropecuaria.',
+      'Vista aérea de Los Pilones tomada el 22 de marzo de 2025: histórica infraestructura agropecuaria comunal compuesta por largas pilas corridas de hormigón y caseta de manantial/bombeo para abrevar a los rebaños de ovejas y vacas en los caminos de labor pecuaria.',
     tabLink: 'lugares',
-    tabLabel: 'Ver lugares y parajes',
+    tabLabel: 'Ver parajes en Lugares',
   },
   {
     id: 'moriscos-cementerio-cenital',
-    title: 'Cementerio Municipal de Moriscos: descanso y memoria',
+    title: 'Cementerio Municipal: vista cenital',
+    originalTitle: 'cementerio-vistazenital_20250323',
     author: 'Pablo Crespo Bellido',
-    date: 'Memoria y Genealogía local',
+    date: '23 de marzo de 2025',
     category: 'patrimonio',
     categoryLabel: 'Iglesia y Memoria',
     location: 'Camino del cementerio · Afueras de Moriscos',
@@ -138,18 +145,19 @@ export const galleryPhotos = [
     width: 576,
     height: 1024,
     aspect: 'vertical',
-    alt: 'Plano cenital perpendicular del Cementerio Municipal de Moriscos con sus tapias blancas y tumbas',
-    badge: 'Camposanto municipal',
+    alt: 'Plano cenital perpendicular a 90 grados del Cementerio Municipal de Moriscos tomado el 23 de marzo de 2025',
+    badge: '23 mar 2025 · Vista cenital',
     description:
-      'Impresionante plano cenital directo a 90 grados del camposanto de Moriscos: el recinto rectangular con tapias encaladas de blanco, los panteones de entrada con cubiertas de teja árabe, las hileras de sepulturas familiares y el sosiego del camino de tierra que conduce a los campos.',
+      'Impresionante plano cenital directo a 90 grados capturado el 23 de marzo de 2025: el recinto rectangular con tapias encaladas de blanco, los panteones con cubiertas de teja árabe, las hileras de sepulturas y el silencio del camposanto en la campiña.',
     tabLink: 'genealogia',
     tabLabel: 'Ver memoria en Genealogía',
   },
   {
     id: 'moriscos-cementerio-soledad',
-    title: 'El camposanto en la inmensidad de La Armuña',
+    title: 'Cementerio Municipal: vista cenital alejada',
+    originalTitle: 'cementerio-vistazenitalalejada_20250323',
     author: 'Pablo Crespo Bellido',
-    date: 'Memoria y Paisaje',
+    date: '23 de marzo de 2025',
     category: 'patrimonio',
     categoryLabel: 'Iglesia y Memoria',
     location: 'Llanura de Moriscos · La Armuña',
@@ -157,18 +165,19 @@ export const galleryPhotos = [
     width: 576,
     height: 1024,
     aspect: 'vertical',
-    alt: 'Vista cenital amplia del cementerio aislado en mitad de parcelas de labor',
-    badge: 'Sosiego en la campiña',
+    alt: 'Vista cenital alejada del Cementerio Municipal de Moriscos tomada el 23 de marzo de 2025',
+    badge: '23 mar 2025 · Vista alejada',
     description:
-      'Perspectiva cenital en altura que retrata el camposanto de Moriscos como un oasis de serenidad emplazado en medio de las grandes franjas agrícolas de La Armuña, flanqueado por el camino rural de tierra y la amplitud del horizonte castellano.',
+      'Perspectiva cenital en altura capturada el 23 de marzo de 2025: el camposanto de Moriscos como un reducto de serenidad emplazado en medio de las grandes franjas agrícolas de La Armuña, flanqueado por el camino rural de tierra.',
     tabLink: 'genealogia',
     tabLabel: 'Consultar Bosque Genealógico',
   },
   {
     id: 'armuna-rodal-arboles',
-    title: 'Isla de vegetación y rodal de encinas en La Armuña',
+    title: 'Campos de cultivo aledaños y rodal de encinas',
+    originalTitle: 'campos cultivo aledaños a morisocs_20250323',
     author: 'Pablo Crespo Bellido',
-    date: 'Paisaje y Biodiversidad',
+    date: '23 de marzo de 2025',
     category: 'campo',
     categoryLabel: 'Campo y Faenas',
     location: 'Fincas de secano · Término de Moriscos',
@@ -176,18 +185,19 @@ export const galleryPhotos = [
     width: 576,
     height: 1024,
     aspect: 'vertical',
-    alt: 'Vista aérea cenital de un rodal de encinas en medio del manto verde de cultivo',
-    badge: 'Refugio ecológico',
+    alt: 'Toma aérea cenital de campos de cultivo y rodal de encinas tomada el 23 de marzo de 2025',
+    badge: '23 mar 2025 · Campos aledaños',
     description:
-      'Perspectiva aérea cenital que muestra un rodal o soto arbolado de encinas aislado en el corazón de las fincas de cultivo de La Armuña. Estos rodales actúan como refugio ecológico vital para la perdiz roja, liebres y aves esteparias en medio de la gran penillanura cerealista.',
+      'Toma aérea cenital capturada el 23 de marzo de 2025 que documenta los campos aledaños y un rodal de encinas autóctonas aislado en mitad del cereal, refugio biológico indispensable para la perdiz roja y liebres de La Armuña.',
     tabLink: 'lugares',
     tabLabel: 'Ver parajes del término',
   },
   {
     id: 'armuna-campos-verdes',
-    title: 'Ondulaciones y horizontes abiertos de La Armuña',
+    title: 'Campos aledaños a Moriscos y horizontes abiertos',
+    originalTitle: 'camposaledaños a moriscos_20250323',
     author: 'Pablo Crespo Bellido',
-    date: 'Geografía y Campo',
+    date: '23 de marzo de 2025',
     category: 'campo',
     categoryLabel: 'Campo y Faenas',
     location: 'Llanura de secano · Término de Moriscos',
@@ -195,16 +205,17 @@ export const galleryPhotos = [
     width: 576,
     height: 1024,
     aspect: 'vertical',
-    alt: 'Vista aérea vertical de los campos de cultivo ondulados de La Armuña bajo sombras de nubes',
-    badge: 'Penillanura cerealista',
+    alt: 'Vista aérea vertical de los campos aledaños a Moriscos tomada el 23 de marzo de 2025',
+    badge: '23 mar 2025 · Paisaje armuñés',
     description:
-      'La infinita llanura de La Armuña vista desde las alturas: parcelas onduladas con diferentes tonalidades de verde y franjas de labor, surcadas por las sombras de las nubes estivales y con la silueta de los tesos y cerros en el lejano horizonte.',
+      'Perspectiva cenital capturada el 23 de marzo de 2025 que retrata las suaves ondulaciones y franjas de labor en los campos aledaños a Moriscos bajo el cielo salmantino.',
     tabLink: 'lugares',
     tabLabel: 'Ver cotas y parajes',
   },
   {
     id: 'panoramica-atardecer-2026',
-    title: 'Morfología urbana y penillanura al atardecer',
+    title: 'Moriscos al atardecer: casco urbano y penillanura',
+    originalTitle: '18julio2026_Moriscos al atardecer',
     author: 'Pablo Crespo Bellido',
     date: '18 de julio de 2026',
     category: 'paisaje',
@@ -214,16 +225,17 @@ export const galleryPhotos = [
     width: 1024,
     height: 576,
     aspect: 'horizontal',
-    alt: 'Panorámica aérea de Moriscos al atardecer sobre los campos de La Armuña',
-    badge: 'Panorámica crepuscular · 18 jul 2026',
+    alt: 'Panorámica aérea de Moriscos al atardecer tomada el 18 de julio de 2026 sobre los campos de La Armuña',
+    badge: '18 jul 2026 · Al atardecer',
     description:
-      'Amplia perspectiva cenital y panorámica del casco urbano de Moriscos al caer la tarde de verano. Se aprecia la silueta de la torre campanario de la iglesia de San Pedro Apóstol emergiendo sobre los tejados tradicionales de teja árabe, rodeada por el mosaico de parcelas de cereal de secano características de la comarca.',
-    tabLink: 'lugares',
-    tabLabel: 'Ver lugares emblemáticos',
+      'Perspectiva cenital y panorámica tomada el 18 de julio de 2026 al caer la tarde: la morfología del pueblo con la silueta de la torre de San Pedro sobresaliendo entre los tejados de teja curva y las parcelas cerealistas bajo el crepúsculo.',
+    tabLink: 'inicio',
+    tabLabel: 'Ver en portada',
   },
   {
     id: 'panoramica-noche-2026',
-    title: 'Moriscos iluminado bajo la noche de La Armuña',
+    title: 'Moriscos de noche: pueblo iluminado',
+    originalTitle: '09agosto2026_Moriscos de noche',
     author: 'Pablo Crespo Bellido',
     date: '09 de agosto de 2026',
     category: 'paisaje',
@@ -233,18 +245,19 @@ export const galleryPhotos = [
     width: 1024,
     height: 576,
     aspect: 'horizontal',
-    alt: 'Panorámica aérea de Moriscos de noche iluminado bajo el cielo de La Armuña',
-    badge: 'Pueblo iluminado · 09 ago 2026',
+    alt: 'Panorámica aérea nocturna de Moriscos tomada el 09 de agosto de 2026',
+    badge: '09 ago 2026 · De noche',
     description:
-      'Fotografía aérea nocturna tomada durante las fechas de las Fiestas Patronales de agosto. Destacan las luminarias del casco histórico, las nuevas urbanizaciones residenciales y la glorieta de acceso, contrastando con la inmensidad en calma del campo de secano bajo el cielo nocturno.',
+      'Fotografía aérea nocturna tomada el 09 de agosto de 2026 durante las fechas festivas: el pueblo con sus calles y plazas iluminadas, punto de concentración y salida de la tradicional marcha nocturna hacia La Flecha.',
     tabLink: 'ruta-nocturna',
     tabLabel: 'Ver la Ruta Nocturna',
   },
   {
     id: 'virgen-peregrina',
     title: 'Nuestra Señora la Virgen de la Peregrina en procesión',
+    originalTitle: 'Virgen Peregrina',
     author: 'Pablo Crespo Bellido',
-    date: 'Fiestas Patronales · Agosto',
+    date: 'Fiestas Patronales de Agosto',
     category: 'fiestas',
     categoryLabel: 'Fiestas y Tradición',
     location: 'Parroquia y calles del pueblo',
@@ -252,8 +265,8 @@ export const galleryPhotos = [
     width: 676,
     height: 1024,
     aspect: 'vertical',
-    alt: 'Imagen de la Virgen Peregrina en su carroza procesional engalanada',
-    badge: 'Patrona de Moriscos',
+    alt: 'Imagen procesional de la Virgen Peregrina engalanada en sus fiestas patronales',
+    badge: 'Fiestas patronales · Agosto',
     description:
       'La Patrona de Moriscos sobre su carroza procesional bellamente engalanada con centros florales, portando al Niño Jesús, su báculo de peregrina y la concha venera. Imagen venerada por los vecinos durante las procesiones y la tradicional subasta de roscas de pan bendito.',
     tabLink: 'fiestas',
@@ -262,6 +275,7 @@ export const galleryPhotos = [
   {
     id: 'escudo-oficial',
     title: 'Escudo Heráldico Municipal Oficial',
+    originalTitle: 'Escudo de Moriscos',
     author: 'Diseño heráldico: Salvador Llopis',
     date: 'B.O.C.y L. · 10 de marzo de 1993',
     category: 'heraldica',
@@ -271,8 +285,8 @@ export const galleryPhotos = [
     width: 1024,
     height: 1024,
     aspect: 'square',
-    alt: 'Escudo heráldico oficial del municipio de Moriscos',
-    badge: 'Blasón Municipal',
+    alt: 'Escudo heráldico oficial del municipio de Moriscos aprobado en 1993',
+    badge: 'Aprobación oficial · 10 mar 1993',
     description:
       'Diseño heráldico oficial: cuartel primero con la cruz de la Orden de San Juan de Jerusalén sobre el cerro de El Hoyo; cuartel segundo con espigas de cereal y rama de zumaque en oro; punta con la media luna árabe alusiva al origen morisco; y timbre de Corona Real Española cerrada.',
     tabLink: 'escudo',
@@ -329,7 +343,7 @@ export default function GaleriaPage({ onNavigate }) {
           Galería de Moriscos
         </h1>
         <p className="mt-4 text-balance text-lg leading-relaxed text-pergamino-muted/80">
-          Una cuidada colección fotográfica documental de Moriscos y la comarca de La Armuña: tomas aéreas cenitales y de dron capturadas por <strong>Pablo Crespo Bellido</strong> a lo largo de los años, reflejando el patrimonio del pueblo, la inmensidad cerealista, las faenas del campo y las señas de identidad de su gente.
+          Colección fotográfica documental de Moriscos y La Armuña: tomas aéreas y de dron capturadas por <strong>Pablo Crespo Bellido</strong> con indicación de fecha y ubicación, mostrando el patrimonio histórico, las faenas agrícolas y los paisajes del municipio.
         </p>
       </div>
 
@@ -386,7 +400,7 @@ export default function GaleriaPage({ onNavigate }) {
                 className={`relative block w-full overflow-hidden cursor-zoom-in bg-noche ${
                   isVertical ? 'h-[360px] sm:h-[400px]' : 'h-[230px] sm:h-[260px]'
                 }`}
-                aria-label={`Ampliar fotografía: ${photo.title}`}
+                aria-label={`Ampliar fotografía: ${photo.title} (${photo.date})`}
               >
                 <img
                   src={photo.src}
@@ -398,10 +412,13 @@ export default function GaleriaPage({ onNavigate }) {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-noche via-noche/15 to-transparent opacity-80 group-hover:opacity-60 transition-opacity pointer-events-none" />
 
-                {/* Badge de categoría */}
-                <div className="absolute top-3 left-3 flex flex-wrap gap-1.5 pointer-events-none">
-                  <span className="inline-flex items-center gap-1 rounded-md bg-noche/85 px-2.5 py-1 text-[11px] font-semibold text-armuna-light border border-armuna/30 backdrop-blur-md shadow-xs">
+                {/* Badge de categoría y fecha */}
+                <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none gap-2">
+                  <span className="inline-flex items-center gap-1 rounded-md bg-noche/90 px-2.5 py-1 text-[11px] font-semibold text-armuna-light border border-armuna/30 backdrop-blur-md shadow-xs">
                     <Tag size={11} /> {photo.categoryLabel}
+                  </span>
+                  <span className="inline-flex items-center gap-1 rounded-md bg-noche/90 px-2 py-1 text-[11px] font-medium text-pergamino border border-piedra-400/30 backdrop-blur-md shadow-xs">
+                    <Calendar size={11} className="text-armuna-light" /> {photo.date}
                   </span>
                 </div>
 
@@ -415,8 +432,8 @@ export default function GaleriaPage({ onNavigate }) {
               <div className="flex flex-1 flex-col justify-between p-5">
                 <div>
                   <div className="flex items-center gap-2 text-xs text-pergamino-muted/70">
-                    <span className="inline-flex items-center gap-1">
-                      <Calendar size={13} className="text-armuna-light" />
+                    <span className="inline-flex items-center gap-1 font-semibold text-armuna-light">
+                      <Calendar size={13} />
                       {photo.date}
                     </span>
                     <span>•</span>
@@ -426,9 +443,15 @@ export default function GaleriaPage({ onNavigate }) {
                     </span>
                   </div>
 
-                  <h2 className="mt-2.5 font-serif text-lg font-bold text-pergamino group-hover:text-armuna-light transition-colors">
+                  <h2 className="mt-2 font-serif text-lg font-bold text-pergamino group-hover:text-armuna-light transition-colors">
                     {photo.title}
                   </h2>
+
+                  {photo.originalTitle && (
+                    <p className="mt-1 font-mono text-[11px] text-armuna-light/80 truncate">
+                      Título en archivo: {photo.originalTitle}
+                    </p>
+                  )}
 
                   <p className="mt-2 text-xs sm:text-sm text-pergamino-muted/80 leading-relaxed line-clamp-3">
                     {photo.description}
@@ -464,7 +487,7 @@ export default function GaleriaPage({ onNavigate }) {
             className="fixed inset-0 z-[500] flex flex-col items-center justify-center bg-black/92 p-3 sm:p-6 backdrop-blur-lg"
             role="dialog"
             aria-modal="true"
-            aria-label={currentPhoto.title}
+            aria-label={`${currentPhoto.title} (${currentPhoto.date})`}
             onClick={() => setActivePhotoIndex(null)}
           >
             {/* Botón cerrar */}
@@ -486,18 +509,20 @@ export default function GaleriaPage({ onNavigate }) {
               className="relative flex flex-col items-center max-w-5xl w-full max-h-[92vh] overflow-y-auto rounded-2xl border border-armuna/40 bg-noche-card shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Barra superior del visor con contador */}
+              {/* Barra superior del visor con fecha y autoría */}
               <div className="w-full flex items-center justify-between border-b border-piedra-border/60 bg-noche-surface/90 px-4 py-3 sm:px-6">
-                <div className="flex items-center gap-2 text-xs font-semibold text-armuna-light">
+                <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-armuna-light">
                   <span className="rounded-md bg-noche/80 px-2.5 py-1 border border-armuna/30">
                     {currentPhoto.categoryLabel}
                   </span>
                   <span className="text-pergamino-muted/60">•</span>
-                  <span className="text-pergamino-muted">{currentPhoto.date}</span>
+                  <span className="inline-flex items-center gap-1 text-pergamino font-bold">
+                    <Calendar size={13} className="text-armuna-light" /> {currentPhoto.date}
+                  </span>
                   <span className="text-pergamino-muted/60">•</span>
-                  <span className="text-pergamino font-sans font-normal">📸 {currentPhoto.author}</span>
+                  <span className="text-pergamino-muted font-normal">📸 {currentPhoto.author}</span>
                 </div>
-                <span className="text-xs font-mono font-medium text-pergamino-muted/70">
+                <span className="text-xs font-mono font-medium text-pergamino-muted/70 shrink-0">
                   {activePhotoIndex + 1} / {filteredPhotos.length}
                 </span>
               </div>
@@ -535,7 +560,7 @@ export default function GaleriaPage({ onNavigate }) {
                 )}
               </div>
 
-              {/* Ficha descriptiva inferior */}
+              {/* Ficha descriptiva inferior con fecha destacada y autoría */}
               <div className="w-full p-5 sm:p-6 bg-noche-surface border-t border-piedra-border">
                 <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
                   <div className="space-y-2 max-w-3xl">
@@ -543,14 +568,26 @@ export default function GaleriaPage({ onNavigate }) {
                       {currentPhoto.title}
                     </h3>
                     <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm text-pergamino-muted/80">
+                      <span className="inline-flex items-center gap-1.5 font-semibold text-armuna-light">
+                        <Calendar size={14} /> Fecha: {currentPhoto.date}
+                      </span>
+                      <span>•</span>
                       <span className="flex items-center gap-1.5">
                         <MapPin size={14} className="text-armuna-light shrink-0" />
                         {currentPhoto.location}
                       </span>
                       <span>•</span>
-                      <span className="text-armuna-light font-medium">
-                        Fotografía: {currentPhoto.author}
+                      <span className="text-pergamino-muted">
+                        Fotografía: <strong className="text-pergamino">{currentPhoto.author}</strong>
                       </span>
+                      {currentPhoto.originalTitle && (
+                        <>
+                          <span>•</span>
+                          <span className="font-mono text-[11px] text-armuna-light/90 bg-noche/80 px-2 py-0.5 rounded border border-piedra-400/20">
+                            Título en archivo: {currentPhoto.originalTitle}
+                          </span>
+                        </>
+                      )}
                     </div>
                     <p className="font-serif text-sm sm:text-base text-pergamino-muted leading-relaxed pt-1">
                       {currentPhoto.description}

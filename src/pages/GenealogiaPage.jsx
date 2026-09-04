@@ -55,9 +55,9 @@ export default function GenealogiaPage({ target }) {
               onClick={() =>
                 setActiveImage({
                   src: '/moriscos-wiki/images/moriscos-cementerio-cenital.jpg',
-                  alt: 'Vista aérea cenital del Cementerio Municipal de Moriscos',
+                  alt: 'Vista aérea cenital del Cementerio Municipal de Moriscos tomada el 23 de marzo de 2025',
                   caption:
-                    'Plano cenital a 90° del Cementerio Municipal de Moriscos: tapias encaladas, panteones con teja árabe y reposo de las familias morisqueñas entre las tierras de labor (Fotografía: Pablo Crespo Bellido).',
+                    'Plano cenital a 90° del Cementerio Municipal de Moriscos (23 de marzo de 2025): tapias encaladas, panteones con teja árabe y reposo de las familias morisqueñas entre las tierras de labor (Fotografía: Pablo Crespo Bellido).',
                 })
               }
               className="group relative block w-full h-[260px] md:h-[300px] overflow-hidden cursor-zoom-in"
@@ -65,14 +65,14 @@ export default function GenealogiaPage({ target }) {
             >
               <img
                 src="/moriscos-wiki/images/moriscos-cementerio-cenital.jpg"
-                alt="Plano cenital del Cementerio Municipal de Moriscos"
+                alt="Plano cenital del Cementerio Municipal de Moriscos tomado el 23 de marzo de 2025"
                 className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                 width="576"
                 height="1024"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-noche/90 via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-pergamino-muted bg-noche/85 p-2 rounded-xl border border-piedra-400/25 backdrop-blur-md">
-                <span className="font-serif font-medium truncate">Plano cenital · Camposanto</span>
+                <span className="font-serif font-medium truncate">Plano cenital · 23 mar 2025 · Foto: Pablo Crespo</span>
                 <span className="inline-flex items-center gap-1 text-armuna-light font-semibold shrink-0">
                   <ZoomIn size={13} /> Ampliar
                 </span>
@@ -91,7 +91,7 @@ export default function GenealogiaPage({ target }) {
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-piedra-border/40 flex items-center justify-between text-xs text-pergamino-muted/70">
-              <span>Camino del Cementerio · Moriscos</span>
+              <span>23 mar 2025 · Camino del Cementerio</span>
               <span className="font-medium text-armuna-light">Fotografía: Pablo Crespo Bellido</span>
             </div>
           </div>
