@@ -349,8 +349,8 @@ export default function LugaresPage({ onNavigate }) {
                 src="/moriscos-wiki/images/armuna-rodal-arboles.jpg"
                 alt="Campos de cultivo aledaños y rodal de encinas tomado el 23 de marzo de 2025"
                 className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                width="576"
-                height="1024"
+                width="1440"
+                height="2560"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-noche/90 via-noche/20 to-transparent pointer-events-none" />
               <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-pergamino-muted bg-noche/85 p-2.5 rounded-xl border border-piedra-400/25 backdrop-blur-md">
@@ -382,8 +382,8 @@ export default function LugaresPage({ onNavigate }) {
                 src="/moriscos-wiki/images/armuna-campos-verdes.jpg"
                 alt="Campos aledaños a Moriscos y horizonte de La Armuña tomados el 23 de marzo de 2025"
                 className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                width="576"
-                height="1024"
+                width="1440"
+                height="2560"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-noche/90 via-noche/20 to-transparent pointer-events-none" />
               <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-pergamino-muted bg-noche/85 p-2.5 rounded-xl border border-piedra-400/25 backdrop-blur-md">
