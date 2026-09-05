@@ -1,6 +1,5 @@
 import React from 'react';
 import { Github, Linkedin, Mail } from 'lucide-react';
-import VisitorStatsModal from './VisitorStatsModal';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -25,8 +24,8 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Perfil de LinkedIn de Pablo Crespo Bellido"
-            title="LinkedIn: Pablo Crespo Bellido"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-piedra-300/40 bg-black/30 text-pergamino/85 transition-all hover:border-[#4db5e8] hover:text-[#4db5e8] hover:scale-105"
+            title="Perfil de LinkedIn: Pablo Crespo Bellido"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-piedra-300/40 bg-black/30 text-pergamino/85 transition-all hover:border-[#0077b5] hover:text-[#0077b5] hover:scale-105"
           >
             <Linkedin size={18} />
           </a>
@@ -54,24 +53,9 @@ export default function Footer() {
               Pablo Crespo Bellido
             </a>
           </p>
-          <p className="text-xs text-pergamino-muted/70 max-w-md mx-auto mt-0.5">
-            Inspirada y fundamentada en la web decana{' '}
-            <a
-              href="https://sites.google.com/view/morisquenos"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-armuna-light hover:underline font-medium"
-            >
-              moriscos.info
-            </a>
-            , ideada e ingeniada por Miguel Blanco González.
-          </p>
           <p className="text-xs text-pergamino-muted/60 mt-1">
             &copy; {year} · Moriscos
           </p>
-          <div className="mt-2">
-            <VisitorStatsModal />
-          </div>
         </div>
       </div>
     </footer>
