@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { ZoomIn, X, Church, Sparkles, Download } from 'lucide-react';
+import { useT } from '../i18n';
 
 const ficha = [
   { label: 'Época', value: 'Siglos XII–XVI' },
@@ -19,6 +20,7 @@ const linea = [
 ];
 
 export default function IglesiaPage() {
+  const t = useT();
   const [activeImage, setActiveImage] = useState(null);
 
   useEffect(() => {
@@ -39,11 +41,12 @@ export default function IglesiaPage() {
     <div className="container-editorial py-10 sm:py-16">
       <p className="kicker flex items-center gap-1.5 text-armuna-light">
         <Church size={16} />
-        El monumento
+        {t('church.kicker')}
       </p>
       <h1 className="mt-2 text-balance font-serif text-3xl sm:text-5xl font-bold text-pergamino">
-        La Iglesia de San Pedro Apóstol
+        {t('church.title')}
       </h1>
+
       <p className="mt-4 text-balance text-lg text-pergamino-muted/80">
         Es el monumento más importante de Moriscos y el centro neurálgico de su vida comunitaria, religiosa e histórica, con un registro documental que abarca más de 800 años.
       </p>

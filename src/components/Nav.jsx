@@ -17,6 +17,8 @@ import {
   Info,
 } from 'lucide-react';
 import SearchModal from './SearchModal';
+import LanguageSwitcher from './LanguageSwitcher';
+import { useT } from '../i18n';
 
 export const navItems = [
   { id: 'inicio', label: 'Inicio', icon: Home },
@@ -35,11 +37,13 @@ export const navItems = [
 ];
 
 function NavLinkList({ active, onChange, onClose }) {
+  const t = useT();
   return (
     <div className="flex flex-col w-full gap-1 pb-4">
       {navItems.map((item) => {
         const Icon = item.icon;
         const isActive = active === item.id;
+        const label = t(`nav.${item.id}`) || item.label;
         return (
           <button
             key={item.id}
@@ -52,13 +56,14 @@ function NavLinkList({ active, onChange, onClose }) {
             className="nav-item text-left"
           >
             <Icon size={18} strokeWidth={isActive ? 2.4 : 2} className={isActive ? 'text-armuna-light' : 'opacity-80'} />
-            <span className="text-[14px]">{item.label}</span>
+            <span className="text-[14px]">{label}</span>
           </button>
         );
       })}
     </div>
   );
 }
+
 
 // Drawer Deslizante Móvil (0.3s cubic-bezier)
 export function Drawer({ active, onChange, open, onClose }) {
@@ -96,7 +101,7 @@ export function Drawer({ active, onChange, open, onClose }) {
         role="dialog"
         aria-modal="true"
         aria-hidden={!open}
-        aria-label="Menú principal de navegación"
+        aria-label={t('nav.mainMenu') || "Menú principal de navegación"}
       >
         {/* Cabecera del Drawer */}
         <div className="flex items-center justify-between px-5 pt-[calc(env(safe-area-inset-top,0px)+1rem)] pb-4 border-b border-[#b88432]/30">
@@ -113,7 +118,7 @@ export function Drawer({ active, onChange, open, onClose }) {
           <button
             type="button"
             onClick={onClose}
-            aria-label="Cerrar menú"
+            aria-label={t('common.close') || "Cerrar menú"}
             className="p-1.5 rounded-full text-pergamino-muted/70 hover:bg-white/10 hover:text-pergamino transition-colors cursor-pointer"
           >
             <X size={19} />
@@ -131,6 +136,8 @@ export function Drawer({ active, onChange, open, onClose }) {
 
 // Barra superior móvil
 export default function Nav({ active, onChange, open, setOpen }) {
+  const t = useT();
+
   return (
     <>
       <header
@@ -144,7 +151,7 @@ export default function Nav({ active, onChange, open, setOpen }) {
           <button
             type="button"
             onClick={() => setOpen(true)}
-            aria-label="Abrir menú"
+            aria-label={t('common.openMenu') || "Abrir menú"}
             className="p-2 -ml-1 rounded-lg text-pergamino hover:bg-white/10 transition-colors cursor-pointer"
           >
             <Menu size={24} />
@@ -154,21 +161,22 @@ export default function Nav({ active, onChange, open, setOpen }) {
         <button
           type="button"
           onClick={() => onChange('inicio')}
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-2.5 font-display text-[1.2rem] sm:text-[1.35rem] font-black tracking-[0.14em] text-pergamino cursor-pointer transition-transform duration-200 hover:scale-[1.02]"
-          aria-label="Ir al inicio de Moriscos"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-2 font-display text-[1.1rem] sm:text-[1.35rem] font-black tracking-[0.12em] sm:tracking-[0.14em] text-pergamino cursor-pointer transition-transform duration-200 hover:scale-[1.02]"
+          aria-label={t('common.homeAria') || "Ir al inicio de Moriscos"}
         >
           <img
             src="/moriscos-wiki/images/escudo-moriscos-160.jpg"
             alt="Escudo de Moriscos"
-            className="h-7 w-7 rounded-full object-cover ring-2 ring-piedra-300/80 shadow-sm"
+            className="h-6 w-6 sm:h-7 sm:w-7 rounded-full object-cover ring-2 ring-piedra-300/80 shadow-sm"
             width="28"
             height="28"
           />
           MORISCOS
         </button>
 
-        <div className="flex items-center justify-end w-11 shrink-0">
+        <div className="flex items-center justify-end gap-1.5 sm:gap-2 shrink-0">
           <SearchModal onSelectResult={onChange} />
+          <LanguageSwitcher variant="header" />
         </div>
       </header>
 
@@ -179,11 +187,13 @@ export default function Nav({ active, onChange, open, setOpen }) {
 
 // Barra lateral para Desktop (lg:flex) con textura de trigo y arenisca dorada
 export function Sidebar({ active, onChange }) {
+  const t = useT();
+
   return (
     <aside
       className="hidden lg:flex flex-col sidebar-panel shrink-0 z-30"
       style={{ width: 250 }}
-      aria-label="Navegación principal"
+      aria-label={t('common.mainNav') || "Navegación principal"}
     >
       <div className="p-4 overflow-y-auto flex-1">
         <NavLinkList active={active} onChange={onChange} />
@@ -194,15 +204,17 @@ export function Sidebar({ active, onChange }) {
 
 // Barra superior para Desktop (lg:flex) con textura de trigo y escudo centrado
 export function DesktopTopBar({ onChange }) {
+  const t = useT();
+
   return (
     <header className="relative hidden lg:flex items-center justify-between px-8 py-3.5 header-panel shrink-0">
-      <div className="flex items-center w-36" />
+      <div className="flex items-center w-56 shrink-0" />
 
       <button
         type="button"
         onClick={() => onChange('inicio')}
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-3.5 cursor-pointer group transition-transform duration-200 hover:scale-[1.02]"
-        aria-label="Ir al inicio de Moriscos"
+        aria-label={t('common.homeAria') || "Ir al inicio de Moriscos"}
       >
         <img
           src="/moriscos-wiki/images/escudo-moriscos-160.jpg"
@@ -216,8 +228,9 @@ export function DesktopTopBar({ onChange }) {
         </span>
       </button>
 
-      <div className="flex items-center justify-end w-36">
+      <div className="flex items-center justify-end gap-2.5 w-56 shrink-0">
         <SearchModal onSelectResult={onChange} />
+        <LanguageSwitcher variant="header" />
       </div>
     </header>
   );

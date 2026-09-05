@@ -1,22 +1,31 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Search, X } from 'lucide-react';
-import { glosario } from '../data/glosarioData';
 import Markdown from '../components/Markdown';
+import { useContent, useT } from '../i18n';
 
 export default function GlosarioPage({ target }) {
+  const { glosario } = useContent();
+  const t = useT();
+
+  const allLabel = t('glossary.allCategories') || 'Todos';
   const [query, setQuery] = useState('');
-  const [activeCategory, setActiveCategory] = useState('Todos');
+  const [activeCategory, setActiveCategory] = useState(allLabel);
   const targetRef = useRef(null);
 
+  // Sincronizar activeCategory si cambia el idioma y estaba en "Todos"
+  useEffect(() => {
+    setActiveCategory(allLabel);
+  }, [allLabel]);
+
   const categories = useMemo(
-    () => ['Todos', ...Array.from(new Set(glosario.map((g) => g.category))).sort((a, b) => a.localeCompare(b, 'es'))],
-    [],
+    () => [allLabel, ...Array.from(new Set(glosario.map((g) => g.category))).sort((a, b) => a.localeCompare(b))],
+    [glosario, allLabel],
   );
 
   const filtered = useMemo(() => {
     const needle = query.trim().toLowerCase();
     return glosario.filter((g) => {
-      const matchCategory = activeCategory === 'Todos' || g.category === activeCategory;
+      const matchCategory = activeCategory === allLabel || g.category === activeCategory;
       const matchQuery =
         !needle ||
         g.term.toLowerCase().includes(needle) ||
@@ -24,14 +33,14 @@ export default function GlosarioPage({ target }) {
         g.content.toLowerCase().includes(needle);
       return matchCategory && matchQuery;
     });
-  }, [query, activeCategory]);
+  }, [query, activeCategory, glosario, allLabel]);
 
   // Al llegar desde el buscador, se limpian los filtros y se salta al término.
   useEffect(() => {
     if (!target) return;
     setQuery('');
-    setActiveCategory('Todos');
-  }, [target]);
+    setActiveCategory(allLabel);
+  }, [target, allLabel]);
 
   useEffect(() => {
     if (!target || !targetRef.current) return;
@@ -40,13 +49,12 @@ export default function GlosarioPage({ target }) {
 
   return (
     <div className="container-editorial py-10 sm:py-16">
-      <p className="kicker">Memoria de la lengua</p>
+      <p className="kicker">{t('glossary.kicker')}</p>
       <h1 className="mt-2 text-balance font-serif text-3xl font-bold text-pergamino sm:text-5xl">
-        Glosario etnográfico armuñés
+        {t('glossary.title')}
       </h1>
       <p className="mt-4 text-balance text-lg text-pergamino-muted/80">
-        El vocabulario tradicional del campo salmantino, clasificado por categorías: aperos de labranza, naturaleza,
-        medidas agrarias y topónimos de Moriscos y La Armuña.
+        {t('glossary.description')}
       </p>
 
       <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -56,15 +64,15 @@ export default function GlosarioPage({ target }) {
             type="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Buscar término o palabra tradicional..."
-            aria-label="Buscar en el glosario"
+            placeholder={t('glossary.searchPlaceholder')}
+            aria-label={t('glossary.searchAria')}
             className="w-full rounded-xl border border-noche-border bg-noche-card/90 py-2.5 pl-10 pr-10 text-[16px] leading-normal text-pergamino placeholder:text-pergamino-muted/50 focus:border-armuna-light focus:outline-none"
           />
           {query && (
             <button
               type="button"
               onClick={() => setQuery('')}
-              aria-label="Borrar búsqueda"
+              aria-label={t('glossary.clear')}
               className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer rounded-full p-1 text-pergamino-muted/60 hover:text-pergamino"
             >
               <X size={16} />
@@ -92,7 +100,7 @@ export default function GlosarioPage({ target }) {
       </div>
 
       <p className="mt-4 text-xs text-pergamino-muted/60">
-        {filtered.length} {filtered.length === 1 ? 'término' : 'términos'} de {glosario.length}
+        {t('glossary.showingCount', { count: filtered.length, total: glosario.length })}
       </p>
 
       <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -126,7 +134,7 @@ export default function GlosarioPage({ target }) {
 
         {filtered.length === 0 && (
           <p className="col-span-full py-12 text-center text-pergamino-muted/60">
-            No se encontraron términos que coincidan con la búsqueda.
+            {t('glossary.noResults')}
           </p>
         )}
       </div>

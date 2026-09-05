@@ -15,6 +15,8 @@ import {
   ChevronRight,
   Quote,
 } from 'lucide-react';
+import { useT } from '../i18n';
+
 
 const BASE_URL = import.meta.env.BASE_URL || '/';
 const getImg = (path) => `${BASE_URL.replace(/\/$/, '')}/${path.replace(/^\//, '')}`;
@@ -128,6 +130,7 @@ const sourcesData = [
 ];
 
 export default function EconomiaPage({ onNavigate, target }) {
+  const t = useT();
   const [activeSection, setActiveSection] = useState('secano-bueyes');
   const sectionRefs = useRef({});
 
@@ -149,11 +152,12 @@ export default function EconomiaPage({ onNavigate, target }) {
       <div className="text-left">
         <p className="kicker flex items-center gap-2">
           <Wheat size={16} className="text-armuna-light" />
-          <span>Sustento, Campo e Industria · La Armuña</span>
+          <span>{t('economy.kicker')}</span>
         </p>
         <h1 className="mt-2 text-balance font-serif text-3xl font-bold tracking-tight text-pergamino sm:text-5xl">
-          ¿De qué ha vivido Moriscos a lo largo de su historia?
+          {t('economy.title')}
         </h1>
+
         <p className="mt-4 text-balance text-base leading-relaxed text-pergamino-muted/85 sm:text-lg">
           La economía y el sustento de los habitantes de <strong className="text-pergamino">Moriscos</strong> y de los municipios de la comarca de <strong className="text-pergamino">La Armuña</strong> (Salamanca) han experimentado una profunda metamorfosis a lo largo de los siglos: desde la autarquía cerealista medieval y el arado de bueyes hasta la revolución de la <span className="text-armuna-light font-semibold">Lenteja de La Armuña</span>, la molienda hidráulica en el Tormes, el ferrocarril de 1877 y la vanguardia biotecnológica del siglo XXI.
         </p>

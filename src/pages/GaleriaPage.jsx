@@ -1,17 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { ZoomIn, X, ChevronLeft, ChevronRight, Calendar, MapPin, Tag, ExternalLink, Camera, Download, Loader2 } from 'lucide-react';
+import { useT } from '../i18n';
 
-const categories = [
-  { id: 'todas', label: 'Todas las fotos' },
-  { id: 'paisaje', label: '🌤️ Panorámicas Aéreas' },
-  { id: 'patrimonio', label: '⛪ Iglesia y Memoria' },
-  { id: 'campo', label: '🌾 Campo y Faenas' },
-  { id: 'fiestas', label: '🎉 Fiestas y Tradición' },
-  { id: 'heraldica', label: '🛡️ Heráldica' },
-];
 
 export const galleryPhotos = [
+
   {
     id: 'iglesia-san-pedro-aerea',
     title: 'Iglesia de Moriscos: conjunto y plaza',
@@ -450,22 +444,33 @@ export default function GaleriaPage({ onNavigate }) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [activePhotoIndex, handlePrev, handleNext]);
 
+  const t = useT();
+
+  const dynamicCategories = [
+    { id: 'todas', label: t('gallery.all') || 'Todas las fotos' },
+    { id: 'paisaje', label: t('gallery.aerial') || '🌤️ Panorámicas Aéreas' },
+    { id: 'patrimonio', label: t('gallery.heritage') || '⛪ Iglesia y Memoria' },
+    { id: 'campo', label: t('gallery.landscape') || '🌾 Campo y Faenas' },
+    { id: 'fiestas', label: t('gallery.fiestas') || '🎉 Fiestas y Tradición' },
+    { id: 'heraldica', label: '🛡️ ' + (t('nav.escudo') || 'Heráldica') },
+  ];
+
   return (
     <div className="container-editorial py-10 sm:py-16">
       {/* Cabecera Editorial */}
       <div className="w-full">
-        <p className="kicker">Fototeca de Moriscos · Archivo de Pablo Crespo Bellido</p>
+        <p className="kicker">{t('gallery.kicker')}</p>
         <h1 className="mt-2 font-serif text-3xl font-bold text-pergamino sm:text-5xl">
-          Galería de Moriscos
+          {t('gallery.title')}
         </h1>
         <p className="mt-4 text-lg leading-relaxed text-pergamino-muted/80">
-          Colección fotográfica documental de Moriscos y La Armuña: tomas aéreas y de dron capturadas por <strong>Pablo Crespo Bellido</strong> con indicación de fecha y ubicación, mostrando el patrimonio histórico, las faenas agrícolas y los paisajes del municipio.
+          {t('gallery.description')}
         </p>
       </div>
 
       {/* Selector de Categorías / Filtros */}
       <div className="mt-8 flex flex-wrap gap-2 border-b border-piedra-border/40 pb-5">
-        {categories.map((cat) => {
+        {dynamicCategories.map((cat) => {
           const isSelected = selectedCategory === cat.id;
           const count =
             cat.id === 'todas'
@@ -498,6 +503,7 @@ export default function GaleriaPage({ onNavigate }) {
           );
         })}
       </div>
+
 
       {/* Grid de Fotografías */}
       <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -540,9 +546,10 @@ export default function GaleriaPage({ onNavigate }) {
 
                 {/* Botón de ampliar en hover */}
                 <div className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 rounded-lg bg-noche/90 px-3 py-1.5 text-xs font-semibold text-pergamino border border-piedra-400/30 backdrop-blur-md shadow-md opacity-90 group-hover:opacity-100 group-hover:bg-armuna group-hover:text-noche transition-all">
-                  <ZoomIn size={14} /> Ampliar
+                  <ZoomIn size={14} /> {t('gallery.zoom')}
                 </div>
               </button>
+
 
               {/* Contenido textual */}
               <div className="flex flex-1 flex-col justify-between p-5">
@@ -694,20 +701,21 @@ export default function GaleriaPage({ onNavigate }) {
                       onClick={() => handleDownload(currentPhoto)}
                       disabled={downloading}
                       className="inline-flex items-center justify-center gap-2 rounded-xl bg-armuna px-4 py-2.5 text-xs sm:text-sm font-bold text-noche hover:bg-armuna-light disabled:opacity-60 transition-all shadow-md cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
-                      title="Descargar fotografía"
+                      title={t('gallery.download')}
                     >
                       {downloading ? (
                         <>
                           <Loader2 size={16} className="animate-spin" />
-                          <span>Descargando...</span>
+                          <span>{t('gallery.downloading')}</span>
                         </>
                       ) : (
                         <>
                           <Download size={16} strokeWidth={2.5} />
-                          <span>Descargar fotografía</span>
+                          <span>{t('gallery.download')}</span>
                         </>
                       )}
                     </button>
+
 
                     {currentPhoto.tabLink && (
                       <button

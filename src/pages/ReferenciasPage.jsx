@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { referencesData, referenceCategories } from '../data/references';
 import { ExternalLink, Calendar, Building2, MapPin } from 'lucide-react';
+import { useT } from '../i18n';
 
 export default function ReferenciasPage({ target }) {
+  const t = useT();
   const [selectedCat, setSelectedCat] = useState('all');
   const categories = Object.entries(referenceCategories);
   const targetRef = useRef(null);
@@ -23,25 +25,25 @@ export default function ReferenciasPage({ target }) {
 
   return (
     <div className="container-editorial py-10 sm:py-16">
-      <p className="kicker">Fuentes &amp; Bibliografía</p>
+      <p className="kicker">{t('references.kicker')}</p>
       <h1 className="mt-2 text-balance font-serif text-3xl sm:text-5xl font-bold text-pergamino">
-        Referencias y fuentes documentales
+        {t('references.title')}
       </h1>
       <p className="mt-4 text-balance text-base leading-relaxed text-pergamino-muted/80 sm:text-lg">
-        Principales fuentes históricas, legajos de archivos eclesiásticos y estatales, monografías académicas, crónicas de prensa y portales digitales de los que se han extraído y contrastado los datos de esta web.
+        {t('references.description')}
       </p>
 
       {/* Reconocimiento especial a Miguel Blanco González y moriscos.info */}
       <div className="mt-6 rounded-2xl border border-armuna/40 bg-gradient-to-r from-armuna/15 via-noche-surface to-noche-card p-5 sm:p-6 shadow-xl backdrop-blur-xs">
         <div className="text-sm text-pergamino-muted/90 leading-relaxed">
           <p className="font-serif text-lg font-bold text-armuna-light mb-1">
-            Agradecimiento de honor: Miguel Blanco González y moriscos.info
+            {t('references.tributeTitle')}
           </p>
           <p className="mt-2 text-sm text-pergamino-muted/85 leading-relaxed">
-            Gran parte de los datos cronológicos, transcripciones notariales, censos, memoria oral y referencias históricas reunidas en esta web han sido corroborados gracias a la exhaustiva labor de investigación de <strong className="text-pergamino">Miguel Blanco González</strong>, desarrollador e ingeniero de la web <a href="https://sites.google.com/view/morisquenos" target="_blank" rel="noopener noreferrer" className="font-semibold text-armuna-light hover:underline inline-flex items-center gap-1">moriscos.info <ExternalLink size={13} /></a>.
+            {t('references.tributeP1')}
           </p>
           <p className="mt-2 text-sm text-pergamino-muted/80">
-            Con <strong className="text-pergamino">más de 15 años de trayectoria</strong>, su portal es la piedra angular digital de la memoria local. Si deseas obtener más información o profundizar en cualquier aspecto sobre Moriscos, es un verdadero gusto poder informarse y adentrarse en su trabajo.
+            {t('references.tributeP2')}
           </p>
           <div className="mt-3.5">
             <a
@@ -50,7 +52,7 @@ export default function ReferenciasPage({ target }) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-armuna-light hover:text-pergamino transition-colors"
             >
-              Visitar la web moriscos.info (Google Sites) →
+              {t('references.visitSites')}
             </a>
           </div>
         </div>
@@ -67,7 +69,7 @@ export default function ReferenciasPage({ target }) {
               : 'border border-noche-border bg-noche-surface/60 text-pergamino-muted/70 hover:text-pergamino'
           }`}
         >
-          Todas ({referencesData.length})
+          {t('common.all')} ({referencesData.length})
         </button>
         {categories.map(([key, cat]) => {
           const count = referencesData.filter((r) => r.categoria === key).length;
@@ -132,7 +134,7 @@ export default function ReferenciasPage({ target }) {
             {/* Aportaciones */}
             <div className="mt-5 border-t border-noche-border pt-4">
               <p className="font-display text-xs font-bold uppercase tracking-widest text-armuna-light">
-                Aportación y datos extraídos:
+                {t('references.historicalContribution')}:
               </p>
               <ul className="mt-3 space-y-2">
                 {ref.aportacionHistorica.map((item, idx) => (
@@ -152,7 +154,7 @@ export default function ReferenciasPage({ target }) {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-armuna-light hover:underline"
                 >
-                  <span>{ref.enlaceTexto ?? 'Consultar fuente o archivo'}</span>
+                  <span>{ref.enlaceTexto ?? t('references.all')}</span>
                   <ExternalLink size={14} />
                 </a>
               </div>

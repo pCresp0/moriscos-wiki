@@ -1,7 +1,9 @@
 import React from 'react';
 import { Github, Linkedin, Mail } from 'lucide-react';
+import { useT } from '../i18n';
 
 export default function Footer() {
+  const t = useT();
   const year = new Date().getFullYear();
 
   return (
@@ -43,7 +45,7 @@ export default function Footer() {
 
         <div className="flex flex-col items-center gap-1.5 text-center">
           <p className="text-sm text-pergamino/90">
-            Web diseñada y desarrollada por{' '}
+            {t('footer.designedBy')}{' '}
             <a
               href="https://www.linkedin.com/in/pablocrespobellido/"
               target="_blank"
@@ -58,6 +60,7 @@ export default function Footer() {
           </p>
         </div>
       </div>
+
     </footer>
   );
 }

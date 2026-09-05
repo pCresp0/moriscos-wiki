@@ -1,12 +1,14 @@
 import React, { Suspense, lazy, useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { ZoomIn, X, Download } from 'lucide-react';
+import { useT } from '../i18n';
 
 // Leaflet solo hace falta en esta página: se carga aparte para que el resto de
 // la web arranque con menos JavaScript.
 const RouteMap = lazy(() => import('../components/RouteMap'));
 
 export default function RutaNocturnaPage({ target }) {
+  const t = useT();
   const [activeImage, setActiveImage] = useState(null);
 
   useEffect(() => {
@@ -20,15 +22,14 @@ export default function RutaNocturnaPage({ target }) {
 
   return (
     <div className="container-editorial py-10 sm:py-16">
-      <p className="kicker">Guía de campo y senderismo</p>
+      <p className="kicker">{t('route.kicker')}</p>
       <h1 className="mt-2 text-balance font-serif text-3xl font-bold text-pergamino sm:text-5xl">
-        Ruta Nocturna: de Moriscos al soto de La Flecha
+        {t('route.title')}
       </h1>
       <p className="mt-4 text-balance text-lg leading-relaxed text-pergamino-muted/80">
-        Un itinerario senderista e histórico de 7,7 kilómetros que atraviesa el vértice geodésico &laquo;Andorra&raquo;,
-        los escenarios de la batalla de 1812 y el antiguo despoblado de Ribas, hasta alcanzar el oratorio donde se
-        retiró Fray Luis de León junto al río Tormes.
+        {t('route.description')}
       </p>
+
 
       {/* Panorámica nocturna de inicio de ruta */}
       <div className="mt-8 overflow-hidden rounded-2xl border border-piedra-border/40 bg-noche-card shadow-xl">

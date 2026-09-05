@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { ZoomIn, X } from 'lucide-react';
+import { useT } from '../i18n';
 
 export default function EscudoPage() {
+  const t = useT();
   const [activeImage, setActiveImage] = useState(null);
 
   useEffect(() => {
@@ -21,10 +23,11 @@ export default function EscudoPage() {
 
   return (
     <div className="container-editorial py-10 sm:py-16">
-      <p className="kicker">Heráldica municipal</p>
+      <p className="kicker">{t('escudo.kicker')}</p>
       <h1 className="mt-2 text-balance font-serif text-3xl sm:text-5xl font-bold text-pergamino">
-        El escudo de Moriscos
+        {t('escudo.title')}
       </h1>
+
 
       <div className="mt-8 flex flex-col gap-6 sm:flex-row sm:items-center">
         <button

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { ZoomIn, X, Download } from 'lucide-react';
+import { useT } from '../i18n';
+
 
 const emblematicos = [
   {
@@ -159,12 +161,15 @@ export default function LugaresPage({ onNavigate }) {
     };
   }, [activeImage]);
 
+  const t = useT();
+
   return (
     <div className="container-editorial py-10 sm:py-16">
-      <p className="kicker">Geografía y memoria</p>
+      <p className="kicker">{t('places.kicker')}</p>
       <h1 className="mt-2 text-balance font-serif text-3xl sm:text-5xl font-bold text-pergamino">
-        Lugares de Moriscos
+        {t('places.title')}
       </h1>
+
       <p className="mt-4 text-balance text-lg text-pergamino-muted/80">
         El término municipal y el casco urbano albergan un patrimonio geográfico, histórico y urbano repleto de rincones con historia. Algunos son puntos clave de la vida comunitaria actual; otros han sido transformados por el paso del tiempo, la mecanización agrícola o la expansión urbanística.
       </p>

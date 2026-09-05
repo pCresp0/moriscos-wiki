@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { ZoomIn, X, Download } from 'lucide-react';
+import { useT } from '../i18n';
+
 
 const otrasFiestas = [
   {
@@ -181,28 +183,30 @@ export default function FiestasPage() {
     };
   }, [activeImage]);
 
+  const t = useT();
+
   const units = [
-    { key: 'days', value: countdown.days, label: 'días' },
-    { key: 'hours', value: countdown.hours, label: 'horas' },
-    { key: 'minutes', value: countdown.minutes, label: 'min' },
-    { key: 'seconds', value: countdown.seconds, label: 'seg' },
+    { key: 'days', value: countdown.days, label: t('countdown.days') || 'días' },
+    { key: 'hours', value: countdown.hours, label: t('countdown.hours') || 'horas' },
+    { key: 'minutes', value: countdown.minutes, label: t('countdown.minutes') || 'min' },
+    { key: 'seconds', value: countdown.seconds, label: t('countdown.seconds') || 'seg' },
   ];
 
   return (
     <div className="container-editorial py-10 sm:py-16">
-      <p className="kicker">Vida festiva</p>
+      <p className="kicker">{t('fiestas.kicker')}</p>
       <h1 className="mt-2 text-balance font-serif text-3xl font-bold text-pergamino sm:text-5xl">
-        Fiestas y tradiciones de Moriscos
+        {t('fiestas.title')}
       </h1>
       <p className="mt-4 text-balance text-lg text-pergamino-muted/80">
-        Las fiestas y celebraciones de Moriscos conjugan la devoción religiosa, las tradiciones agrícolas de la comarca
-        de La Armuña y una intensa vida comunitaria intergeneracional.
+        {t('fiestas.description')}
       </p>
 
       {/* Cuenta atrás */}
       <div className="mt-8 rounded-2xl border border-noche-border bg-noche-card/90 p-6 backdrop-blur-md sm:p-8">
-        <p className="kicker">Cuenta atrás</p>
+        <p className="kicker">{t('countdown.title') || 'Cuenta atrás'}</p>
         <p className="mt-2 font-serif text-lg font-bold text-pergamino">{countdown.label}</p>
+
 
         {countdown.ongoing ? (
           <p className="mt-6 text-center font-display text-4xl font-bold text-armuna-light">🎉</p>

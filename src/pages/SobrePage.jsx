@@ -1,15 +1,18 @@
 import React from 'react';
 import { Mail, Github, Linkedin, MessageSquareQuote, HeartHandshake, ExternalLink } from 'lucide-react';
+import { useT } from '../i18n';
 
 export default function SobrePage({ onNavigate }) {
+  const t = useT();
+
   return (
     <div className="container-editorial py-10 sm:py-16">
-      <p className="kicker">El proyecto</p>
+      <p className="kicker">{t('about.kicker')}</p>
       <h1 className="mt-2 text-balance font-serif text-3xl sm:text-5xl font-bold text-pergamino">
-        Sobre esta web
+        {t('about.title')}
       </h1>
       <p className="mt-4 text-balance text-lg text-pergamino-muted/80">
-        Moriscos: Historia, Lugares y Curiosidades es un proyecto personal e independiente para reunir en un solo lugar la historia, la memoria oral y el patrimonio de Moriscos (La Armuña, Salamanca), un pueblo de poco más de 500 habitantes cuya documentación estaba dispersa en archivos, libros agotados y recuerdos de sus vecinos.
+        {t('about.description')}
       </p>
 
       <div className="mt-12 space-y-10">
@@ -18,18 +21,18 @@ export default function SobrePage({ onNavigate }) {
           <div className="flex items-center gap-3 text-armuna-light">
             <HeartHandshake size={30} className="shrink-0" />
             <h2 className="font-serif text-xl sm:text-2xl font-bold text-pergamino">
-              Agradecimiento especial: Miguel Blanco González y moriscos.info
+              {t('about.tributeTitle')}
             </h2>
           </div>
           <p className="mt-4 leading-relaxed text-pergamino-muted/90 text-sm sm:text-base">
-            Esta web no habría sido posible sin la extraordinaria labor de recopilación, investigación y conservación desarrollada por <strong className="text-pergamino">Miguel Blanco González</strong>, creador e ingeniero de la web histórica de referencia <a href="https://sites.google.com/view/morisquenos" target="_blank" rel="noopener noreferrer" className="font-semibold text-armuna-light hover:underline inline-flex items-center gap-1">moriscos.info <ExternalLink size={14} /></a>.
+            {t('about.tributeP1')}
           </p>
           <p className="mt-3 leading-relaxed text-pergamino-muted/90 text-sm sm:text-base">
-            De su web se ha corroborado gran parte de la información cronológica, genealógica, etnográfica y toponímica reunida en este espacio, habiendo servido como <strong>fuente de inspiración directa y pilar fundamental</strong> para poner en marcha esta iniciativa.
+            {t('about.tributeP2')}
           </p>
           <div className="mt-5 rounded-2xl border border-armuna/35 bg-noche/70 p-4 sm:p-5">
             <p className="text-sm leading-relaxed text-pergamino-muted/85">
-              ⭐ <strong className="text-armuna-light">Para saber más sobre Moriscos:</strong> Si deseas profundizar e informarte más a fondo sobre el pueblo, sus familias y sus vivencias, te invitamos a visitar <a href="https://sites.google.com/view/morisquenos" target="_blank" rel="noopener noreferrer" className="font-bold text-armuna-light hover:underline">moriscos.info</a>. Lleva <strong>más de 15 años realizada y cuidada</strong> por Miguel Blanco González, y es un verdadero gusto poder informarse y conocer la riqueza de Moriscos gracias a su trabajo.
+              {t('about.tributeBox')}
             </p>
             <div className="mt-4">
               <a
@@ -38,7 +41,7 @@ export default function SobrePage({ onNavigate }) {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-xl border border-armuna/50 bg-armuna/20 px-4 py-2 text-xs sm:text-sm font-bold text-pergamino hover:bg-armuna/30 hover:border-armuna transition-all cursor-pointer shadow-sm"
               >
-                <span>Visitar moriscos.info</span>
+                <span>{t('about.visitButton')}</span>
                 <ExternalLink size={14} />
               </a>
             </div>
@@ -46,25 +49,26 @@ export default function SobrePage({ onNavigate }) {
         </article>
 
         <article className="card-editorial p-6 sm:p-8">
-          <h2 className="font-serif text-xl sm:text-2xl font-bold text-armuna-light">¿Por qué existe esta web?</h2>
+          <h2 className="font-serif text-xl sm:text-2xl font-bold text-armuna-light">{t('about.whyTitle')}</h2>
           <p className="mt-3 leading-relaxed text-pergamino-muted/80 text-sm sm:text-base">
-            Los pueblos pequeños rara vez tienen un espacio digital propio que recoja su historia con el mismo cuidado que una gran ciudad. Esta web nace para que la memoria de Moriscos &mdash;su toponimia, sus gentes, sus sucesos y su paisaje cerealista&mdash; no dependa solo del boca a boca ni de documentos en papel difíciles de consultar, y quede accesible para cualquier vecino, descendiente o curioso.
+            {t('about.whyText')}
           </p>
         </article>
 
         <article className="card-editorial p-6 sm:p-8">
-          <h2 className="font-serif text-xl sm:text-2xl font-bold text-armuna-light">¿De dónde procede la información?</h2>
+          <h2 className="font-serif text-xl sm:text-2xl font-bold text-armuna-light">{t('about.whereTitle')}</h2>
           <p className="mt-3 leading-relaxed text-pergamino-muted/80 text-sm sm:text-base">
-            Los contenidos se basan en el legado documental del portal <a href="https://sites.google.com/view/morisquenos" target="_blank" rel="noopener noreferrer" className="font-semibold text-armuna-light hover:underline">moriscos.info (Morisqueños)</a> creado por Miguel Blanco González, en monografías históricas locales sobre geografía, toponimia, economía tradicional y sucesos del pueblo, en legajos de archivos históricos diocesanos y estatales, y en fuentes oficiales como el Instituto Geográfico Nacional (IGN) y el Instituto Nacional de Estadística (INE) para datos de altitud, superficie y población. Puedes consultar el listado completo en el apartado de{' '}
+            {t('about.whereText')}
+          </p>
+          <div className="mt-4">
             <button
               type="button"
               onClick={() => onNavigate('referencias')}
-              className="cursor-pointer font-semibold text-armuna-light hover:underline"
+              className="inline-flex items-center gap-1.5 font-semibold text-armuna-light hover:underline text-sm cursor-pointer"
             >
-              Referencias
+              {t('about.viewReferences')}
             </button>
-            .
-          </p>
+          </div>
         </article>
 
         {/* Contacto y Colaboración */}
@@ -146,7 +150,7 @@ export default function SobrePage({ onNavigate }) {
             puede contener imprecisiones: toda corrección es bienvenida.
           </p>
           <p className="mt-4 text-sm text-pergamino-muted/80 sm:text-base">
-            Web diseñada y desarrollada por{' '}
+            {t('footer.designedBy')}{' '}
             <a
               href="https://www.linkedin.com/in/pablocrespobellido/"
               target="_blank"

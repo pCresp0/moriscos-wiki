@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { navItems } from '../components/Nav';
 import { ExternalLink, BookOpen, History, Wheat } from 'lucide-react';
+import { useT } from '../i18n';
+
 
 const eras = [
   {
@@ -252,15 +254,18 @@ export default function HistoriaPage({ onNavigate }) {
 
   const totalEvents = eras.reduce((acc, curr) => acc + curr.events.length, 0);
 
+  const t = useT();
+
   return (
     <div className="container-editorial py-10 sm:py-16">
       <p className="kicker flex items-center gap-1.5 text-armuna-light">
         <History size={16} />
-        Eje cronológico documentado
+        {t('history.kicker')}
       </p>
       <h1 className="mt-2 text-balance font-serif text-3xl sm:text-5xl font-bold text-pergamino">
-        Historia de Moriscos
+        {t('history.title')}
       </h1>
+
       <p className="mt-4 text-balance text-base sm:text-lg leading-relaxed text-pergamino-muted/80">
         Mil años de memoria viva: de las calzadas romanas y las incursiones de Almanzor a la repoblación de Alfonso VI en 1102, el martirio de la invasión francesa de 1812 y la independencia municipal contemporánea por Real Decreto.
       </p>

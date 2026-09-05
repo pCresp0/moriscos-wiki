@@ -5,8 +5,10 @@ import { Search, X, ChevronRight } from 'lucide-react';
 import { searchIndex } from '../data/searchIndex';
 import { MIN_QUERY_LENGTH, SEARCH_OPTIONS } from '../utils/search';
 import ErrorBoundary from './ErrorBoundary';
+import { useT } from '../i18n';
 
 interface SearchModalProps {
+
   onSelectResult?: (tab: string, target?: string | null) => void;
 }
 
@@ -96,6 +98,8 @@ export function SearchModalInner({ onSelectResult }: SearchModalProps) {
     onSelectResult?.(tab, target ?? null);
   };
 
+  const t = useT();
+
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
       {/* Botón original en cabecera: se oculta con opacity-0 cuando el buscador está abierto */}
@@ -109,10 +113,10 @@ export function SearchModalInner({ onSelectResult }: SearchModalProps) {
         className={`flex h-11 w-11 sm:h-10 sm:w-auto sm:px-4 items-center justify-center gap-2 rounded-full border border-piedra-300/40 bg-black/40 text-pergamino hover:border-piedra-300 hover:bg-black/55 active:scale-95 transition-all cursor-pointer shadow-sm ${
           open ? 'opacity-0 pointer-events-none' : 'opacity-100'
         }`}
-        aria-label="Buscar en el sitio"
+        aria-label={t('search.open') || "Buscar en el sitio"}
       >
         <Search className="h-5 w-5 sm:h-4.5 sm:w-4.5 shrink-0 text-armuna-light" />
-        <span className="hidden sm:inline font-semibold text-sm">Buscar</span>
+        <span className="hidden sm:inline font-semibold text-sm">{t('common.search') || "Buscar"}</span>
       </button>
 
       <Dialog.Portal>
@@ -142,10 +146,10 @@ export function SearchModalInner({ onSelectResult }: SearchModalProps) {
               height: `${btnRect.height}px`,
             }}
             className="fixed z-[999] flex items-center justify-center gap-2 rounded-full border border-armuna-light bg-armuna/35 text-pergamino ring-2 ring-armuna-light/40 shadow-md transition-all cursor-pointer active:scale-95"
-            aria-label="Cerrar búsqueda"
+            aria-label={t('search.close') || "Cerrar búsqueda"}
           >
             <Search className="h-5 w-5 sm:h-4.5 sm:w-4.5 shrink-0 text-armuna-light" />
-            <span className="hidden sm:inline font-semibold text-sm">Buscar</span>
+            <span className="hidden sm:inline font-semibold text-sm">{t('common.search') || "Buscar"}</span>
           </button>
         )}
 
@@ -162,7 +166,7 @@ export function SearchModalInner({ onSelectResult }: SearchModalProps) {
           }
           className="fixed z-[999] overflow-hidden rounded-[26px] border border-noche-border/90 bg-noche-surface shadow-2xl outline-none top-[calc(env(safe-area-inset-top,0px)+64px)] left-2.5 right-2.5 sm:left-4 sm:right-4 w-auto max-h-[82vh] lg:w-[460px] lg:max-w-[460px] lg:top-[72px] lg:right-8 lg:left-auto lg:rounded-2xl p-0"
         >
-          <Dialog.Title className="sr-only">Buscar en Moriscos Wiki</Dialog.Title>
+          <Dialog.Title className="sr-only">{t('search.title') || "Buscar en Moriscos Wiki"}</Dialog.Title>
           <div className="flex items-center gap-2.5 border-b border-noche-border px-4 py-3.5 bg-noche">
             <Search className="h-5 w-5 shrink-0 text-armuna-light" />
             <input
@@ -176,12 +180,12 @@ export function SearchModalInner({ onSelectResult }: SearchModalProps) {
               spellCheck={false}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Buscar lugares, historia, fiestas, libro, glosario..."
+              placeholder={t('search.placeholder') || "Buscar lugares, historia, fiestas, libro, glosario..."}
               style={{ fontSize: '16px' }}
               className="w-full bg-transparent font-body text-[16px] leading-normal text-pergamino outline-none placeholder:text-pergamino-muted/50"
             />
             <Dialog.Close
-              aria-label="Cerrar buscador"
+              aria-label={t('search.close') || "Cerrar buscador"}
               className="rounded-full p-1.5 text-pergamino-muted/70 hover:bg-white/10 hover:text-pergamino transition-colors cursor-pointer shrink-0"
             >
               <X className="h-5 w-5" />
@@ -192,7 +196,7 @@ export function SearchModalInner({ onSelectResult }: SearchModalProps) {
             {!trimmedQuery && (
               <div className="py-1">
                 <p className="text-[11px] font-display font-bold uppercase tracking-wider text-armuna-light/85 mb-3">
-                  Búsquedas frecuentes
+                  {t('search.frequentSearches') || "Búsquedas frecuentes"}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {FREQUENT_SEARCHES.map((term) => (
@@ -210,14 +214,14 @@ export function SearchModalInner({ onSelectResult }: SearchModalProps) {
                   ))}
                 </div>
                 <p className="mt-4 pt-3 border-t border-noche-border/60 text-xs text-pergamino-muted/65 leading-relaxed">
-                  Escribe al menos 2 letras. Lugares, historia, personajes, fiestas, curiosidades...
+                  {t('search.minChars') || "Escribe al menos 2 letras. Lugares, historia, personajes, fiestas, curiosidades..."}
                 </p>
               </div>
             )}
 
             {isTooShort && (
               <p className="py-6 text-center text-xs text-pergamino-muted/60">
-                Escribe al menos 2 letras para ver resultados.
+                {t('search.typeAtLeast2') || "Escribe al menos 2 letras para ver resultados."}
               </p>
             )}
 
@@ -247,7 +251,7 @@ export function SearchModalInner({ onSelectResult }: SearchModalProps) {
 
             {trimmedQuery && !isTooShort && results.length === 0 && (
               <p className="py-8 text-center text-sm text-pergamino-muted/60">
-                No se encontraron resultados para «<strong>{trimmedQuery}</strong>».
+                {t('search.noResultsFor', { query: trimmedQuery })}
               </p>
             )}
           </div>
@@ -255,6 +259,7 @@ export function SearchModalInner({ onSelectResult }: SearchModalProps) {
       </Dialog.Portal>
     </Dialog.Root>
   );
+
 }
 
 export default function SearchModal(props: SearchModalProps) {

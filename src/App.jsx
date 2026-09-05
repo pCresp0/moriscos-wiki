@@ -22,6 +22,8 @@ import GlosarioPage from './pages/GlosarioPage';
 import ReferenciasPage from './pages/ReferenciasPage';
 import SobrePage from './pages/SobrePage';
 
+import { LanguageProvider, useT } from './i18n';
+
 const PAGES = {
   inicio: InicioPage,
   historia: HistoriaPage,
@@ -38,9 +40,11 @@ const PAGES = {
   'sobre-la-web': SobrePage,
 };
 
-export default function App() {
+function AppShell() {
+  const t = useT();
   // Navegación puramente en memoria: la URL se mantiene siempre fija y limpia.
   const [route, setRoute] = useState({ tab: DEFAULT_TAB, target: null });
+
   const [menuOpen, setMenuOpen] = useState(false);
   const scrollContainerRef = useRef(null);
 
@@ -132,7 +136,7 @@ export default function App() {
         href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:left-2 focus:top-2 focus:z-[400] focus:rounded focus:bg-soto focus:px-4 focus:py-2 focus:text-pergamino"
       >
-        Saltar al contenido principal
+        {t('common.skipToMain')}
       </a>
 
       <DesktopTopBar onChange={navigate} />
@@ -163,3 +167,12 @@ export default function App() {
     </div>
   );
 }
+
+export default function App() {
+  return (
+    <LanguageProvider>
+      <AppShell />
+    </LanguageProvider>
+  );
+}
+
