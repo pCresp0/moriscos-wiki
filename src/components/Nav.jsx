@@ -67,7 +67,10 @@ function NavLinkList({ active, onChange, onClose }) {
 
 // Drawer Deslizante Móvil (0.3s cubic-bezier)
 export function Drawer({ active, onChange, open, onClose }) {
+  const t = useT();
+
   useEffect(() => {
+
     if (!open) return;
     const onKey = (e) => {
       if (e.key === 'Escape') onClose();
