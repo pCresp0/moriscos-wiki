@@ -170,7 +170,6 @@ main > div > * {
     linear-gradient(180deg, #18120b 0%, #20170f 50%, #18120b 100%);
   background-repeat: no-repeat, no-repeat, repeat, no-repeat;
   background-size: auto, auto, 720px 480px, auto;
-  background-attachment: fixed;
 }
 
 /* Paneles temáticos con la textura del campo de trigo de La Armuña y piedra de Villamayor */
@@ -413,15 +412,15 @@ input::-webkit-search-results-decoration {
   display: none !important;
 }
 
-/* Cortina de desenfoque de búsqueda pronunciado (20px blur + tinte oscuro profundo) */
+/* Cortina de desenfoque de búsqueda idéntica a Japón (blur 6px + tinte translúcido grafito) */
 .backdrop-desenfoque {
   position: fixed !important;
   inset: 0 !important;
   z-index: 998 !important;
-  background-color: rgba(10, 8, 6, 0.72) !important;
-  backdrop-filter: blur(20px) saturate(130%) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(130%) !important; /* Imprescindible para Safari en iPhone y Mac */
-  animation: backdropFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  background-color: rgba(20, 25, 35, 0.32) !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important; /* Imprescindible para Safari en iPhone y Mac */
+  animation: backdropFadeIn 0.15s ease-out forwards;
 }
 
 @keyframes backdropFadeIn {

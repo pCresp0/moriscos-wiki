@@ -116,8 +116,18 @@ export function SearchModalInner({ onSelectResult }: SearchModalProps) {
       </button>
 
       <Dialog.Portal>
-        {/* Capa 1 (z-index: 998): cortina de fondo con 4px de desenfoque y tinte grafito */}
-        <Dialog.Overlay className="backdrop-desenfoque" />
+        {/* Capa 1 (z-index: 998): cortina de fondo translúcida con desenfoque de 6px idéntica a Japón */}
+        <Dialog.Overlay
+          className="backdrop-desenfoque"
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 998,
+            backgroundColor: 'rgba(20, 25, 35, 0.32)',
+            backdropFilter: 'blur(6px)',
+            WebkitBackdropFilter: 'blur(6px)',
+          }}
+        />
 
         {/* Capa 2 (z-index: 999): réplica del botón por encima de la cortina, 100% nítido */}
         {open && btnRect && (
